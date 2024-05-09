@@ -7,27 +7,29 @@ import java.util.StringTokenizer;
 
 public class Main {
     private static final int LIMIT = 10000000;
-    private static int n = LIMIT;
+    private static int input = LIMIT;
     private static int threads = 1;
+    private static BufferedReader br = new BufferedReader(
+            new InputStreamReader(System.in));
 
     private static void read() throws IOException {
-        BufferedReader br = new BufferedReader(
-                new InputStreamReader(System.in));
 
         StringTokenizer st = new StringTokenizer(br.readLine());
-        Main.n = Integer.parseInt(st.nextToken());
+        Main.input = Integer.parseInt(st.nextToken());
         Main.threads = Integer.parseInt(st.nextToken());
     }
 
     public static void main(String[] args) {
         try {
             read();
+
         } catch (IOException e) {
             return;
         }
+        final double MAX = Math.sqrt(input);
         List<Integer> primes = new ArrayList<Integer>();
 
-        for (int current_num = 2; current_num <= LIMIT; current_num++) {
+        for (int current_num = 2; current_num <= MAX; current_num++) {
             if (check_prime(current_num)) {
                 primes.add(current_num);
             }
