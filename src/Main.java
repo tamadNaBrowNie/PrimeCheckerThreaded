@@ -16,7 +16,7 @@ public class Main {
 
         StringTokenizer st = new StringTokenizer(inp.readLine());
         Main.input = Integer.parseInt(st.nextToken());
-        Main.threads = Integer.parseInt(st.nextToken());
+        Main.threads = Main.threads << Integer.parseInt(st.nextToken());
     }
 
     public static void main(String[] args) {
