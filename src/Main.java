@@ -9,12 +9,12 @@ public class Main {
     private static final int LIMIT = 10000000;
     private static int input = LIMIT;
     private static int threads = 1;
-    private static BufferedReader br = new BufferedReader(
+    private static BufferedReader inp = new BufferedReader(
             new InputStreamReader(System.in));
 
     private static void read() throws IOException {
 
-        StringTokenizer st = new StringTokenizer(br.readLine());
+        StringTokenizer st = new StringTokenizer(inp.readLine());
         Main.input = Integer.parseInt(st.nextToken());
         Main.threads = Integer.parseInt(st.nextToken());
     }
@@ -24,8 +24,11 @@ public class Main {
             read();
 
         } catch (IOException e) {
+            System.out.println("Error reading input");
             return;
         }
+        Timer t = new Timer();
+        t.startTimer();
         final double MAX = Math.sqrt(input);
         List<Integer> primes = new ArrayList<Integer>();
 
@@ -36,6 +39,8 @@ public class Main {
         }
 
         System.out.printf("%d primes were found.\n", primes.size());
+        t.endTimer();
+        t.getSpeed();
     }
 
     /*
