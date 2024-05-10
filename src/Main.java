@@ -4,6 +4,8 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
+import java.time.Duration;
+import java.time.Instant;
 
 public class Main {
     private static final int LIMIT = 10000000;
@@ -12,35 +14,33 @@ public class Main {
     private static BufferedReader inp = new BufferedReader(
             new InputStreamReader(System.in));
 
-    private static void read() throws IOException {
-
-        StringTokenizer st = new StringTokenizer(inp.readLine());
-        Main.input = Integer.parseInt(st.nextToken());
-        Main.threads = Main.threads << Integer.parseInt(st.nextToken());
+    private static void read() {
+        try {
+            StringTokenizer st = new StringTokenizer(inp.readLine());
+            Main.input = Integer.parseInt(st.nextToken());
+            Main.threads = Main.threads << Integer.parseInt(st.nextToken());
+        } catch (IOException e) {
+            System.out.println("Error reading input");
+        }
     }
 
     public static void main(String[] args) {
-        try {
-            read();
+        read();
+        Instant start = Instant.now();
 
-        } catch (IOException e) {
-            System.out.println("Error reading input");
-            return;
-        }
-        Timer t = new Timer();
-        t.startTimer();
-        final double MAX = Math.sqrt(input);
         List<Integer> primes = new ArrayList<Integer>();
 
-        for (int current_num = 2; current_num <= MAX; current_num++) {
+        for (int current_num = 2; current_num <= Main.input; current_num++) {
             if (check_prime(current_num)) {
                 primes.add(current_num);
             }
         }
 
         System.out.printf("%d primes were found.\n", primes.size());
-        t.endTimer();
-        t.getSpeed();
+        Instant end = Instant.now();
+        long t = Duration.between(start, end).toNanos();
+        System.out.printf("%l threads took %l ns \n", threads, t);
+        // TODO: Buffer output after we thread(kek, thread output also with time.)
     }
 
     /*
@@ -52,6 +52,9 @@ public class Main {
      * Returns true if n is prime, and false otherwise.
      */
     public static boolean check_prime(int n) {
+        // why can't we use sieve? It is faster and easier to parellelize
+        // This isn't even optimal trial division
+        // easier to code this way though.
         for (int i = 2; i * i <= n; i++) {
             if (n % i == 0) {
                 return false;
