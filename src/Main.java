@@ -4,13 +4,14 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
+import java.util.concurrent.Semaphore;
 import java.time.Duration;
 import java.time.Instant;
 
 public class Main {
     private static final int LIMIT = 10000000;
     private static int input = LIMIT;
-    private static int threads = 1;
+    private static int thread_count = 1;
     private static BufferedReader inp = new BufferedReader(
             new InputStreamReader(System.in));
 
@@ -18,7 +19,7 @@ public class Main {
         try {
             StringTokenizer st = new StringTokenizer(inp.readLine());
             Main.input = Integer.parseInt(st.nextToken());
-            Main.threads = Main.threads << Integer.parseInt(st.nextToken());
+            Main.thread_count = Main.thread_count << Integer.parseInt(st.nextToken());
         } catch (IOException e) {
             System.out.println("Error reading input");
         }
@@ -27,20 +28,25 @@ public class Main {
     public static void main(String[] args) {
         read();
         Instant start = Instant.now();
+        Threader[] threads = new Threader[thread_count];
+        Semaphore flag = new Semaphore(1);
 
         List<Integer> primes = new ArrayList<Integer>();
-
-        extracted(primes);
+        int r = input / thread_count;
+        for (int i = 0; i < thread_count; i++) {
+            threads[i] = new Threader(i * r, (i + 1) * r, primes, flag);
+        }
+        // extracted(primes);
 
         System.out.printf("%d primes were found.\n", primes.size());
         Instant end = Instant.now();
         long t = Duration.between(start, end).toNanos();
-        System.out.printf("%l threads took %l ns \n", threads, t);
+        System.out.printf("%l threads took %l ns \n", thread_count, t);
         // TODO: Buffer output after we thread(kek, thread output also with time.)
     }
 
-    private static void extracted(List<Integer> primes) {
-        for (int current_num = 2; current_num <= Main.input; current_num++) {
+    public static void findPrimes(int start, int end, List<Integer> primes) {
+        for (int current_num = start; current_num <= end; current_num++) {
             if (check_prime(current_num)) {
                 primes.add(current_num);
             }
@@ -59,7 +65,8 @@ public class Main {
         // why can't we use sieve? It is faster and easier to parellelize
         // This isn't even optimal trial division
         // easier to code this way though.
-        for (int i = 2; i * i <= n; i++) {
+        int lim = (int) Math.sqrt(n);
+        for (int i = 2; i <= lim; i++) {
             if (n % i == 0) {
                 return false;
             }
