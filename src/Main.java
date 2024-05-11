@@ -30,17 +30,21 @@ public class Main {
 
         List<Integer> primes = new ArrayList<Integer>();
 
-        for (int current_num = 2; current_num <= Main.input; current_num++) {
-            if (check_prime(current_num)) {
-                primes.add(current_num);
-            }
-        }
+        extracted(primes);
 
         System.out.printf("%d primes were found.\n", primes.size());
         Instant end = Instant.now();
         long t = Duration.between(start, end).toNanos();
         System.out.printf("%l threads took %l ns \n", threads, t);
         // TODO: Buffer output after we thread(kek, thread output also with time.)
+    }
+
+    private static void extracted(List<Integer> primes) {
+        for (int current_num = 2; current_num <= Main.input; current_num++) {
+            if (check_prime(current_num)) {
+                primes.add(current_num);
+            }
+        }
     }
 
     /*
