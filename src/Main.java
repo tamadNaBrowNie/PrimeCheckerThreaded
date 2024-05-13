@@ -11,36 +11,37 @@ import java.time.Instant;
 public class Main {
     private static final int LIMIT = 10000000;
     private static int input = LIMIT;
-    private static int thread_count = 1;
+    // private static int thread_count = 1;
     private static BufferedReader inp = new BufferedReader(
             new InputStreamReader(System.in));
 
-    private static void read() {
-        try {
-            // StringTokenizer st = new StringTokenizer();
-            Main.input = Integer.parseInt(inp.readLine());
-            int pow = Integer.parseInt(inp.readLine());
-            // pow = 1 << pow;
-            System.out.println(Main.thread_count);
-            Main.thread_count = 1 << pow;
-            System.out.println(Main.thread_count);
-        } catch (IOException e) {
-            System.out.println("Error reading input");
-        }
-    }
+    // private static void read() {
+    // try {
+    // // StringTokenizer st = new StringTokenizer();
+    // Main.input = Integer.parseInt(inp.readLine());
+    // int pow = Integer.parseInt(inp.readLine());
+    // // pow = 1 << pow;
+    // System.out.println(Main.thread_count);
+    // Main.thread_count = 1 << pow;
+    // System.out.println(Main.thread_count);
+    // } catch (IOException e) {
+    // System.out.println("Error reading input");
+    // }
+    // }
 
     public static void main(String[] args) {
         System.out.println(
                 "Enter Number to find primes for and the exponent for thread count (threads are 2^k where k is your input)");
+        int thread_count = 1;
         // read();
         try {
             // StringTokenizer st = new StringTokenizer();
             Main.input = Integer.parseInt(inp.readLine());
             int pow = Integer.parseInt(inp.readLine());
             // pow = 1 << pow;
-            System.out.println(Main.thread_count);
-            Main.thread_count = 1 << pow;
-            System.out.println(Main.thread_count);
+            // System.out.println(Main.thread_count);
+            thread_count = 1 << pow;
+            System.out.println(thread_count);
         } catch (IOException e) {
             System.out.println("Error reading input");
         }
@@ -51,11 +52,12 @@ public class Main {
         List<Integer> primes = new ArrayList<Integer>();
         int batch = (input >= thread_count) ? input / thread_count : 1;
         int mod = input % thread_count;
-        if (input > thread_count) {
+        System.out.println(input > thread_count);
+        if (input < thread_count) {
             thread_count = mod;
             mod = 0;
             System.out.println(input);
-            System.out.println(Main.thread_count);
+            System.out.println(thread_count);
 
         }
         int j = 2;
