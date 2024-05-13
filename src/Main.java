@@ -28,44 +28,32 @@ public class Main {
     public static void main(String[] args) {
         read();
         Instant start = Instant.now();
-        Runnable[] threads = new Runnable[thread_count];
+        Threader[] threads = new Threader[thread_count];
         Semaphore flag = new Semaphore(1);
 
         List<Integer> primes = new ArrayList<Integer>();
-        int r = input / thread_count;
-        for (int i = 0; i < thread_count; i++) {
-            int j = i * r;
-            threads[i] = new Runnable() {
-                int start = j;
-                int end = j + r - 1;
-                Semaphore sig = flag;
-
-                // List<Integer> tmp = new ArrayList<Integer>();
-                @Override
-                public void run() {
-                    for (int current_num = this.start; current_num <= this.end; current_num++) {
-                        if (check_prime(current_num)) {
-                            primes.add(current_num);
-                        }
-                    }
-                    try {
-                        sig.acquire();
-                        primes.addAll(primes);
-                    } catch (InterruptedException wait) {
-
-                    } finally {
-                        sig.release();
-                    }
-                }
-
-            };
-            // new Threader(j, j + r - 1, primes, flag);
-
-            // extracted(primes);
-
-            // TODO: Buffer output after we thread(kek, thread output also with time.)
+        int batch = (input >= thread_count) ? input / thread_count : 1;
+        int mod = input % thread_count;
+        if (input > thread_count) {
+            thread_count = mod;
+            mod = 0;
         }
-        ;
+        int j = 2;
+        for (int i = 0; i < thread_count; i++) {
+            j += i * batch;
+            int k = j + batch - 1;
+
+            j += (mod > 0) ? batch : batch - 1;
+            threads[i] = new Threader(j, k, primes, flag);
+            threads[i].run();
+
+        }
+        for (int i = mod; i > 0; i--) {
+            j++;
+            threads[mod - i].setStart(j);
+            threads[mod - i].setEnd(j);
+            threads[mod - i].run();
+        }
         System.out.printf("%d primes were found.\n", primes.size());
         Instant end = Instant.now();
         long t = Duration.between(start, end).toNanos();
