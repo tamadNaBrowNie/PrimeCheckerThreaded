@@ -6,89 +6,74 @@ import java.util.List;
 import java.util.concurrent.Semaphore;
 import java.time.Duration;
 import java.time.Instant;
+import java.util.stream.IntStream;
+import java.util.stream.Collectors;
 
 public class Main {
     private static final int LIMIT = 10000000;
     private static int input = LIMIT;
     // private static int thread_count = 1;
-    private static BufferedReader inp = new BufferedReader(
+    private static BufferedReader io = new BufferedReader(
             new InputStreamReader(System.in));
+    private static int thread_count = 1;
 
-    // private static void read() {
-    // try {
-    // // StringTokenizer st = new StringTokenizer();
-    // Main.input = Integer.parseInt(inp.readLine());
-    // int pow = Integer.parseInt(inp.readLine());
-    // // pow = 1 << pow;
-    // System.out.println(Main.thread_count);
-    // Main.thread_count = 1 << pow;
-    // System.out.println(Main.thread_count);
-    // } catch (IOException e) {
-    // System.out.println("Error reading input");
-    // }
-    // }
-
-    public static void main(String[] args) {
-        System.out.println(
-                "Enter Number to find primes for and the exponent for thread count (threads are 2^k where k is your input)");
-        int thread_count = 1;
-        // read();
+    private static void read() {
         try {
-            // StringTokenizer st = new StringTokenizer();
-            Main.input = Integer.parseInt(inp.readLine());
-            int pow = Integer.parseInt(inp.readLine());
-            // pow = 1 << pow;
-            // System.out.println(Main.thread_count);
-            thread_count = 1 << pow;
+            System.out.println("Enter number to search");
+            Main.input = Integer.parseInt(io.readLine());
+            System.out.println("Core counts are powers of 2. Enter exponent for core count.");
+            int pow = Integer.parseInt(io.readLine());
+            Main.thread_count = 1 << pow;
             System.out.println(thread_count);
         } catch (IOException e) {
             System.out.println("Error reading input");
         }
+    }
+
+    public static void main(String[] args) {
+        boolean o1 = false;
+        read();
+
         Instant start = Instant.now();
         Threader[] threads = new Threader[thread_count];
+        List<Integer> in = IntStream.rangeClosed(2, input).boxed().collect(Collectors.toList());
+
         Semaphore flag = new Semaphore(1);
 
         List<Integer> primes = new ArrayList<Integer>();
-        int batch = (input - 1 >= thread_count) ? (input - 1) / thread_count : 1;
-        int mod = (input - 1) % thread_count;
-        System.out.println(input > thread_count);
-        if (input - 1 < thread_count) {
+        int siz = in.size();
+        int batch = (input - 1 >= thread_count) ? siz / thread_count : 1;
+        int mod = siz % thread_count;
+        if (siz < thread_count) {
             thread_count = mod;
             mod = 0;
-            System.out.println(input);
-            System.out.println(thread_count);
-
         }
-        int j = 2;
+        int j = 0;
         for (int i = 0; i < thread_count; i++) {
-            System.out.println("threading " + i);
-            int k = j + batch - 1;
-            if (k > input) {
-                k = input;
+            System.out.println("thread " + i);
+            int k = j + batch;
+            if (mod > 0) {
+                mod--;
+                k++;
             }
+            if (k > siz) {
+                k = siz;
+            }
+            threads[i] = new Threader(in.subList(j, k), primes, flag);
+            j = (k == siz) ? siz - 1 : k;
 
-            // j += (mod > 0) ? batch : batch - 1;
-            threads[i] = new Threader(j, k, primes, flag);
-            j += batch;
-            if (j > input) {
-                j = input;
-            }
             threads[i].run();
 
         }
-        System.out.println("j is " + j);
-        for (int i = mod; i > 0 && j < input; i--) {
-            System.out.println("j is " + j);
-            System.out.println("finishing");
-            j++;
-            threads[mod - i].setStart(j);
-            threads[mod - i].setEnd(j);
-            threads[mod - i].run();
-        }
-        System.out.printf("%d primes were found.\n", primes.size());
-        System.out.println(primes);
+        if (!o1)
+            for (int i = thread_count; i < threads.length; i++) {
+                threads[i] = new Threader(new ArrayList<Integer>(), primes, flag);
+            }
         Instant end = Instant.now();
         long t = Duration.between(start, end).toMillis();
+        System.out.printf("%d primes were found.\n", primes.size());
+        System.out.println(primes);
+
         System.out.printf("%d threads took %d ns \n", threads.length, t);
     }
 
@@ -108,8 +93,8 @@ public class Main {
         // why can't we use sieve? It is faster and easier to parellelize
         // This isn't even optimal trial division
         // easier to code this way though.
-        int lim = (int) Math.sqrt(n);
-        for (int i = 2; i <= lim; i++) {
+
+        for (int i = 2; i * i <= n; i++) {
             if (n % i == 0) {
                 return false;
             }
