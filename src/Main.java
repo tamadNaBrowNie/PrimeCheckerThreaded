@@ -26,7 +26,8 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        System.out.println("Enter input and exponent of 2 for thread count");
+        System.out.println(
+                "Enter Number to find primes for and the exponent for thread count (threads are 2^k where k is your input)");
         read();
         Instant start = Instant.now();
         Threader[] threads = new Threader[thread_count];
