@@ -49,10 +49,10 @@ public class Main {
         Semaphore flag = new Semaphore(1);
 
         List<Integer> primes = new ArrayList<Integer>();
-        int batch = (input >= thread_count) ? input / thread_count : 1;
-        int mod = input % thread_count;
+        int batch = (input - 1 >= thread_count) ? (input - 1) / thread_count : 1;
+        int mod = (input - 1) % thread_count;
         System.out.println(input > thread_count);
-        if (input < thread_count) {
+        if (input - 1 < thread_count) {
             thread_count = mod;
             mod = 0;
             System.out.println(input);
@@ -61,21 +61,24 @@ public class Main {
         }
         int j = 2;
         for (int i = 0; i < thread_count; i++) {
-            System.out.println("threading");
-            j += i * batch;
+            System.out.println("threading " + i);
             int k = j + batch - 1;
             if (k > input) {
                 k = input;
             }
-            System.out.println("k is");
-            System.out.println(j);
+
             // j += (mod > 0) ? batch : batch - 1;
             threads[i] = new Threader(j, k, primes, flag);
+            j += batch;
+            if (j > input) {
+                j = input;
+            }
             threads[i].run();
 
         }
-        for (int i = mod; i > 0; i--) {
-
+        System.out.println("j is " + j);
+        for (int i = mod; i > 0 && j < input; i--) {
+            System.out.println("j is " + j);
             System.out.println("finishing");
             j++;
             threads[mod - i].setStart(j);
@@ -86,7 +89,7 @@ public class Main {
         System.out.println(primes);
         Instant end = Instant.now();
         long t = Duration.between(start, end).toMillis();
-        System.out.printf("%d threads took %d ns \n", thread_count, t);
+        System.out.printf("%d threads took %d ns \n", threads.length, t);
     }
 
     // public static void findPrimes(int start, int end, List<Integer> primes) {
