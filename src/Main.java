@@ -66,6 +66,7 @@ public class Main {
         for (int current_num = start; current_num <= end; current_num++) {
             if (check_prime(current_num)) {
                 primes.add(current_num);
+                System.err.printf("%d is prime", current_num);
             }
         }
     }
