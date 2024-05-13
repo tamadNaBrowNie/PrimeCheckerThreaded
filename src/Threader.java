@@ -57,8 +57,16 @@ public class Threader implements Runnable {
 
     @Override
     public void run() {
-        Main.check_prime(0);
-        Main.findPrimes(this.start, this.end, this.primes);
+        System.out.println("Running thread");
+        System.err.println(this.end);
+
+        for (int current_num = this.start; current_num <= this.end; current_num++) {
+            System.err.printf("%d iter\n", current_num);
+            if (Main.check_prime(current_num)) {
+                primes.add(current_num);
+                System.err.printf("%d is prime\n", current_num);
+            }
+        }
         try {
             sig.acquire();
             this.master.addAll(primes);

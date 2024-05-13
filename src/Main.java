@@ -19,7 +19,9 @@ public class Main {
         try {
             StringTokenizer st = new StringTokenizer(inp.readLine());
             Main.input = Integer.parseInt(st.nextToken());
-            Main.thread_count = Main.thread_count << Integer.parseInt(st.nextToken());
+            int pow = Integer.parseInt(st.nextToken());
+            // pow = 1 << pow;
+            Main.thread_count = Main.thread_count << pow;
         } catch (IOException e) {
             System.out.println("Error reading input");
         }
@@ -39,14 +41,21 @@ public class Main {
         if (input > thread_count) {
             thread_count = mod;
             mod = 0;
+            System.out.println(input);
+            System.out.println(thread_count);
+
         }
         int j = 2;
         for (int i = 0; i < thread_count; i++) {
             System.out.println("threading");
             j += i * batch;
             int k = j + batch - 1;
-
-            j += (mod > 0) ? batch : batch - 1;
+            if (k > input) {
+                k = input;
+            }
+            System.out.println("k is");
+            System.out.println(j);
+            // j += (mod > 0) ? batch : batch - 1;
             threads[i] = new Threader(j, k, primes, flag);
             threads[i].run();
 
@@ -60,19 +69,15 @@ public class Main {
             threads[mod - i].run();
         }
         System.out.printf("%d primes were found.\n", primes.size());
+        System.out.println(primes);
         Instant end = Instant.now();
-        long t = Duration.between(start, end).toNanos();
-        System.out.printf("%l threads took %l ns \n", thread_count, t);
+        long t = Duration.between(start, end).toMillis();
+        System.out.printf("%d threads took %d ns \n", thread_count, t);
     }
 
-    public static void findPrimes(int start, int end, List<Integer> primes) {
-        for (int current_num = start; current_num <= end; current_num++) {
-            if (check_prime(current_num)) {
-                primes.add(current_num);
-                System.err.printf("%d is prime", current_num);
-            }
-        }
-    }
+    // public static void findPrimes(int start, int end, List<Integer> primes) {
+
+    // }
 
     /*
      * This function checks if an integer n is prime.
