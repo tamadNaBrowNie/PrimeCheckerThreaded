@@ -42,6 +42,7 @@ public class Main {
         }
         int j = 2;
         for (int i = 0; i < thread_count; i++) {
+            System.out.println("threading");
             j += i * batch;
             int k = j + batch - 1;
 
@@ -51,6 +52,8 @@ public class Main {
 
         }
         for (int i = mod; i > 0; i--) {
+
+            System.out.println("finishing");
             j++;
             threads[mod - i].setStart(j);
             threads[mod - i].setEnd(j);
