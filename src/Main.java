@@ -17,11 +17,13 @@ public class Main {
 
     private static void read() {
         try {
-            StringTokenizer st = new StringTokenizer(inp.readLine());
-            Main.input = Integer.parseInt(st.nextToken());
-            int pow = Integer.parseInt(st.nextToken());
+            // StringTokenizer st = new StringTokenizer();
+            Main.input = Integer.parseInt(inp.readLine());
+            int pow = Integer.parseInt(inp.readLine());
             // pow = 1 << pow;
-            Main.thread_count = Main.thread_count << pow;
+            System.out.println(Main.thread_count);
+            Main.thread_count = 1 << pow;
+            System.out.println(Main.thread_count);
         } catch (IOException e) {
             System.out.println("Error reading input");
         }
@@ -30,7 +32,18 @@ public class Main {
     public static void main(String[] args) {
         System.out.println(
                 "Enter Number to find primes for and the exponent for thread count (threads are 2^k where k is your input)");
-        read();
+        // read();
+        try {
+            // StringTokenizer st = new StringTokenizer();
+            Main.input = Integer.parseInt(inp.readLine());
+            int pow = Integer.parseInt(inp.readLine());
+            // pow = 1 << pow;
+            System.out.println(Main.thread_count);
+            Main.thread_count = 1 << pow;
+            System.out.println(Main.thread_count);
+        } catch (IOException e) {
+            System.out.println("Error reading input");
+        }
         Instant start = Instant.now();
         Threader[] threads = new Threader[thread_count];
         Semaphore flag = new Semaphore(1);
@@ -42,7 +55,7 @@ public class Main {
             thread_count = mod;
             mod = 0;
             System.out.println(input);
-            System.out.println(thread_count);
+            System.out.println(Main.thread_count);
 
         }
         int j = 2;
