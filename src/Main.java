@@ -71,16 +71,19 @@ public class Main {
         Instant start = Instant.now();
         Threader[] threads = new Threader[thread_count];
         final List<Integer> IN = IntStream.rangeClosed(2, input).boxed().collect(Collectors.toList());
-        List<Integer> primes = new ArrayList<Integer>();
-        int siz = IN.size(), batch = 1, mod = 0;
-        int j = 0, k = j + batch;
 
+        List<Integer> primes = new ArrayList<Integer>();
+        int siz = IN.size();
+        int batch = 1, mod = 0;
         if (siz > thread_count) {
             batch = siz / thread_count;
             mod = siz % thread_count;
-        } else
-            thread_count = siz;
 
+        }
+        if (siz < thread_count) {
+            thread_count = siz;
+        }
+        int j = 0, k = j + batch;
         for (int i = 0; i < thread_count; i++) {
             if (mod > 0) {
                 mod--;
@@ -105,9 +108,9 @@ public class Main {
         fString = fString.formatted(primes.size(), threads.length, t);
         try {
             buf_so.write(fString.getBytes());
-            // for (int i : primes) {
-            // buf_so.write((i + ", ").getBytes());
-            // }
+            for (int i : primes) {
+                buf_so.write((i + ", ").getBytes());
+            }
             buf_so.flush();
         } catch (IOException e) {
             System.out.println(CYKA);
