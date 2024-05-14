@@ -1,14 +1,9 @@
 import java.lang.Runnable;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Semaphore;
 
 public class Threader implements Runnable {
     List<Integer> arr;
-
-    public void setEnd(List<Integer> arr) {
-        this.arr = arr;
-    }
 
     Semaphore sig;
     List<Integer> master;
@@ -17,27 +12,27 @@ public class Threader implements Runnable {
         this.arr = arr;
         this.sig = flag;
         this.master = primes;
-        System.out.println(arr);
     }
 
-    @Override
-    public void run() {
-
-        List<Integer> primes = new ArrayList<Integer>();
-        for (int current_num : this.arr) {
-            if (Main.check_prime(current_num)) {
-                primes.add(current_num);
-            }
+    private void check_prime(int n) {
+        if (!Main.check_prime(n)) {
+            return;
         }
+
         try {
             sig.acquire();
-            this.master.addAll(primes);
+            this.master.add(n);
         } catch (InterruptedException wait) {
             System.out.println("waiting");
         } finally {
             sig.release();
         }
 
+    }
+
+    @Override
+    public void run() {
+        this.arr.forEach(i -> this.check_prime(i));
     }
 
 }
