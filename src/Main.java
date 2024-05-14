@@ -115,8 +115,14 @@ public class Main {
         // threads.forEach(t -> pool.execute(t));
         // pool.shutdown();
 
-        threads.forEach(t -> t.run());
+        threads.forEach(t -> t.start());
 
+        for (Thread t : threads) {
+            try {
+                t.join();
+            } catch (InterruptedException e) {
+            }
+        }
         Instant tF = Instant.now();
         long dt = Duration.between(t0, tF).toMillis();
         String fString = "\n%d primes were found.\n%d threads took %d ms \n";
@@ -125,6 +131,7 @@ public class Main {
         try {
 
             LOCK.lock();
+            primes.sort(null);
             for (int i : primes) {
                 buf_so.write((i + ", ").getBytes());
             }

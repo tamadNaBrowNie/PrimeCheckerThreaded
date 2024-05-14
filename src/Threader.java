@@ -1,8 +1,8 @@
-import java.lang.Runnable;
+
 import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class Threader implements Runnable {
+public class Threader extends Thread {
     List<Integer> arr;
 
     ReentrantLock lock;
