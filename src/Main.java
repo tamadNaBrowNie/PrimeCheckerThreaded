@@ -5,11 +5,14 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Semaphore;
+import java.util.concurrent.locks.ReentrantLock;
+
 import java.time.Duration;
 import java.time.Instant;
 import java.util.stream.IntStream;
 import java.util.stream.Collectors;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Main {
     private static final int LIMIT = 10000000;
@@ -18,7 +21,7 @@ public class Main {
             new InputStreamReader(System.in));
     private static OutputStream buf_so = new BufferedOutputStream(System.out);
     private static int thread_count = 1;
-    private static final Semaphore FLAG = new Semaphore(1);
+    private static final ReentrantLock LOCK = new ReentrantLock();
 
     private static int getInput(String msg) throws IOException {
 
@@ -70,7 +73,7 @@ public class Main {
         }
 
         Instant t0 = Instant.now();
-        Threader[] threads = new Threader[thread_count];
+        List<Threader> threads = new ArrayList<Threader>();
         final List<Integer> IN = IntStream.rangeClosed(2, input).boxed().collect(Collectors.toList());
 
         int size = IN.size();
@@ -78,35 +81,56 @@ public class Main {
         if (size > thread_count) {
             batch = size / thread_count;
             mod = size % thread_count;
-        } else {
-            thread_count = size;
         }
-
-        for (int i = 0, start = 0, end = start + batch; i < thread_count; i++) {
+        // } else {
+        // thread_count = size;
+        // }
+        int start = 0, end = start + batch;
+        for (int i = 0; i < ((size > thread_count) ? thread_count : size); i++) {
             if (mod > 0) {
                 mod--;
                 end++;
             }
             if (end > size)
                 end = size;
-            threads[i] = new Threader(IN.subList(start, end), primes, Main.FLAG);
+            threads.add(new Threader(IN.subList(start, end), primes, Main.LOCK));
             start = (end == size) ? size - 1 : end;
             end = start + batch;
-            threads[i].run();
+            // threads[i].run();
         }
-        if (!o1)
-            for (int i = thread_count; i < threads.length; i++) {
-                new Threader(new ArrayList<Integer>(), primes, Main.FLAG).run();
+        // for (; mod > 0; mod--) {
+        // threads.add(new Threader(IN.subList(start, start++), primes, Main.FLAG));
+        // }
+        // if (mod > 0) {
+        // threads.add(new Threader(IN.subList(end, IN.size()), primes, Main.LOCK));
+        // }
+        if (!o1) {
+            for (; threads.size() < thread_count;) {
+                threads.add(new Threader(new ArrayList<Integer>(), primes, Main.LOCK));
+                // threads[i].run();
             }
+            // thread_count = threads.size();
+        }
+        // ExecutorService pool = Executors.newFixedThreadPool(thread_count);
+        // threads.forEach(t -> pool.execute(t));
+        // pool.shutdown();
+
+        threads.forEach(t -> t.run());
 
         Instant tF = Instant.now();
         long dt = Duration.between(t0, tF).toMillis();
         String fString = "\n%d primes were found.\n%d threads took %d ms \n";
-        fString = fString.formatted(primes.size(), threads.length, dt);
+        // fString = fString.formatted(primes.size(), threads.length, dt);
+
         try {
+
+            LOCK.lock();
             for (int i : primes) {
                 buf_so.write((i + ", ").getBytes());
             }
+            LOCK.unlock();
+            fString = fString.formatted(primes.size(), threads.size(), dt);
+
             buf_so.write(fString.getBytes());
 
             buf_so.flush();
