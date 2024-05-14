@@ -48,7 +48,7 @@ public class Main {
 
         while (pow < 0 || pow > 10) {
 
-            pow = getInput("Core counts are powers of 2. Enter exponent for core count: ");
+            pow = getInput("Core counts is 2^n where 0 <= n < 11 and n is your input: ");
             if (pow < 0 || pow > 10)
                 buf_so.write("Invalid power".getBytes());
         }
@@ -63,7 +63,7 @@ public class Main {
             read();
         } catch (IOException e) {
             System.out.println(CYKA);
-            System.err.println(CYKA + "when getting input");
+            System.err.println(CYKA + " when getting input");
 
             return;
         }
