@@ -124,9 +124,10 @@ public class Main {
      * Returns true if n is prime, and false otherwise.
      */
     public static boolean check_prime(int n) {
-        // why can't we use sieve? It is faster and easier to parellelize
-        // This isn't even optimal trial division
-        // easier to code this way though.
+        /*
+         * why can't we use sieve? It is faster and easier to parellelize
+         * This isn't even optimal trial division easier to code this way though.
+         */
 
         for (int i = 2; i * i <= n; i++) {
             if (n % i == 0) {
