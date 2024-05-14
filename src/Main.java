@@ -115,10 +115,7 @@ public class Main {
         } catch (IOException e) {
             System.out.println(CYKA);
             System.err.println(CYKA + "when displaying results");
-
         }
-        // System.out.println(primes); TODO if i plan to display all primes, buffer this
-        // shirt.
     }
 
     /*
