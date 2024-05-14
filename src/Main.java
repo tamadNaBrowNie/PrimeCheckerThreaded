@@ -78,11 +78,8 @@ public class Main {
         if (siz > thread_count) {
             batch = siz / thread_count;
             mod = siz % thread_count;
-        }
-
-        if (siz < thread_count) {
+        } else
             thread_count = siz;
-        }
 
         for (int i = 0; i < thread_count; i++) {
             if (mod > 0) {
