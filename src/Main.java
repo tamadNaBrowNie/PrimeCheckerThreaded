@@ -17,51 +17,63 @@ public class Main {
             new InputStreamReader(System.in));
     private static int thread_count = 1;
 
-    private static void read() {
-        try {
+    private static void read() throws IOException {
+        int pow = -1;
+        do {
             System.out.println("Enter number to search");
             Main.input = Integer.parseInt(io.readLine());
+            if (Main.input > LIMIT)
+                System.out.println("Input too large. enter again");
+
+            if (Main.input < 2)
+                System.out.println("Input too small. enter again");
+        } while (Main.input < 2 || Main.input > LIMIT);
+        while (pow < 0 || pow > 10) {
             System.out.println("Core counts are powers of 2. Enter exponent for core count.");
-            int pow = Integer.parseInt(io.readLine());
-            Main.thread_count = 1 << pow;
-            System.out.println(thread_count);
-        } catch (IOException e) {
-            System.out.println("Error reading input");
+            pow = Integer.parseInt(io.readLine());
+            if (pow < 0 || pow > 10) {
+                System.out.println("Invalid power, enter again");
+            }
         }
+
+        Main.thread_count = 1 << pow;
+
     }
 
     public static void main(String[] args) {
         boolean o1 = false;
-        read();
+        try {
+            read();
+        } catch (IOException e) {
+            System.out.println("Error reading input");
+        }
 
         Instant start = Instant.now();
         Threader[] threads = new Threader[thread_count];
         List<Integer> in = IntStream.rangeClosed(2, input).boxed().collect(Collectors.toList());
-
+        // IntStream stm = IntStream.rangeClosed(2, input);
         Semaphore flag = new Semaphore(1);
 
         List<Integer> primes = new ArrayList<Integer>();
         int siz = in.size();
         int batch = (input - 1 >= thread_count) ? siz / thread_count : 1;
-        int mod = siz % thread_count;
+        int mod = (siz <= thread_count) ? siz % thread_count : 0;
         if (siz < thread_count) {
-            thread_count = mod;
-            mod = 0;
+            thread_count = siz;
         }
-        int j = 0;
+        int j = 0, k = j + batch;
         for (int i = 0; i < thread_count; i++) {
             System.out.println("thread " + i);
-            int k = j + batch;
+
             if (mod > 0) {
                 mod--;
                 k++;
             }
-            if (k > siz) {
+            if (k > siz)
                 k = siz;
-            }
             threads[i] = new Threader(in.subList(j, k), primes, flag);
             j = (k == siz) ? siz - 1 : k;
-
+            k = j + batch;
             threads[i].run();
 
         }
