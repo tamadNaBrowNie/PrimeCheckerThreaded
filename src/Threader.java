@@ -15,19 +15,16 @@ public class Threader implements Runnable {
     }
 
     private void check_prime(int n) {
-        if (!Main.check_prime(n)) {
+        if (!Main.check_prime(n))
             return;
-        }
 
         try {
             sig.acquire();
             this.master.add(n);
         } catch (InterruptedException wait) {
             System.out.println("waiting");
-        } finally {
-            sig.release();
         }
-
+        sig.release();
     }
 
     @Override

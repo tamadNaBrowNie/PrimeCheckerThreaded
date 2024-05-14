@@ -71,18 +71,16 @@ public class Main {
         Instant start = Instant.now();
         Threader[] threads = new Threader[thread_count];
         final List<Integer> IN = IntStream.rangeClosed(2, input).boxed().collect(Collectors.toList());
-
         List<Integer> primes = new ArrayList<Integer>();
-        int siz = IN.size();
-        int batch = 1, mod = 0;
+        int siz = IN.size(), batch = 1, mod = 0;
+        int j = 0, k = j + batch;
+
         if (siz > thread_count) {
             batch = siz / thread_count;
             mod = siz % thread_count;
-        }
-        if (siz < thread_count) {
+        } else
             thread_count = siz;
-        }
-        int j = 0, k = j + batch;
+
         for (int i = 0; i < thread_count; i++) {
             if (mod > 0) {
                 mod--;
@@ -107,17 +105,14 @@ public class Main {
         fString = fString.formatted(primes.size(), threads.length, t);
         try {
             buf_so.write(fString.getBytes());
-            for (int i : primes) {
-                buf_so.write((i + ", ").getBytes());
-            }
+            // for (int i : primes) {
+            // buf_so.write((i + ", ").getBytes());
+            // }
             buf_so.flush();
         } catch (IOException e) {
             System.out.println(CYKA);
             System.err.println(CYKA + "when displaying results");
-
         }
-        // System.out.println(primes); TODO if i plan to display all primes, buffer this
-        // shirt.
     }
 
     /*
@@ -129,9 +124,10 @@ public class Main {
      * Returns true if n is prime, and false otherwise.
      */
     public static boolean check_prime(int n) {
-        // why can't we use sieve? It is faster and easier to parellelize
-        // This isn't even optimal trial division
-        // easier to code this way though.
+        /*
+         * why can't we use sieve? It is faster and easier to parellelize
+         * This isn't even optimal trial division easier to code this way though.
+         */
 
         for (int i = 2; i * i <= n; i++) {
             if (n % i == 0) {
