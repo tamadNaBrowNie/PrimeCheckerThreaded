@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 
+import java.util.concurrent.TimeUnit;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.stream.IntStream;
@@ -21,7 +22,7 @@ public class Main {
             new InputStreamReader(System.in));
     private static OutputStream buf_so = new BufferedOutputStream(System.out);
     private static int thread_count = 1;
-    private static final ReentrantLock LOCK = new ReentrantLock();
+    private static final ReentrantLock LOCK = new ReentrantLock(true);
 
     private static int getInput(String msg) throws IOException {
 
@@ -73,11 +74,17 @@ public class Main {
         }
 
         Instant t0 = Instant.now();
+        try {
+            ExecutorService pool = Executors.newFixedThreadPool(thread_count);
+            IntStream.rangeClosed(2, input).forEach(i -> pool.execute(new Threader(i, primes, LOCK)));
+            pool.shutdown();
 
-        ExecutorService pool = Executors.newFixedThreadPool(thread_count);
-        IntStream.rangeClosed(2, input).forEach(i -> pool.execute(new Threader(i, primes, LOCK)));
-        pool.shutdown();
+            while (!pool.awaitTermination(0, TimeUnit.MICROSECONDS)) {
 
+            }
+        } catch (InterruptedException e) {
+            System.err.println("Exec interrupted");
+        }
         Instant tF = Instant.now();
         long dt = Duration.between(t0, tF).toMillis();
         String fString = "\n%d primes were found.\n%d threads took %d ms \n";
