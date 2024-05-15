@@ -37,7 +37,7 @@ public class Main {
     private static void read() throws IOException {
         int pow = -1;
         do {
-            Main.input = getInput("Enter number to search: ");
+            Main.input = getInput("\nEnter number to search: ");
 
             if (Main.input > LIMIT)
                 buf_so.write("Input too large. enter again\n".getBytes());
@@ -48,7 +48,7 @@ public class Main {
 
         while (pow < 0 || pow > 10) {
 
-            pow = getInput("Core count = 2^n where 0 <= n < 11 and n is your input: ");
+            pow = getInput("Core counts is 2^n where 0 <= n < 11 and n is your input: ");
             if (pow < 0 || pow > 10)
                 buf_so.write("Invalid power".getBytes());
         }
@@ -59,65 +59,61 @@ public class Main {
     public static void main(String[] args) {
         boolean o1 = false; // optimisation flag. prevents creating and running unneeded threads.
         final String CYKA = "I/O SNAFU";
+
+        List<Integer> primes = new ArrayList<Integer>();
         try {
             read();
         } catch (IOException e) {
             System.out.println(CYKA);
-            System.err.println(CYKA + "when getting input");
-
+            System.err.println(CYKA + " when getting input");
             return;
         }
 
-        Instant start = Instant.now();
+        Instant t0 = Instant.now();
         Threader[] threads = new Threader[thread_count];
         final List<Integer> IN = IntStream.rangeClosed(2, input).boxed().collect(Collectors.toList());
 
-        List<Integer> primes = new ArrayList<Integer>();
-        int siz = IN.size();
+        int size = IN.size();
         int batch = 1, mod = 0;
-        if (siz > thread_count) {
-            batch = siz / thread_count;
-            mod = siz % thread_count;
+        if (size > thread_count) {
+            batch = size / thread_count;
+            mod = size % thread_count;
+        } else {
+            thread_count = size;
         }
-        if (siz < thread_count) {
-            thread_count = siz;
-        }
-        int j = 0, k = j + batch;
-        for (int i = 0; i < thread_count; i++) {
+
+        for (int i = 0, start = 0, end = start + batch; i < thread_count; i++) {
             if (mod > 0) {
                 mod--;
-                k++;
+                end++;
             }
-            if (k > siz)
-                k = siz;
-            threads[i] = new Threader(IN.subList(j, k), primes, Main.FLAG);
-            j = (k == siz) ? siz - 1 : k;
-            k = j + batch;
+            if (end > size)
+                end = size;
+            threads[i] = new Threader(IN.subList(start, end), primes, Main.FLAG);
+            start = (end == size) ? size - 1 : end;
+            end = start + batch;
             threads[i].run();
         }
         if (!o1)
             for (int i = thread_count; i < threads.length; i++) {
-                threads[i] = new Threader(new ArrayList<Integer>(), primes, Main.FLAG);
-                threads[i].run();
+                new Threader(new ArrayList<Integer>(), primes, Main.FLAG).run();
             }
 
-        Instant end = Instant.now();
-        long t = Duration.between(start, end).toMillis();
-        String fString = "%d primes were found.\n%d threads took %d ms \n";
-        fString = fString.formatted(primes.size(), threads.length, t);
+        Instant tF = Instant.now();
+        long dt = Duration.between(t0, tF).toMillis();
+        String fString = "\n%d primes were found.\n%d threads took %d ms \n";
+        fString = fString.formatted(primes.size(), threads.length, dt);
         try {
-            buf_so.write(fString.getBytes());
             for (int i : primes) {
                 buf_so.write((i + ", ").getBytes());
             }
+            buf_so.write(fString.getBytes());
+
             buf_so.flush();
         } catch (IOException e) {
             System.out.println(CYKA);
-            System.err.println(CYKA + "when displaying results");
-
+            System.err.println(CYKA + " when displaying results");
         }
-        // System.out.println(primes); TODO if i plan to display all primes, buffer this
-        // shirt.
     }
 
     /*
@@ -129,9 +125,10 @@ public class Main {
      * Returns true if n is prime, and false otherwise.
      */
     public static boolean check_prime(int n) {
-        // why can't we use sieve? It is faster and easier to parellelize
-        // This isn't even optimal trial division
-        // easier to code this way though.
+        /*
+         * why can't we use sieve? It is faster and easier to parellelize
+         * This isn't even optimal trial division easier to code this way though.
+         */
 
         for (int i = 2; i * i <= n; i++) {
             if (n % i == 0) {
