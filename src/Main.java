@@ -62,7 +62,7 @@ public class Main {
         final String CYKA = "I/O SNAFU";
         boolean scripted = false;
         try {
-            scripted = getInput("Automate?") != 0;
+            scripted = getInput("\nAutomate? ") != 0;
             if (!scripted) {
                 read();
                 doTask();
@@ -87,7 +87,7 @@ public class Main {
         int[] inputs = { 2, 512, 1024, 67800, 10000000 };
         for (int i : inputs) {
             Main.input = i;
-            buf_so.write(("\n in" + input).getBytes());
+            buf_so.write(("\n  in " + input).getBytes());
             for (int j = 0; j < 11; j++) {
 
                 for (int k = 0; k < 5; k++) {
