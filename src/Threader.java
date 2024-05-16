@@ -1,16 +1,16 @@
-import java.lang.Runnable;
-import java.util.List;
-import java.util.concurrent.Semaphore;
 
-public class Threader implements Runnable {
+import java.util.List;
+import java.util.concurrent.locks.ReentrantLock;
+
+public class Threader extends Thread {
     List<Integer> arr;
 
-    Semaphore sig;
+    ReentrantLock lock;
     List<Integer> master;
 
-    Threader(List<Integer> arr, List<Integer> primes, Semaphore flag) {
+    Threader(List<Integer> arr, List<Integer> primes, ReentrantLock lock) {
         this.arr = arr;
-        this.sig = flag;
+        this.lock = lock;
         this.master = primes;
     }
 
@@ -19,20 +19,19 @@ public class Threader implements Runnable {
             return;
         }
 
-        try {
-            sig.acquire();
-            this.master.add(n);
-        } catch (InterruptedException wait) {
-            System.out.println("waiting");
-        } finally {
-            sig.release();
-        }
+        lock.lock();
 
-    }
+        this.master.add(n);
+
+        lock.unlock();
+
+    }  
+    public void add(int n) {arr.add(n);}
 
     @Override
     public void run() {
         this.arr.forEach(i -> this.check_prime(i));
+
     }
 
 }
