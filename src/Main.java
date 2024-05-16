@@ -66,6 +66,7 @@ public class Main {
             if (!scripted) {
                 read();
                 doTask();
+                buf_so.flush();
                 buf_so.close();
                 buf_in.close();
                 return;
@@ -95,6 +96,7 @@ public class Main {
                     Main.thread_count = 1 << j;
                     doTask();
                 }
+                buf_so.flush();
             }
         }
     }
@@ -129,8 +131,8 @@ public class Main {
         } catch (InterruptedException e) {
         }
         Instant tF = Instant.now();
-        long dt = Duration.between(t0, tF).toMillis();
-        String fString = "\n%d primes were found.\n%d threads took %d ms \n";
+        long dt = Duration.between(t0, tF).toNanos();
+        String fString = "\n%d primes were found.\n%d threads took %d ns \n";
 
         LOCK.lock();
         primes.sort(null);
@@ -140,8 +142,6 @@ public class Main {
         LOCK.unlock();
 
         buf_so.write(fString.getBytes());
-
-        buf_so.flush();
 
     }
 
