@@ -25,7 +25,8 @@ public class Threader extends Thread {
 
         lock.unlock();
 
-    }
+    }  
+    public void add(int n) {arr.add(n);}
 
     @Override
     public void run() {
