@@ -100,7 +100,7 @@ public class Main {
         Threader[] threads = new Threader[thread_count];
 
         for (int i = 0; i < thread_count; i++) {
-            threads[i] = new Threader(new ArrayList<>(), primes, LOCK);
+            threads[i] = new Threader(new ArrayList<Integer>(), primes, LOCK);
         }
 
         int ind = 0;
