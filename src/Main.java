@@ -86,10 +86,12 @@ public class Main {
     private static void getResults() throws IOException {
         int[] inputs = { 2, 512, 1024, 67800, 10000000 };
         for (int i : inputs) {
+            Main.input = i;
+            buf_so.write(("\n in" + input).getBytes());
             for (int j = 0; j < 11; j++) {
-                buf_so.write(("\n in" + input).getBytes());
+
                 for (int k = 0; k < 5; k++) {
-                    Main.input = i;
+
                     Main.thread_count = 1 << j;
                     doTask();
                 }
