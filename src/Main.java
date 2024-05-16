@@ -18,6 +18,7 @@ public class Main {
     private static BufferedReader buf_in = new BufferedReader(
             new InputStreamReader(System.in));
     private static OutputStream buf_so = new BufferedOutputStream(System.out);
+    private static OutputStream log = new BufferedOutputStream(System.out);
     private static int thread_count = 1;
     private static final ReentrantLock LOCK = new ReentrantLock();
 
@@ -65,13 +66,19 @@ public class Main {
             if (!scripted) {
                 read();
                 doTask();
+                buf_so.close();
+                buf_in.close();
                 return;
             }
+            buf_in.close();
             getResults();
+            buf_so.close();
 
         } catch (IOException e) {
             System.out.println(CYKA);
             System.err.println(CYKA + " when getting input");
+        } finally {
+
         }
 
     }
