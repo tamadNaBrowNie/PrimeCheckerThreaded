@@ -80,6 +80,7 @@ public class Main {
         int[] inputs = { 2, 512, 1024, 67800, 10000000 };
         for (int i : inputs) {
             for (int j = 0; j < 11; j++) {
+                buf_so.write(("\n in" + input).getBytes());
                 for (int k = 0; k < 5; k++) {
                     Main.input = i;
                     Main.thread_count = 1 << j;
@@ -93,37 +94,30 @@ public class Main {
         List<Integer> primes = new ArrayList<Integer>();
 
         Instant t0 = Instant.now();
-        List<Threader> threads = new ArrayList<Threader>();
+
         final List<Integer> IN = IntStream.rangeClosed(2, input).boxed().collect(Collectors.toList());
 
-        int size = IN.size();
-        int batch = 1, mod = 0;
-        if (size > thread_count) {
-            batch = size / thread_count;
-            mod = size % thread_count;
-        }
-        int start = 0, end = start + batch;
-        for (int i = 0; i < ((size > thread_count) ? thread_count : size); i++) {
-            if (mod > 0) {
-                mod--;
-                end++;
-            }
-            if (end > size)
-                end = size;
-            threads.add(new Threader(IN.subList(start, end), primes, Main.LOCK));
-            start = (end == size) ? size - 1 : end;
-            end = start + batch;
-        }
-        for (; threads.size() < thread_count;)
-            threads.add(new Threader(new ArrayList<Integer>(), primes, Main.LOCK));
+        Threader[] threads = new Threader[thread_count];
 
-        threads.forEach(t -> t.start());
+        for (int i = 0; i < thread_count; i++) {
+            threads[i] = new Threader(new ArrayList<>(), primes, LOCK);
+        }
+
+        int ind = 0;
+        for (int i : IN) {
+            if (ind >= thread_count)
+                ind = 0;
+            threads[ind].add(i);
+            ind++;
+        }
 
         for (Thread t : threads) {
-            try {
+            t.start();
+        }
+        try {
+            for (Thread t : threads)
                 t.join();
-            } catch (InterruptedException e) {
-            }
+        } catch (InterruptedException e) {
         }
         Instant tF = Instant.now();
         long dt = Duration.between(t0, tF).toMillis();
@@ -131,10 +125,11 @@ public class Main {
 
         LOCK.lock();
         primes.sort(null);
-        // for (int i : primes) buf_so.write((i + ", ").getBytes());
+        // for (int i : primes)
+        // buf_so.write((i + ", ").getBytes());
 
         LOCK.unlock();
-        fString = fString.formatted(primes.size(), threads.size(), dt);
+        fString = fString.formatted(primes.size(), thread_count, dt);
 
         buf_so.write(fString.getBytes());
 
@@ -142,19 +137,7 @@ public class Main {
 
     }
 
-    /*
-     * This function checks if an integer n is prime.
-     * 
-     * Parameters:
-     * n : int - integer to check
-     * 
-     * Returns true if n is prime, and false otherwise.
-     */
     public static boolean check_prime(int n) {
-        /*
-         * why can't we use sieve? It is faster and easier to parellelize
-         * This isn't even optimal trial division easier to code this way though.
-         */
 
         for (int i = 2; i * i <= n; i++) {
             if (n % i == 0) {
