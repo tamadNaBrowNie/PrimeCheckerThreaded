@@ -92,9 +92,9 @@ public class Main {
         try {
 
             LOCK.lock();
-            for (int i : primes) {
-                buf_so.write((i + ", ").getBytes());
-            }
+            // for (int i : primes) {
+            // buf_so.write((i + ", ").getBytes());
+            // }
             fString = fString.formatted(primes.size(), thread_count, dt);
             LOCK.unlock();
             buf_so.write(fString.getBytes());
