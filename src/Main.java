@@ -11,8 +11,6 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.stream.IntStream;
 import java.util.stream.Collectors;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 public class Main {
     private static final int LIMIT = 10000000;
@@ -60,7 +58,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        boolean o1 = false; // optimisation flag. prevents creating and running unneeded threads.
+         // optimisation flag. prevents creating and running unneeded threads.
         final String CYKA = "I/O SNAFU";
 
         List<Integer> primes = new ArrayList<Integer>();
@@ -74,29 +72,18 @@ public class Main {
 
         Instant t0 = Instant.now();
         Threader[] threads = new Threader[thread_count];
-        final List<Integer> IN = IntStream.rangeClosed(2, input).boxed().collect(Collectors.toList());
+        final List<Integer> IN = IntStream.rangeClosed(2, input).filter(i->i %2 > 0 || i ==2).boxed().collect(Collectors.toList());
         
-        for (Thread t :threads) {
-            t = new Threader(new ArrayList<>(), primes, LOCK);
+        for (int i = 0; i <thread_count; i++) {
+            threads[i] = new Threader(new ArrayList<>(), primes, LOCK);
             
         }
         int ind = 0;
         for(int i :IN){
-            if (ind >=threads.length) ind = 0;
+            if (ind >=thread_count) ind = 0;
             threads[ind].add(i);
             ind++;
         }
-        // if (!o1) {
-        //     thread_count = threads.length;
-        //     for (int i = end; i < thread_count; i++) {
-        //         threads[i] = (new Threader(new ArrayList<Integer>(), primes, Main.LOCK));
-        //         threads[i].start();
-        //     }
-
-        // }
-        // ExecutorService pool = Executors.newFixedThreadPool(thread_count);
-        // threads.forEach(t -> pool.execute(t));
-        // pool.shutdown();
         for (Thread t: threads) {t.start();}
         for (Thread t : threads) {
             try {
@@ -113,11 +100,11 @@ public class Main {
 
             LOCK.lock();
             // primes.sort(null);
-            for (int i : primes) {
-                buf_so.write((i + ", ").getBytes());
-            }
+            // for (int i : primes) 
+            //     buf_so.write((i + ", ").getBytes());
             
-            fString = fString.formatted(primes.size(), threads.length, dt);
+            
+            fString = fString.formatted(primes.size(), thread_count, dt);
             LOCK.unlock();
 
             buf_so.write(fString.getBytes());
