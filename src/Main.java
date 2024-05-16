@@ -66,14 +66,12 @@ public class Main {
             if (!scripted) {
                 read();
                 doTask();
-                buf_so.flush();
                 buf_so.close();
                 buf_in.close();
                 return;
             }
             buf_in.close();
             getResults();
-            buf_so.flush();
             buf_so.close();
 
         } catch (IOException e) {
@@ -142,6 +140,8 @@ public class Main {
         LOCK.unlock();
 
         buf_so.write(fString.getBytes());
+
+        buf_so.flush();
 
     }
 
