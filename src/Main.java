@@ -58,7 +58,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-         // optimisation flag. prevents creating and running unneeded threads.
+        boolean o1 =false;// optimisation flag. prevents creating and running unneeded threads.
         final String CYKA = "I/O SNAFU";
 
         List<Integer> primes = new ArrayList<Integer>();
@@ -71,20 +71,50 @@ public class Main {
         }
 
         Instant t0 = Instant.now();
-        Threader[] threads = new Threader[thread_count];
-        final List<Integer> IN = IntStream.rangeClosed(2, input).filter(i->i %2 > 0 || i ==2).boxed().collect(Collectors.toList());
-        
-        for (int i = 0; i <thread_count; i++) {
-            threads[i] = new Threader(new ArrayList<>(), primes, LOCK);
-            
+        List<Threader> threads = new ArrayList<Threader>();
+        final List<Integer> IN = IntStream.rangeClosed(2, input).boxed().collect(Collectors.toList());
+
+        int size = IN.size();
+        int batch = 1, mod = 0;
+        if (size > thread_count) {
+            batch = size / thread_count;
+            mod = size % thread_count;
         }
-        int ind = 0;
-        for(int i :IN){
-            if (ind >=thread_count) ind = 0;
-            threads[ind].add(i);
-            ind++;
+        // } else {
+        // thread_count = size;
+        // }
+        int start = 0, end = start + batch;
+        for (int i = 0; i < ((size > thread_count) ? thread_count : size); i++) {
+            if (mod > 0) {
+                mod--;
+                end++;
+            }
+            if (end > size)
+                end = size;
+            threads.add(new Threader(IN.subList(start, end), primes, Main.LOCK));
+            start = (end == size) ? size - 1 : end;
+            end = start + batch;
+            // threads[i].run();
         }
-        for (Thread t: threads) {t.start();}
+        // for (; mod > 0; mod--) {
+        // threads.add(new Threader(IN.subList(start, start++), primes, Main.FLAG));
+        // }
+        // if (mod > 0) {
+        // threads.add(new Threader(IN.subList(end, IN.size()), primes, Main.LOCK));
+        // }
+        if (!o1) {
+            for (; threads.size() < thread_count;) {
+                threads.add(new Threader(new ArrayList<Integer>(), primes, Main.LOCK));
+                // threads[i].run();
+            }
+            // thread_count = threads.size();
+        }
+        // ExecutorService pool = Executors.newFixedThreadPool(thread_count);
+        // threads.forEach(t -> pool.execute(t));
+        // pool.shutdown();
+
+        threads.forEach(t -> t.start());
+
         for (Thread t : threads) {
             try {
                 t.join();
@@ -99,13 +129,13 @@ public class Main {
         try {
 
             LOCK.lock();
-            // primes.sort(null);
-            // for (int i : primes) 
-            //     buf_so.write((i + ", ").getBytes());
-            
-            
-            fString = fString.formatted(primes.size(), thread_count, dt);
+            primes.sort(null);
+            for (int i : primes) {
+                buf_so.write((i + ", ").getBytes());
+            }
             LOCK.unlock();
+            fString = fString.formatted(primes.size(), threads.size(), dt);
+
 
             buf_so.write(fString.getBytes());
 
