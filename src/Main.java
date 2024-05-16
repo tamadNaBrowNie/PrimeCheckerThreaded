@@ -83,7 +83,7 @@ public class Main {
                 for (int k = 0; k < 5; k++) {
                     Main.input = i;
                     Main.thread_count = 1 << j;
-                    read();
+                    doTask();
                 }
             }
         }
