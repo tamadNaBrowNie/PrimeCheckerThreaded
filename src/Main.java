@@ -127,9 +127,8 @@ public class Main {
         primes.sort(null);
         // for (int i : primes)
         // buf_so.write((i + ", ").getBytes());
-
-        LOCK.unlock();
         fString = fString.formatted(primes.size(), thread_count, dt);
+        LOCK.unlock();
 
         buf_so.write(fString.getBytes());
 
