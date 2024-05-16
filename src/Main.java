@@ -58,18 +58,39 @@ public class Main {
     }
 
     public static void main(String[] args) {
-         // optimisation flag. prevents creating and running unneeded threads.
         final String CYKA = "I/O SNAFU";
-        boolean o1 = false;
-
-        List<Integer> primes = new ArrayList<Integer>();
+        boolean scripted = false;
         try {
-            read();
+            scripted = getInput("Automate?") != 0;
+            if (!scripted) {
+                read();
+                doTask();
+                return;
+            }
+            getResults();
+
         } catch (IOException e) {
             System.out.println(CYKA);
             System.err.println(CYKA + " when getting input");
-            return;
         }
+
+    }
+
+    private static void getResults() throws IOException {
+        int[] inputs = { 2, 512, 1024, 67800, 10000000 };
+        for (int i : inputs) {
+            for (int j = 0; j < 11; j++) {
+                for (int k = 0; k < 5; k++) {
+                    Main.input = i;
+                    Main.thread_count = 1 << j;
+                    read();
+                }
+            }
+        }
+    }
+
+    private static void doTask() throws IOException {
+        List<Integer> primes = new ArrayList<Integer>();
 
         Instant t0 = Instant.now();
         List<Threader> threads = new ArrayList<Threader>();
@@ -81,9 +102,6 @@ public class Main {
             batch = size / thread_count;
             mod = size % thread_count;
         }
-        // } else {
-        // thread_count = size;
-        // }
         int start = 0, end = start + batch;
         for (int i = 0; i < ((size > thread_count) ? thread_count : size); i++) {
             if (mod > 0) {
@@ -95,24 +113,9 @@ public class Main {
             threads.add(new Threader(IN.subList(start, end), primes, Main.LOCK));
             start = (end == size) ? size - 1 : end;
             end = start + batch;
-            // threads[i].run();
         }
-        // for (; mod > 0; mod--) {
-        // threads.add(new Threader(IN.subList(start, start++), primes, Main.FLAG));
-        // }
-        // if (mod > 0) {
-        // threads.add(new Threader(IN.subList(end, IN.size()), primes, Main.LOCK));
-        // }
-        if (!o1) {
-            for (; threads.size() < thread_count;) {
-                threads.add(new Threader(new ArrayList<Integer>(), primes, Main.LOCK));
-                // threads[i].run();
-            }
-            // thread_count = threads.size();
-        }
-        // ExecutorService pool = Executors.newFixedThreadPool(thread_count);
-        // threads.forEach(t -> pool.execute(t));
-        // pool.shutdown();
+        for (; threads.size() < thread_count;)
+            threads.add(new Threader(new ArrayList<Integer>(), primes, Main.LOCK));
 
         threads.forEach(t -> t.start());
 
@@ -125,25 +128,18 @@ public class Main {
         Instant tF = Instant.now();
         long dt = Duration.between(t0, tF).toMillis();
         String fString = "\n%d primes were found.\n%d threads took %d ms \n";
-        // fString = fString.formatted(primes.size(), threads.length, dt);
 
-        try {
+        LOCK.lock();
+        primes.sort(null);
+        // for (int i : primes) buf_so.write((i + ", ").getBytes());
 
-            LOCK.lock();
-            primes.sort(null);
-            for (int i : primes) {
-                buf_so.write((i + ", ").getBytes());
-            }
-            LOCK.unlock();
-            fString = fString.formatted(primes.size(), threads.size(), dt);
+        LOCK.unlock();
+        fString = fString.formatted(primes.size(), threads.size(), dt);
 
-            buf_so.write(fString.getBytes());
+        buf_so.write(fString.getBytes());
 
-            buf_so.flush();
-        } catch (IOException e) {
-            System.out.println(CYKA);
-            System.err.println(CYKA + " when displaying results");
-        }
+        buf_so.flush();
+
     }
 
     /*
