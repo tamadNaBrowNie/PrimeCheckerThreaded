@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -11,7 +12,8 @@ import java.util.concurrent.TimeUnit;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.stream.IntStream;
-import java.util.concurrent.Callable;
+
+import java.util.concurrent.CountDownLatch;
 // import java.util.stream.Collectors;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -58,14 +60,13 @@ public class Main {
                 buf_so.write("Invalid power".getBytes());
         }
         Main.thread_count = 1 << pow;
-
+        Main.thread_count--;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         final String CYKA = "I/O SNAFU";
-
-        List<Integer> primes = new ArrayList<Integer>();
+        ExecutorService pool = Executors.newFixedThreadPool(thread_count);
         try {
             read();
         } catch (IOException e) {
@@ -73,63 +74,63 @@ public class Main {
             System.err.println(CYKA + " when getting input");
             return;
         }
-        boolean sieve[] = new boolean[input - 2];
+        int sieve[] = new int[input + 1];
+        Arrays.fill(sieve, 1);
+        CountDownLatch ctr = new CountDownLatch(input - 1);
         Instant t0 = Instant.now();
-        try {
-            ExecutorService pool = Executors.newFixedThreadPool(thread_count);
-            // IntStream.rangeClosed(2, input).forEach(ind -> pool.submit(new
-            // Callable<Void>() {
-
-            // @Override
-            // public Void call() throws InterruptedException {
-            // if (sieve[ind] == true) {
-            // for (int i = ind * ind; i <= sieve.length; i += ind)
-            // sieve[i] = false;
-            // }
-            // return null;
-            // }
-
-            // }));
+        if (thread_count > 0)
             IntStream.rangeClosed(2, input).forEach(ind -> pool.execute(() -> {
 
-                if (sieve[ind] == false)
-                    return;
-                for (int i = ind * ind; i <= sieve.length; i += ind)
-                    sieve[i] = false;
+                if (sieve[ind] == 1)
+                    multiples(sieve, ind);
+                ctr.countDown();
 
             }));
+        else
+            IntStream.rangeClosed(2, input).forEach(ind ->
+            // pool.execute(() ->
+            {
 
-            pool.shutdown();
-
-            while (!pool.awaitTermination(0, TimeUnit.MICROSECONDS)) {
+                if (sieve[ind] == 1)
+                    multiples(sieve, ind);
+                ctr.countDown();
 
             }
-        } catch (InterruptedException e) {
-            System.err.println("Exec interrupted");
-        }
+            // )
+            );
+
         Instant tF = Instant.now();
         long dt = Duration.between(t0, tF).toMillis();
         String fString = "\n%d primes were found.\n%d threads took %d ms \n";
-        int n = 0;
-        for (boolean bool : sieve) {
-            if (bool) {
-                n++;
-            }
-        }
+        ctr.await();
+        int n = IntStream.of(sieve).sum() - 2;
+
         try {
 
-            LOCK.lock();
-            // for (int i : primes) {
-            // buf_so.write((i + ", ").getBytes());
-            // }
             fString = fString.formatted(n, thread_count, dt);
-            LOCK.unlock();
             buf_so.write(fString.getBytes());
 
             buf_so.flush();
         } catch (IOException e) {
             System.out.println(CYKA);
             System.err.println(CYKA + " when displaying results");
+        }
+        pool.shutdown();
+        try {
+            while (!pool.awaitTermination(0, TimeUnit.MICROSECONDS))
+                ;
+        } catch (InterruptedException e) {
+            System.err.println("Exec interrupted");
+        }
+    }
+
+    private static void multiples(int[] sieve, int ind) {
+        // System.out.println("ind " + ind);
+        // if it overflows to negative, that means it is too big
+
+        for (int i = ind * ind; i < sieve.length && i > 0; i += ind) {
+
+            sieve[i] = 0;
         }
     }
 
