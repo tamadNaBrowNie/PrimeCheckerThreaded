@@ -60,13 +60,13 @@ public class Main {
                 buf_so.write("Invalid power".getBytes());
         }
         Main.thread_count = 1 << pow;
-        Main.thread_count--;
+        // Main.thread_count--;
     }
 
     public static void main(String[] args) throws InterruptedException {
 
         final String CYKA = "I/O SNAFU";
-        ExecutorService pool = Executors.newFixedThreadPool(thread_count);
+
         try {
             read();
         } catch (IOException e) {
@@ -74,22 +74,33 @@ public class Main {
             System.err.println(CYKA + " when getting input");
             return;
         }
-        boolean sieve[] = new boolean[input + 1];
-        Arrays.fill(sieve, true);
+        ExecutorService pool = Executors.newFixedThreadPool(thread_count);
+        int sieve[] = new int[input - 1];
+        Arrays.fill(sieve, 1);
 
         Instant t0 = Instant.now();
-        Double sqrt = Math.sqrt(input);
-        int lim = sqrt.intValue();
-        CountDownLatch ctr = new CountDownLatch(lim - 1);
-        for (int i = 2; i < sieve.length; i++) {
-            if (sieve[i]) {
+
+        CountDownLatch ctr = new CountDownLatch(sieve.length);
+        for (int i = 2; i * i < input && i >= 0; i++) {
+            if (sieve[i - 2] == 1) {
                 int ind = i;
+                System.out.println("ind " + ind);
                 multiples(sieve, ind, ctr);
                 // pool.execute(() -> {
 
                 // });
             }
+            // ctr.countDown();
+
+            // System.out.println("ctr " + ctr.getCount());
         }
+
+        // ctr.await();
+        int n = IntStream.of(sieve).sum();
+
+        Instant tF = Instant.now();
+        long dt = Duration.between(t0, tF).toMillis();
+        String fString = "\n%d primes were found.\n%d threads took %d ms \n";
         pool.shutdown();
         try {
             while (!pool.awaitTermination(0, TimeUnit.MICROSECONDS))
@@ -97,17 +108,6 @@ public class Main {
         } catch (InterruptedException e) {
             System.err.println("Exec interrupted");
         }
-        // ctr.await();
-        int n = -2;
-        for (boolean b : sieve) {
-            if (b) {
-                n++;
-            }
-        }
-        Instant tF = Instant.now();
-        long dt = Duration.between(t0, tF).toMillis();
-        String fString = "\n%d primes were found.\n%d threads took %d ms \n";
-
         try {
 
             fString = fString.formatted(n, thread_count, dt);
@@ -121,15 +121,15 @@ public class Main {
 
     }
 
-    private static void multiples(boolean[] sieve, int ind, CountDownLatch ctr) {
+    private static void multiples(int[] sieve, int ind, CountDownLatch ctr) {
         // System.out.println("ind " + ind);
         // if it overflows to negative, that means it is too big
 
-        for (int i = ind * ind; i < sieve.length; i += ind) {
+        for (int i = ind * ind; i <= input; i += ind) {
 
-            sieve[i] = false;
+            sieve[i - 2] = 0;
         }
-        ctr.countDown();
+
         // ABANDON
     }
 
