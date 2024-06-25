@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.stream.IntStream;
+import java.util.concurrent.Callable;
 // import java.util.stream.Collectors;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -72,11 +73,32 @@ public class Main {
             System.err.println(CYKA + " when getting input");
             return;
         }
-
+        boolean sieve[] = new boolean[input - 2];
         Instant t0 = Instant.now();
         try {
             ExecutorService pool = Executors.newFixedThreadPool(thread_count);
-            IntStream.rangeClosed(2, input).forEach(i -> pool.execute(new Threader(i, primes, LOCK)));
+            // IntStream.rangeClosed(2, input).forEach(ind -> pool.submit(new
+            // Callable<Void>() {
+
+            // @Override
+            // public Void call() throws InterruptedException {
+            // if (sieve[ind] == true) {
+            // for (int i = ind * ind; i <= sieve.length; i += ind)
+            // sieve[i] = false;
+            // }
+            // return null;
+            // }
+
+            // }));
+            IntStream.rangeClosed(2, input).forEach(ind -> pool.execute(() -> {
+
+                if (sieve[ind] == false)
+                    return;
+                for (int i = ind * ind; i <= sieve.length; i += ind)
+                    sieve[i] = false;
+
+            }));
+
             pool.shutdown();
 
             while (!pool.awaitTermination(0, TimeUnit.MICROSECONDS)) {
@@ -88,14 +110,19 @@ public class Main {
         Instant tF = Instant.now();
         long dt = Duration.between(t0, tF).toMillis();
         String fString = "\n%d primes were found.\n%d threads took %d ms \n";
-
+        int n = 0;
+        for (boolean bool : sieve) {
+            if (bool) {
+                n++;
+            }
+        }
         try {
 
             LOCK.lock();
             // for (int i : primes) {
             // buf_so.write((i + ", ").getBytes());
             // }
-            fString = fString.formatted(primes.size(), thread_count, dt);
+            fString = fString.formatted(n, thread_count, dt);
             LOCK.unlock();
             buf_so.write(fString.getBytes());
 
