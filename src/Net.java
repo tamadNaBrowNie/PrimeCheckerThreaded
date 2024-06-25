@@ -12,7 +12,6 @@ public class Net implements Callable<Boolean> {
     @Override
     public Boolean call() throws Exception {
         if (sieve[ind] == true) {
-            // Update all multiples of ind
             for (int i = ind * ind; i <= sieve.length; i += ind)
                 sieve[i] = false;
         }
