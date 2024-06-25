@@ -113,7 +113,7 @@ public class Main {
     private static void ifPrime(int[] sieve, int ind) {
         if (sieve[ind - 2] == 0)
             return;
-        for (int i = ind * ind; i <= input; i += ind) {
+        for (int i = ind * ind; i <= input && i > 0; i += ind) {
             sieve[i - 2] = 0;
         }
     }

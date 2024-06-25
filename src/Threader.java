@@ -1,28 +1,20 @@
 import java.lang.Runnable;
-import java.util.List;
-import java.util.concurrent.locks.ReentrantLock;
 
 public class Threader implements Runnable {
-    int num;
+    int[] arr;
+    int ind;
 
-    ReentrantLock lock;
-    List<Integer> master;
-
-    Threader(int arr, List<Integer> primes, ReentrantLock lock) {
-        this.num = arr;
-        this.lock = lock;
-        this.master = primes;
+    Threader(int[] arr, int ind) {
+        this.arr = arr;
+        this.ind = ind;
     }
 
     @Override
     public void run() {
-        if (Main.check_prime(this.num)) {
-
-            lock.lock();
-
-            this.master.add(this.num);
-
-            lock.unlock();
+        if (arr[ind - 2] == 0)
+            return;
+        for (int i = ind * ind; i <= arr.length + 2 && i > 0; i += ind) {
+            arr[i - 2] = 0;
         }
 
     }
