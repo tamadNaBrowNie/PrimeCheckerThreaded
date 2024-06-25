@@ -3,18 +3,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.concurrent.locks.ReentrantLock;
-
 import java.util.concurrent.TimeUnit;
-import java.time.Duration;
-import java.time.Instant;
 import java.util.stream.IntStream;
 
-import java.util.concurrent.CountDownLatch;
-// import java.util.stream.Collectors;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -25,7 +17,6 @@ public class Main {
             new InputStreamReader(System.in));
     private static OutputStream buf_so = new BufferedOutputStream(System.out);
     private static int thread_count = 1;
-    private static final ReentrantLock LOCK = new ReentrantLock(true);
 
     private static int getInput(String msg) throws IOException {
 
@@ -67,6 +58,8 @@ public class Main {
 
         final String CYKA = "I/O SNAFU";
 
+        final String fString = "\n%d primes were found.\n%d threads took %.3f ms \n";
+        double t0, tF;
         try {
             read();
         } catch (IOException e) {
@@ -78,40 +71,36 @@ public class Main {
         int sieve[] = new int[input - 1];
         Arrays.fill(sieve, 1);
 
-        Instant t0 = Instant.now();
+        t0 = System.currentTimeMillis();
 
-        CountDownLatch ctr = new CountDownLatch(sieve.length);
         for (int i = 2; i * i < input && i >= 0; i++) {
-            if (sieve[i - 2] == 1) {
-                int ind = i;
-                System.out.println("ind " + ind);
-                multiples(sieve, ind, ctr);
-                // pool.execute(() -> {
-
-                // });
+            if (thread_count <= 1) {
+                ifPrime(sieve, i);
+                continue;
             }
-            // ctr.countDown();
+            int ind = i;
+            pool.submit(() -> {
+                ifPrime(sieve, ind);
+            });
 
-            // System.out.println("ctr " + ctr.getCount());
         }
-
-        // ctr.await();
+        if (thread_count > 1) {
+            pool.shutdown();
+            try {
+                while (!pool.awaitTermination(0, TimeUnit.MICROSECONDS))
+                    ;
+            } catch (InterruptedException e) {
+                System.err.println("Exec interrupted");
+            }
+        }
         int n = IntStream.of(sieve).sum();
 
-        Instant tF = Instant.now();
-        long dt = Duration.between(t0, tF).toMillis();
-        String fString = "\n%d primes were found.\n%d threads took %d ms \n";
-        pool.shutdown();
-        try {
-            while (!pool.awaitTermination(0, TimeUnit.MICROSECONDS))
-                ;
-        } catch (InterruptedException e) {
-            System.err.println("Exec interrupted");
-        }
+        tF = System.currentTimeMillis();
+
         try {
 
-            fString = fString.formatted(n, thread_count, dt);
-            buf_so.write(fString.getBytes());
+            String result = fString.formatted(n, thread_count, tF - t0);
+            buf_so.write(result.getBytes());
 
             buf_so.flush();
         } catch (IOException e) {
@@ -121,16 +110,12 @@ public class Main {
 
     }
 
-    private static void multiples(int[] sieve, int ind, CountDownLatch ctr) {
-        // System.out.println("ind " + ind);
-        // if it overflows to negative, that means it is too big
-
+    private static void ifPrime(int[] sieve, int ind) {
+        if (sieve[ind - 2] == 0)
+            return;
         for (int i = ind * ind; i <= input; i += ind) {
-
             sieve[i - 2] = 0;
         }
-
-        // ABANDON
     }
 
     /*
@@ -142,10 +127,6 @@ public class Main {
      * Returns true if n is prime, and false otherwise.
      */
     public static boolean check_prime(int n) {
-        /*
-         * why can't we use sieve? It is faster and easier to parellelize
-         * This isn't even optimal trial division easier to code this way though.
-         */
 
         for (int i = 2; i * i <= n; i++) {
             if (n % i == 0) {
