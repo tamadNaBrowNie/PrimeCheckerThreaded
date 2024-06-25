@@ -74,36 +74,39 @@ public class Main {
             System.err.println(CYKA + " when getting input");
             return;
         }
-        int sieve[] = new int[input + 1];
-        Arrays.fill(sieve, 1);
-        CountDownLatch ctr = new CountDownLatch(input - 1);
+        boolean sieve[] = new boolean[input + 1];
+        Arrays.fill(sieve, true);
+
         Instant t0 = Instant.now();
-        if (thread_count > 0)
-            IntStream.rangeClosed(2, input).forEach(ind -> pool.execute(() -> {
+        Double sqrt = Math.sqrt(input);
+        int lim = sqrt.intValue();
+        CountDownLatch ctr = new CountDownLatch(lim - 1);
+        for (int i = 2; i < sieve.length; i++) {
+            if (sieve[i]) {
+                int ind = i;
+                multiples(sieve, ind, ctr);
+                // pool.execute(() -> {
 
-                if (sieve[ind] == 1)
-                    multiples(sieve, ind);
-                ctr.countDown();
-
-            }));
-        else
-            IntStream.rangeClosed(2, input).forEach(ind ->
-            // pool.execute(() ->
-            {
-
-                if (sieve[ind] == 1)
-                    multiples(sieve, ind);
-                ctr.countDown();
-
+                // });
             }
-            // )
-            );
-
+        }
+        pool.shutdown();
+        try {
+            while (!pool.awaitTermination(0, TimeUnit.MICROSECONDS))
+                ;
+        } catch (InterruptedException e) {
+            System.err.println("Exec interrupted");
+        }
+        // ctr.await();
+        int n = -2;
+        for (boolean b : sieve) {
+            if (b) {
+                n++;
+            }
+        }
         Instant tF = Instant.now();
         long dt = Duration.between(t0, tF).toMillis();
         String fString = "\n%d primes were found.\n%d threads took %d ms \n";
-        ctr.await();
-        int n = IntStream.of(sieve).sum() - 2;
 
         try {
 
@@ -115,23 +118,19 @@ public class Main {
             System.out.println(CYKA);
             System.err.println(CYKA + " when displaying results");
         }
-        pool.shutdown();
-        try {
-            while (!pool.awaitTermination(0, TimeUnit.MICROSECONDS))
-                ;
-        } catch (InterruptedException e) {
-            System.err.println("Exec interrupted");
-        }
+
     }
 
-    private static void multiples(int[] sieve, int ind) {
+    private static void multiples(boolean[] sieve, int ind, CountDownLatch ctr) {
         // System.out.println("ind " + ind);
         // if it overflows to negative, that means it is too big
 
-        for (int i = ind * ind; i < sieve.length && i > 0; i += ind) {
+        for (int i = ind * ind; i < sieve.length; i += ind) {
 
-            sieve[i] = 0;
+            sieve[i] = false;
         }
+        ctr.countDown();
+        // ABANDON
     }
 
     /*
