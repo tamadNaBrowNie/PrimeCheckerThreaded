@@ -3,6 +3,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
@@ -11,8 +12,14 @@ import java.util.Arrays;
 import java.util.function.Consumer;
 import java.time.Duration;
 import java.time.Instant;
+
+import java.util.Arrays;
+import java.util.concurrent.TimeUnit;
+
 import java.util.stream.IntStream;
-import java.util.stream.Collectors;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Main {
     private static final int LIMIT = 10000000;
@@ -21,7 +28,6 @@ public class Main {
             new InputStreamReader(System.in));
     private static OutputStream buf_so = new BufferedOutputStream(System.out);
     private static int thread_count = 1;
-    private static final ReentrantLock LOCK = new ReentrantLock();
 
     private static int getInput(String msg) throws IOException {
 
@@ -56,89 +62,74 @@ public class Main {
                 buf_so.write("Invalid power".getBytes());
         }
         Main.thread_count = 1 << pow;
-
     }
 
-    public static void main(String[] args) {
-        final String CYKA = "I/O SNAFU";
-        boolean scripted = false;
-        try {
-            scripted = getInput("Automate?") != 0;
-            if (!scripted) {
-                read();
-                doTask();
-                return;
-            }
-            getResults();
+    public static void main(String[] args) throws InterruptedException {
 
+        final String CYKA = "I/O SNAFU";
+
+        final String fString = "\n%d primes were found.\n%d threads took %.3f ms \n";
+        double t0, tF;
+        try {
+            read();
         } catch (IOException e) {
             System.out.println(CYKA);
             System.err.println(CYKA + " when getting input");
+            return;
+        }
+        ExecutorService pool = Executors.newFixedThreadPool(thread_count);
+
+        t0 = System.currentTimeMillis();
+        int sieve[] = new int[input - 1];
+        Arrays.fill(sieve, 1);
+        int lim = (int) Math.sqrt(input);
+        for (int i = 2; i <= lim; i++) {
+            if (sieve[i - 2] == 0)
+                continue;
+            if (thread_count <= 1) {
+                ifPrime(sieve, i);
+                continue;
+            }
+            int ind = i;
+            pool.submit(() -> {
+                ifPrime(sieve, ind);
+            });
         }
 
-    }
-
-    private static void getResults() throws IOException {
-        int[] inputs = { 2, 512, 1024, 67800, 10000000 };
-        for (int i : inputs) {
-            for (int j = 0; j < 11; j++) {
-                buf_so.write(("\n in" + input).getBytes());
-                for (int k = 0; k < 5; k++) {
-                    Main.input = i;
-                    Main.thread_count = 1 << j;
-                    doTask();
-                }
+        if (thread_count > 1) {
+            pool.shutdown();
+            try {
+                while (!pool.awaitTermination(0, TimeUnit.MICROSECONDS))
+                    ;
+            } catch (InterruptedException e) {
+                System.err.println("Exec interrupted");
             }
         }
-    }
+        int n = IntStream.of(sieve).sum();
 
-    private static void doTask() throws IOException {
-        List<Integer> primes = new ArrayList<Integer>();
+        tF = System.currentTimeMillis();
 
-        Instant t0 = Instant.now();
-
-        final List<Integer> IN = IntStream.rangeClosed(2, input).boxed().collect(Collectors.toList());
-
-        Threader[] threads = new Threader[thread_count];
-
-        for (int i = 0; i < thread_count; i++) {
-            threads[i] = new Threader(new ArrayList<Integer>(), primes, LOCK);
-        }
-
-        int ind = 0;
-        for (int i : IN) {
-            if (ind >= thread_count)
-                ind = 0;
-            threads[ind].add(i);
-            ind++;
-        }
-
-        for (Thread t : threads) {
-            t.start();
-        }
         try {
-            for (Thread t : threads)
-                t.join();
-        } catch (InterruptedException e) {
+
+            String result = fString.formatted(n, thread_count, tF - t0);
+            buf_so.write(result.getBytes());
+
+            buf_so.flush();
+        } catch (IOException e) {
+            System.out.println(CYKA);
+            System.err.println(CYKA + " when displaying results");
         }
-        Instant tF = Instant.now();
-        long dt = Duration.between(t0, tF).toMillis();
-        String fString = "\n%d primes were found.\n%d threads took %d ms \n";
-
-        LOCK.lock();
-        primes.sort(null);
-        // for (int i : primes)
-        // buf_so.write((i + ", ").getBytes());
-        fString = fString.formatted(primes.size(), thread_count, dt);
-        LOCK.unlock();
-
-        buf_so.write(fString.getBytes());
-
-        buf_so.flush();
 
     }
 
-    private static int sieve(ExecutorService pool) {
+    public static void ifPrime(int[] sieve, int ind) {
+
+        for (int i = ind * ind; i <= input && i > 0; i += ind) {
+            sieve[i - 2] = 0;
+        }
+    }
+
+   private static int sieve(ExecutorService pool) {
         int lim = (int) Math.sqrt(input);
         int arr[] = new int[input - 1];
         Arrays.fill(arr, 1);
