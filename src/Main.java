@@ -96,7 +96,8 @@ public class Main {
         List<Integer> primes = new ArrayList<Integer>();
 
         Instant t0 = Instant.now();
-
+        int[] arr = new int[input - 1];
+        Arrays.fill(arr, 1);
         final List<Integer> IN = IntStream.rangeClosed(2, input).boxed().collect(Collectors.toList());
 
         Threader[] threads = new Threader[thread_count];
