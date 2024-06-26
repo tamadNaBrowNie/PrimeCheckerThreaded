@@ -25,12 +25,15 @@ public class Threader extends Thread {
 
         lock.unlock();
 
-    }  
-    public void add(int n) {arr.add(n);}
+    }
+
+    public void add(int n) {
+        arr.add(n);
+    }
 
     @Override
     public void run() {
-        this.arr.forEach(i -> this.check_prime(i));
+        this.arr.forEach(this::check_prime);
 
     }
 
