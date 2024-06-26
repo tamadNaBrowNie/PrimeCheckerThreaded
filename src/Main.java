@@ -10,11 +10,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.Arrays;
-import java.util.function.Consumer;
-import java.time.Duration;
-import java.time.Instant;
 import java.util.stream.IntStream;
-import java.util.stream.Collectors;
 import java.util.concurrent.Future;
 
 public class Main {
@@ -176,7 +172,6 @@ public class Main {
         for (int i = 2; i <= lim; i++) {
             if (arr[i - 2] == 0)
                 continue;
-
             getMulti(arr, i);
 
         }
@@ -216,6 +211,7 @@ public class Main {
     }
 
     private static void getMulti(int[] arr, Integer ind) {
+
         for (int i = ind * ind; i <= input &&
                 i > 0; i += ind)
             arr[i - 2] = 0;
