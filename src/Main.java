@@ -100,7 +100,7 @@ public class Main {
 
         try {
 
-            String result = fString.formatted(n, thread_count, tF - t0);
+            String result = String.format(fString,n, thread_count, tF - t0);
             buf_so.write(result.getBytes());
 
             buf_so.flush();
