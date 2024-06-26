@@ -4,8 +4,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.function.Consumer;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.stream.IntStream;
@@ -59,7 +62,8 @@ public class Main {
     public static void main(String[] args) {
         boolean o1 = false; // optimisation flag. prevents creating and running unneeded threads.
         final String CYKA = "I/O SNAFU";
-
+        final String fString = "\n%d primes were found.\n%d threads took %d ms \n";
+        
         List<Integer> primes = new ArrayList<Integer>();
         try {
             read();
@@ -101,19 +105,46 @@ public class Main {
 
         Instant tF = Instant.now();
         long dt = Duration.between(t0, tF).toMillis();
-        String fString = "\n%d primes were found.\n%d threads took %d ms \n";
-        fString = fString.formatted(primes.size(), threads.length, dt);
+        String res = String.format(fString,primes.size(), threads.length, dt);
         try {
             for (int i : primes) {
                 buf_so.write((i + ", ").getBytes());
             }
-            buf_so.write(fString.getBytes());
+            buf_so.write(res.getBytes());
 
             buf_so.flush();
         } catch (IOException e) {
             System.out.println(CYKA);
             System.err.println(CYKA + " when displaying results");
         }
+    }
+    private static int sieve(ThreadPoolExecutor pool) {
+        int lim = (int) Math.sqrt(input);
+        int arr[] = new int[input - 1];
+        Arrays.fill(arr, 1);
+        Consumer<Integer> consumer = ind->{
+              for (
+                int i = ind * ind; 
+                i <= input &&
+                i > 0;
+                i += ind
+                ) 
+                arr[i - 2] = 0;
+    };
+        for (int i = 2; i <= lim; i++) {
+            if(arr[i-2] == 1)
+                continue; 
+            if (thread_count <= 1) {
+                consumer.accept(i);
+                continue;
+            }
+            int ind = i;
+            pool.submit(() -> {
+                consumer.accept(ind);
+            });
+
+        }
+        return IntStream.of(arr).sum();
     }
 
     /*
