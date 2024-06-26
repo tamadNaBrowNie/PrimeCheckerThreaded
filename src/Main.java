@@ -72,8 +72,9 @@ public class Main {
         Arrays.fill(sieve, 1);
 
         t0 = System.currentTimeMillis();
-
-        for (int i = 2; i * i < input && i >= 0; i++) {
+        // input is always int. if i*i overflows, then its not the num
+        int lim = (int) Math.sqrt(input);
+        for (int i = 2; i <= lim; i++) {
             if (thread_count <= 1) {
                 ifPrime(sieve, i);
                 continue;
