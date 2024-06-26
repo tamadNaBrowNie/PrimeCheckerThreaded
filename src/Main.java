@@ -6,7 +6,9 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
-
+import java.util.concurrent.ExecutorService;
+import java.util.Arrays;
+import java.util.function.Consumer;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.stream.IntStream;
@@ -134,6 +136,31 @@ public class Main {
 
         buf_so.flush();
 
+    }
+
+    private static int sieve(ExecutorService pool) {
+        int lim = (int) Math.sqrt(input);
+        int arr[] = new int[input - 1];
+        Arrays.fill(arr, 1);
+        Consumer<Integer> consumer = ind -> {
+            for (int i = ind * ind; i <= input &&
+                    i > 0; i += ind)
+                arr[i - 2] = 0;
+        };
+        for (int i = 2; i <= lim; i++) {
+            if (arr[i - 2] == 1)
+                continue;
+            if (thread_count <= 1) {
+                consumer.accept(i);
+                continue;
+            }
+            int ind = i;
+            pool.submit(() -> {
+                consumer.accept(ind);
+            });
+
+        }
+        return IntStream.of(arr).sum();
     }
 
     public static boolean check_prime(int n) {
