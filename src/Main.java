@@ -67,13 +67,17 @@ public class Main {
             System.err.println(CYKA + " when getting input");
             return;
         }
-        ExecutorService pool = Executors.newFixedThreadPool(thread_count);
+
         int sieve[] = new int[input - 1];
         Arrays.fill(sieve, 1);
 
         t0 = System.currentTimeMillis();
+        int lim = (int) Math.sqrt(input);
+        ExecutorService pool = null;
+        if (thread_count > 1)
+            pool = Executors.newFixedThreadPool(thread_count);
+        for (int i = 2; i <= lim; i++) {
 
-        for (int i = 2; i * i < input && i >= 0; i++) {
             if (thread_count <= 1) {
                 ifPrime(sieve, i);
                 continue;
@@ -84,7 +88,7 @@ public class Main {
             });
 
         }
-        if (thread_count > 1) {
+        if (pool != null) {
             pool.shutdown();
             try {
                 while (!pool.awaitTermination(0, TimeUnit.MICROSECONDS))
