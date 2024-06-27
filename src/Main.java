@@ -5,7 +5,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.locks.ReentrantLock;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -20,7 +19,6 @@ public class Main {
             new InputStreamReader(System.in));
     private static OutputStream buf_so = new BufferedOutputStream(System.out);
     private static int thread_count = 1;
-    private static final ReentrantLock LOCK = new ReentrantLock();
 
     private static int getInput(String msg) throws IOException {
 
@@ -58,7 +56,6 @@ public class Main {
 
     }
 
-    private static ExecutorService es;
     private static final String fString = "\n%d primes were found.\n%d threads took %.3f ms \n";
     private static final String CYKA = "I/O SNAFU";
 
@@ -78,7 +75,7 @@ public class Main {
             }
             read();
             buf_in.close();
-            threaded(Main::doTask);
+            doTask();
             buf_so.close();
 
         } catch (IOException e) {
@@ -95,22 +92,20 @@ public class Main {
             for (int j = 0; j < 11; j++) {
                 buf_so.write(("\n in" + input).getBytes());
                 Main.thread_count = 1 << j;
-                threaded(() -> {
-                    for (int k = 0; k < 5; k++) {
+                for (int k = 0; k < 5; k++) {
+                    doTask();
+                }
 
-                        doTask();
-                    }
-                });
             }
         }
     }
 
-    private static void initPool() {
-        if (Main.thread_count > 1)
-            es = Executors.newFixedThreadPool(thread_count);
+    private static ExecutorService initPool() {
+
+        return (Main.thread_count > 1) ? Executors.newFixedThreadPool(thread_count) : null;
     }
 
-    private static void killPool() {
+    private static void killPool(ExecutorService es) {
         if (es != null)
             es.shutdownNow();
     }
@@ -148,7 +143,42 @@ public class Main {
 
         // LOCK.unlock();
         double t0 = System.currentTimeMillis();
-        int n = (thread_count > 1) ? sieve(es) : sieve();
+        int lim = (int) Math.sqrt(input);
+        int arr[] = new int[input - 1];
+        Arrays.fill(arr, 1);
+
+        if (thread_count <= 1) {
+            for (int i = 2; i <= lim; i++) {
+
+                getMulti(arr, i);
+                continue;
+            }
+        } else {
+            List<Future<?>> blocker = new ArrayList<>();
+            ExecutorService es = initPool();
+            for (int i = 2; i <= lim; i++) {
+
+                if (thread_count <= 1) {
+                    getMulti(arr, i);
+                    continue;
+                }
+                int ind = i;
+                blocker.add(
+                        es.submit(() -> {
+                            getMulti(arr, ind);
+                        }));
+            }
+            blocker.forEach(f -> {
+                try {
+                    f.get();
+                } catch (InterruptedException | ExecutionException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            });
+            killPool(es);
+        }
+        int n = IntStream.of(arr).sum();
         double dt = System.currentTimeMillis() - t0;
 
         String str = fString.formatted(n, thread_count, dt);
@@ -165,53 +195,9 @@ public class Main {
 
     }
 
-    private static int sieve() {
-        int lim = (int) Math.sqrt(input);
-        int arr[] = new int[input - 1];
-        Arrays.fill(arr, 1);
-        for (int i = 2; i <= lim; i++) {
-            if (arr[i - 2] == 0)
-                continue;
-            getMulti(arr, i);
-
-        }
-
-        return IntStream.of(arr).sum();
-    }
-
-    private static int sieve(ExecutorService pool) {
-        int lim = (int) Math.sqrt(input);
-        int arr[] = new int[input - 1];
-        List<Future<?>> blocker = new ArrayList<>();
-        Arrays.fill(arr, 1);
-        for (int i = lim; i > 1; i--) {
-            if (arr[i - 2] == 0)
-                continue;
-            int ind = i;
-            blocker.add(
-                    pool.submit(() -> {
-                        getMulti(arr, ind);
-                    }));
-        }
-        blocker.forEach(f -> {
-            try {
-                f.get();
-            } catch (InterruptedException | ExecutionException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-        });
-        return IntStream.of(arr).sum();
-    }
-
-    private static void threaded(Runnable fun) {
-        initPool();
-        fun.run();
-        killPool();
-    }
-
     private static void getMulti(int[] arr, Integer ind) {
-
+        if (arr[ind - 2] == 0)
+            return;
         for (int i = ind * ind; i <= input &&
                 i > 0; i += ind)
             arr[i - 2] = 0;
