@@ -115,58 +115,59 @@ public class Main {
     }
 
     private static void doTask() {
-        // List<Integer> primes = new ArrayList<Integer>();
-
-        // final List<Integer> IN = IntStream.rangeClosed(2,
-        // input).boxed().collect(Collectors.toList());
-
-        // Threader[] threads = new Threader[thread_count];
-
-        // for (int i = 0; i < thread_count; i++) {
-        // threads[i] = new Threader(new ArrayList<Integer>(), primes, LOCK);
-        // }
-
-        // int ind = 0;
-        // for (int i : IN) {
-        // if (ind >= thread_count)
-        // ind = 0;
-        // threads[ind].add(i);
-        // ind++;
-        // }
-
-        // for (Thread t : threads) {
-        // t.start();
-        // }
-        // try {
-        // for (Thread t : threads)
-        // t.join();
-        // } catch (InterruptedException e) {
-        // }
-        // LOCK.lock();
-        // primes.sort(null);
-
-        // LOCK.unlock();
-        double t0 = System.currentTimeMillis();
+        /*
+         * List<Integer> primes = new ArrayList<Integer>();
+         * 
+         * final List<Integer> IN = IntStream.rangeClosed(2,
+         * input).boxed().collect(Collectors.toList());
+         * 
+         * Threader[] threads = new Threader[thread_count];
+         * 
+         * for (int i = 0; i < thread_count; i++) {
+         * threads[i] = new Threader(new ArrayList<Integer>(), primes, LOCK);
+         * }
+         * 
+         * int ind = 0;
+         * for (int i : IN) {
+         * if (ind >= thread_count)
+         * ind = 0;
+         * threads[ind].add(i);
+         * ind++;
+         * }
+         * 
+         * for (Thread t : threads) {
+         * t.start();
+         * }
+         * try {
+         * for (Thread t : threads)
+         * t.join();
+         * } catch (InterruptedException e) {
+         * }
+         * LOCK.lock();
+         * primes.sort(null);
+         * 
+         * LOCK.unlock();
+         */
+        double t0 = System.nanoTime();
         int lim = (int) Math.sqrt(input);
         int arr[] = new int[input - 1];
         Arrays.fill(arr, 1);
 
         if (thread_count <= 1) {
             for (int i = 2; i <= lim; i++) {
-
-                getMulti(arr, i);
-                continue;
+                if (arr[i - 2] == 0)
+                    continue;
+                for (int ind = i * i; ind <= input &&
+                        ind > 0; ind += i)
+                    arr[ind - 2] = 0;
             }
         } else {
             // List<Future<?>> blocker = new ArrayList<>();
             ExecutorService es = initPool();
             for (int i = 2; i <= lim; i++) {
-
-                if (thread_count <= 1) {
-                    getMulti(arr, i);
-                    continue;
-                }
                 int ind = i;
+                if (arr[ind - 2] == 0)
+                    continue;
                 // blocker.add(
                 es.submit(() -> {
                     getMulti(arr, ind);
@@ -177,15 +178,13 @@ public class Main {
             // try {
             // f.get();
             // } catch (InterruptedException | ExecutionException e) {
-            // // TODO Auto-generated catch block
             // e.printStackTrace();
             // }
             // });
             killPool(es);
         }
         int n = IntStream.of(arr).sum();
-        double dt = System.currentTimeMillis() - t0;
-
+        double dt = (System.nanoTime() - t0) / 1000000;
         String str = fString.formatted(n, thread_count, dt);
         try {
             buf_so.write(str.getBytes());
