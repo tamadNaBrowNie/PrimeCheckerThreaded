@@ -3,14 +3,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.Arrays;
 import java.util.stream.IntStream;
-import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 
 public class Main {
     private static final int LIMIT = 10000000;
@@ -107,7 +104,14 @@ public class Main {
 
     private static void killPool(ExecutorService es) {
         if (es != null)
-            es.shutdownNow();
+            es.shutdown();
+        try {
+            while (!es.awaitTermination(0, TimeUnit.MILLISECONDS))
+                ;
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     private static void doTask() {
@@ -154,7 +158,7 @@ public class Main {
                 continue;
             }
         } else {
-            List<Future<?>> blocker = new ArrayList<>();
+            // List<Future<?>> blocker = new ArrayList<>();
             ExecutorService es = initPool();
             for (int i = 2; i <= lim; i++) {
 
@@ -163,19 +167,20 @@ public class Main {
                     continue;
                 }
                 int ind = i;
-                blocker.add(
-                        es.submit(() -> {
-                            getMulti(arr, ind);
-                        }));
+                // blocker.add(
+                es.submit(() -> {
+                    getMulti(arr, ind);
+                });
+                // }));
             }
-            blocker.forEach(f -> {
-                try {
-                    f.get();
-                } catch (InterruptedException | ExecutionException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-            });
+            // blocker.forEach(f -> {
+            // try {
+            // f.get();
+            // } catch (InterruptedException | ExecutionException e) {
+            // // TODO Auto-generated catch block
+            // e.printStackTrace();
+            // }
+            // });
             killPool(es);
         }
         int n = IntStream.of(arr).sum();
