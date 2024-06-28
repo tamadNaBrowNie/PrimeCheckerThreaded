@@ -14,7 +14,7 @@ public class Main {
     private static int input = LIMIT;
     private static BufferedReader buf_in = new BufferedReader(
             new InputStreamReader(System.in));
-    private static OutputStream buf_so = new BufferedOutputStream(System.out);
+    private static OutputStream buf_so = new BufferedOutputStream(System.out, 1 << 16);
     private static int thread_count = 1;
 
     private static int getInput(String msg) throws IOException {
@@ -66,6 +66,7 @@ public class Main {
 
                 buf_in.close();
                 getResults();
+                buf_so.flush();
                 buf_so.close();
 
                 return;
@@ -73,6 +74,7 @@ public class Main {
             read();
             buf_in.close();
             doTask();
+            buf_so.flush();
             buf_so.close();
 
         } catch (IOException e) {
@@ -83,7 +85,7 @@ public class Main {
     }
 
     private static void getResults() throws IOException {
-        int[] inputs = { 67800, 5000000, 99199, 10000000 };
+        int[] inputs = { 23, 67800, 5000000, 10000000 };
         for (int i : inputs) {
             Main.input = i;
             for (int j = 0; j < 11; j++) {
@@ -148,28 +150,37 @@ public class Main {
          * 
          * LOCK.unlock();
          */
-        double t0 = System.nanoTime();
         int lim = (int) Math.sqrt(input);
         int arr[] = new int[input - 1];
         Arrays.fill(arr, 1);
+        double t0 = System.nanoTime();
 
         if (thread_count <= 1) {
             for (int i = 2; i <= lim; i++) {
                 if (arr[i - 2] == 0)
                     continue;
-                for (int ind = i * i; ind <= input &&
-                        ind > 0; ind += i)
-                    arr[ind - 2] = 0;
+                for (long ind = i * i; ind <= input; ind += i) {
+                    int l = (int) ind;
+                    arr[l - 2] = 0;
+                }
             }
         } else {
             // List<Future<?>> blocker = new ArrayList<>();
             ExecutorService es = initPool();
-            for (int i = 2; i <= lim; i++) {
-                int ind = i;
-                if (arr[ind - 2] == 0)
+
+            es.execute(() -> {
+                for (int j = 2; j < arr.length; j += 2) {
+                    arr[j] = 0;
+                }
+            });
+
+            for (int i = 3; i <= lim; i++) {
+                if (arr[i - 2] == 0)
                     continue;
+                int ind = i;
+
                 // blocker.add(
-                es.submit(() -> {
+                es.execute(() -> {
                     getMulti(arr, ind);
                 });
                 // }));
@@ -184,11 +195,11 @@ public class Main {
             killPool(es);
         }
         int n = IntStream.of(arr).sum();
-        double dt = (System.nanoTime() - t0) / 1000000;
+        double dt = ((float) (System.nanoTime() - t0)) * 0.000001;
         String str = fString.formatted(n, thread_count, dt);
         try {
             buf_so.write(str.getBytes());
-            buf_so.flush();
+            // buf_so.flush();
 
         } catch (IOException e) {
             // TODO Auto-generated catch block
@@ -200,11 +211,25 @@ public class Main {
     }
 
     private static void getMulti(int[] arr, Integer ind) {
-        if (arr[ind - 2] == 0)
-            return;
-        for (int i = ind * ind; i <= input &&
-                i > 0; i += ind)
-            arr[i - 2] = 0;
+        /*
+         * foreach (uint prime in small_primes_up_to((uint)Math.Sqrt(n)))
+         * {
+         * uint start = prime * prime, stride = prime;
+         * 
+         * if (start >= m)
+         * start -= m;
+         * else
+         * start = (stride - 1) - (m - start - 1) % stride;
+         * 
+         * for (uint j = start; j < sieve_bits; j += stride)
+         * eliminated[j] = true;
+         * }
+         */
+        for (long i = ind * ind; i <= input && arr[ind - 2] == 1; i += ind) {
+
+            int l = (int) i;
+            arr[l - 2] = 0;
+        }
     }
 
     public static boolean check_prime(int n) {
