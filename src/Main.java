@@ -162,9 +162,9 @@ public class Main {
             for (int i = 2; i <= lim; i++) {
                 if (sieve[i - 2])
                     continue;
-                for (long ind = i * i; ind <= input; ind += i) {
-                    int l = (int) ind;
-                    sieve[l - 2] = true;
+                for (int ind = i * i; ind <= input; ind += i) {
+                    // int l = (int) ind;
+                    sieve[ind - 2] = true;
                 }
             }
         } else {
@@ -194,6 +194,7 @@ public class Main {
         // int n = IntStream.of(sieve).sum();
         int n = 0;
         for (boolean notPrime : sieve) {
+
             if (!notPrime)
                 n++;
         }
@@ -213,24 +214,9 @@ public class Main {
     }
 
     private static void getMulti(boolean[] arr, Integer ind) {
-        /*
-         * foreach (uint prime in small_primes_up_to((uint)Math.Sqrt(n)))
-         * {
-         * uint start = prime * prime, stride = prime;
-         * 
-         * if (start >= m)
-         * start -= m;
-         * else
-         * start = (stride - 1) - (m - start - 1) % stride;
-         * 
-         * for (uint j = start; j < sieve_bits; j += stride)
-         * eliminated[j] = true;
-         * }
-         */
-        for (long i = ind * ind; i <= input && arr[ind - 2] == false; i += ind) {
+        for (int i = ind * ind; i <= input && arr[ind - 2] == false; i += ind) {
 
-            int l = (int) i;
-            arr[l - 2] = true;
+            arr[i - 2] = true;
         }
     }
 
