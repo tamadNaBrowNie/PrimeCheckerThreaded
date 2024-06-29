@@ -14,8 +14,15 @@ public class Threader extends Thread {
         this.master = primes;
     }
 
-    private void check_prime(int n) {
-        if (!Main.check_prime(n)) {
+    public void add(int n) {
+        boolean flag = false;
+        for (int i = 2; i * i <= n && !flag; i++) {
+            if (n % i == 0) {
+                flag = true;
+                break;
+            }
+        }
+        if (flag) {
             return;
         }
 
@@ -24,16 +31,11 @@ public class Threader extends Thread {
         this.master.add(n);
 
         lock.unlock();
-
-    }
-
-    public void add(int n) {
-        arr.add(n);
     }
 
     @Override
     public void run() {
-        this.arr.forEach(this::check_prime);
+        this.arr.forEach(this::add);
 
     }
 
