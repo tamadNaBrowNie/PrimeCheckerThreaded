@@ -7,10 +7,8 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-import java.util.concurrent.locks.ReentrantLock;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.BitSet;
 import java.util.List;
 
 public class Main {
@@ -22,7 +20,6 @@ public class Main {
     private static int thread_count = 1;
 
     private static int getInput(String msg) throws IOException {
-        final ReentrantLock LOCK = new ReentrantLock();
         try {
             buf_so.write(msg.getBytes());
             buf_so.flush();
@@ -157,7 +154,6 @@ public class Main {
          * LOCK.unlock();
          */
         int lim = (int) Math.sqrt(input);
-        BitSet bits = new BitSet(input - 1);
         boolean sieve[] = new boolean[input - 1];
         Arrays.fill(sieve, false);
         double t0 = System.nanoTime();
@@ -235,29 +231,6 @@ public class Main {
 
             int l = (int) i;
             arr[l - 2] = true;
-        }
-    }
-
-    private static void getMulti(BitSet arr, Integer ind) {
-        /*
-         * foreach (uint prime in small_primes_up_to((uint)Math.Sqrt(n)))
-         * {
-         * uint start = prime * prime, stride = prime;
-         * 
-         * if (start >= m)
-         * start -= m;
-         * else
-         * start = (stride - 1) - (m - start - 1) % stride;
-         * 
-         * for (uint j = start; j < sieve_bits; j += stride)
-         * eliminated[j] = true;
-         * }
-         */
-        for (long i = ind * ind; i <= input && arr.get(ind - 2) == false; i += ind) {
-
-            int l = (int) i;
-            arr.set(l - 2, true);
-            // arr[l - 2] = true;
         }
     }
 
