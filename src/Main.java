@@ -3,9 +3,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.IntStream;
 import java.util.concurrent.TimeUnit;
 
@@ -85,7 +89,8 @@ public class Main {
     }
 
     private static void getResults() throws IOException {
-        int[] inputs = { 23, 67800, 5000000, 10000000 };
+        int[] inputs = { 23, 67800, LIMIT / 8, LIMIT / 4, LIMIT / 2, LIMIT - 8,
+                LIMIT };
         for (int i : inputs) {
             Main.input = i;
             for (int j = 0; j < 11; j++) {
@@ -106,14 +111,15 @@ public class Main {
 
     private static void killPool(ExecutorService es) {
         if (es != null)
-            es.shutdown();
-        try {
-            while (!es.awaitTermination(0, TimeUnit.MILLISECONDS))
-                ;
-        } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+            es.shutdownNow();
+        // es.shutdown();
+        // try {
+        // while (!es.awaitTermination(0, TimeUnit.MILLISECONDS))
+        // ;
+        // } catch (InterruptedException e) {
+        // // TODO Auto-generated catch block
+        // e.printStackTrace();
+        // }
     }
 
     private static void doTask() {
@@ -151,50 +157,49 @@ public class Main {
          * LOCK.unlock();
          */
         int lim = (int) Math.sqrt(input);
-        int arr[] = new int[input - 1];
-        Arrays.fill(arr, 1);
+        boolean sieve[] = new boolean[input - 1];
+        Arrays.fill(sieve, false);
         double t0 = System.nanoTime();
 
         if (thread_count <= 1) {
             for (int i = 2; i <= lim; i++) {
-                if (arr[i - 2] == 0)
+                if (sieve[i - 2])
                     continue;
                 for (long ind = i * i; ind <= input; ind += i) {
                     int l = (int) ind;
-                    arr[l - 2] = 0;
+                    sieve[l - 2] = true;
                 }
             }
         } else {
-            // List<Future<?>> blocker = new ArrayList<>();
+            List<Future<?>> blocker = new ArrayList<>();
             ExecutorService es = initPool();
 
-            es.execute(() -> {
-                for (int j = 2; j < arr.length; j += 2) {
-                    arr[j] = 0;
-                }
-            });
-
-            for (int i = 3; i <= lim; i++) {
-                if (arr[i - 2] == 0)
+            for (int i = 2; i <= lim; i++) {
+                if (sieve[i - 2])
                     continue;
                 int ind = i;
 
-                // blocker.add(
-                es.execute(() -> {
-                    getMulti(arr, ind);
-                });
-                // }));
+                blocker.add(
+                        es.submit(() -> {
+                            getMulti(sieve, ind);
+                        }));
             }
-            // blocker.forEach(f -> {
-            // try {
-            // f.get();
-            // } catch (InterruptedException | ExecutionException e) {
-            // e.printStackTrace();
-            // }
-            // });
+            blocker.forEach(f -> {
+                try {
+                    f.get();
+                } catch (InterruptedException | ExecutionException e) {
+                    e.printStackTrace();
+                }
+            });
             killPool(es);
         }
-        int n = IntStream.of(arr).sum();
+
+        // int n = IntStream.of(sieve).sum();
+        int n = 0;
+        for (boolean notPrime : sieve) {
+            if (!notPrime)
+                n++;
+        }
         double dt = ((float) (System.nanoTime() - t0)) * 0.000001;
         String str = fString.formatted(n, thread_count, dt);
         try {
@@ -210,7 +215,7 @@ public class Main {
 
     }
 
-    private static void getMulti(int[] arr, Integer ind) {
+    private static void getMulti(boolean[] arr, Integer ind) {
         /*
          * foreach (uint prime in small_primes_up_to((uint)Math.Sqrt(n)))
          * {
@@ -225,10 +230,10 @@ public class Main {
          * eliminated[j] = true;
          * }
          */
-        for (long i = ind * ind; i <= input && arr[ind - 2] == 1; i += ind) {
+        for (long i = ind * ind; i <= input && arr[ind - 2] == false; i += ind) {
 
             int l = (int) i;
-            arr[l - 2] = 0;
+            arr[l - 2] = true;
         }
     }
 
