@@ -7,6 +7,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -25,13 +26,24 @@ public class Main {
         try {
             buf_so.write(msg.getBytes());
             buf_so.flush();
-            return Integer.parseInt(buf_in.readLine());
+            int ans = Integer.parseInt(buf_in.readLine());
+
+            return ans;
         } catch (NumberFormatException f) {
 
             System.out.println("Input not a number");
 
         }
+        // buf_in.readLine();
         return getInput(msg);
+    }
+
+    private static String getString(String msg) throws IOException {
+
+        buf_so.write(msg.getBytes());
+        buf_so.flush();
+        return buf_in.readLine();
+
     }
 
     private static void read() throws IOException {
@@ -64,12 +76,12 @@ public class Main {
         boolean scripted = false;
 
         try {
-            scripted = getInput("Automate?") != 0;
+            scripted = getInput("Automate? 0 for no, else yes") != 0;
             if (scripted) {
-
+                String where = getString("Write where?");
                 buf_in.close();
                 buf_so.close();
-                buf_so = new BufferedOutputStream(new FileOutputStream("test.txt"));
+                buf_so = new BufferedOutputStream(new FileOutputStream(where));
                 getResults();
                 buf_so.flush();
                 buf_so.close();
@@ -113,14 +125,6 @@ public class Main {
     private static void killPool(ExecutorService es) {
         if (es != null)
             es.shutdownNow();
-        // es.shutdown();
-        // try {
-        // while (!es.awaitTermination(0, TimeUnit.MILLISECONDS))
-        // ;
-        // } catch (InterruptedException e) {
-        // // TODO Auto-generated catch block
-        // e.printStackTrace();
-        // }
     }
 
     private static void getter(Future<?> f) {
