@@ -20,6 +20,7 @@ public class Main {
     private static int thread_count = 1;
 
     private static int getInput(String msg) throws IOException {
+
         try {
             buf_so.write(msg.getBytes());
             buf_so.flush();
@@ -119,6 +120,14 @@ public class Main {
         // }
     }
 
+    private static void getter(Future<?> f) {
+        try {
+            f.get();
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+    };
+
     private static void doTask() {
         /*
          * List<Integer> primes = new ArrayList<Integer>();
@@ -162,9 +171,9 @@ public class Main {
             for (int i = 2; i <= lim; i++) {
                 if (sieve[i - 2])
                     continue;
-                for (int ind = i * i; ind <= input; ind += i) {
-                    // int l = (int) ind;
-                    sieve[ind - 2] = true;
+                for (long ind = i * i; ind <= input; ind += i) {
+                    int l = (int) ind;
+                    sieve[l - 2] = true;
                 }
             }
         } else {
@@ -181,20 +190,14 @@ public class Main {
                             getMulti(sieve, ind);
                         }));
             }
-            blocker.forEach(f -> {
-                try {
-                    f.get();
-                } catch (InterruptedException | ExecutionException e) {
-                    e.printStackTrace();
-                }
-            });
+
+            blocker.forEach(Main::getter);
             killPool(es);
         }
 
         // int n = IntStream.of(sieve).sum();
         int n = 0;
         for (boolean notPrime : sieve) {
-
             if (!notPrime)
                 n++;
         }
@@ -214,9 +217,11 @@ public class Main {
     }
 
     private static void getMulti(boolean[] arr, Integer ind) {
-        for (int i = ind * ind; i <= input && arr[ind - 2] == false; i += ind) {
 
-            arr[i - 2] = true;
+        for (long i = ind * ind; i <= input && arr[ind - 2] == false; i += ind) {
+
+            int l = (int) i;
+            arr[l - 2] = true;
         }
     }
 
