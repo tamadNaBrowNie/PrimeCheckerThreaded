@@ -102,7 +102,7 @@ public class Main {
     }
 
     private static void getResults() throws IOException {
-        int[] inputs = { 23, 67800, LIMIT / 8, LIMIT / 4, LIMIT / 2, LIMIT - 8,
+        int[] inputs = { 2, 3, 4, 523, 67800, LIMIT / 8, LIMIT / 4, LIMIT / 2, LIMIT - 8,
                 LIMIT };
         for (int i : inputs) {
             Main.input = i;
@@ -169,11 +169,10 @@ public class Main {
          * 
          * LOCK.unlock();
          */
+
+        double t0 = System.nanoTime();
         int lim = (int) Math.sqrt(input);
         boolean sieve[] = new boolean[input - 1];
-        Arrays.fill(sieve, false);
-        double t0 = System.nanoTime();
-
         if (thread_count <= 1) {
             for (int i = 2; i <= lim; i++) {
                 if (sieve[i - 2])
@@ -212,10 +211,8 @@ public class Main {
         String str = fString.formatted(n, thread_count, dt);
         try {
             buf_so.write(str.getBytes());
-            // buf_so.flush();
 
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             System.out.println(CYKA);
             System.err.println(CYKA + " when getting input");
             e.printStackTrace();
