@@ -10,6 +10,7 @@ import java.util.concurrent.Future;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.io.FileOutputStream;
 
 public class Main {
     private static final int LIMIT = 10000000;
@@ -55,7 +56,7 @@ public class Main {
 
     }
 
-    private static final String fString = "\n%d primes were found.\n%d threads took %.3f ms \n";
+    private static final String fString = "\n%d primes were found. %d threads took %.3f ms \n";
     private static final String CYKA = "I/O SNAFU";
 
     public static void main(String[] args) {
@@ -67,6 +68,8 @@ public class Main {
             if (scripted) {
 
                 buf_in.close();
+                buf_so.close();
+                buf_so = new BufferedOutputStream(new FileOutputStream("test.txt"));
                 getResults();
                 buf_so.flush();
                 buf_so.close();
