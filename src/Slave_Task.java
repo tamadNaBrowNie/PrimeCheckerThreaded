@@ -32,8 +32,7 @@ public class Slave_Task extends UnicastRemoteObject implements Slave_Interface {
 
     @Override
     public String doTask(int input, int count) throws RemoteException {
-        // TODO Auto-generated method stub
-        double t0 = System.nanoTime();
+
         int lim = (int) Math.sqrt(input);
         boolean sieve[] = new boolean[input - 1];
         if (count <= 1) {
@@ -69,9 +68,9 @@ public class Slave_Task extends UnicastRemoteObject implements Slave_Interface {
                 n++;
         }
 
-        final String fString = "%d primes were found. %d threads took %.3f ms";
-        double dt = ((float) (System.nanoTime() - t0)) * 0.000001;
-        return fString.formatted(n, count, dt);
+        final String fString = " %d primes were found. %d threads";
+
+        return fString.formatted(n, count);
 
     }
 

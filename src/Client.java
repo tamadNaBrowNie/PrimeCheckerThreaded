@@ -85,7 +85,10 @@ public class Client {
                 int input = getInput(buf_in, buf_so);
                 int thread_count = getPow(buf_in, buf_so);
                 buf_in.close();
+                double t0 = System.nanoTime(), dt;
                 String str = job.delegate(input, thread_count);
+                dt = System.nanoTime() - t0;
+                str.concat(String.format(" took %.3f ", dt * (10 ^ -6)));
                 try {
                     buf_so.write(str.getBytes());
 
@@ -113,12 +116,19 @@ public class Client {
         StringJoiner str = new StringJoiner("\n\n");
         int[] inputs = { 2, 3, 4, 523, 67800, LIMIT / 8, LIMIT / 4, LIMIT / 2, LIMIT - 8,
                 LIMIT };
+        double t0, tf, dt;
         for (int i : inputs) {
             for (int j = 0; j < 11; j++) {
                 str.add("\nin " + i);
                 int count = 1 << j;
                 for (int k = 0; k < 5; k++) {
-                    str.add(job.delegate(i, count));
+                    t0 = System.nanoTime();
+                    String log = job.delegate(i, count);
+                    tf = System.nanoTime();
+                    dt = (tf - t0) * (10 ^ -6);
+                    log.concat(String.format(" took %.3f \n", dt));
+                    str.add(log);
+                    t0 = tf;
                 }
             }
         }
