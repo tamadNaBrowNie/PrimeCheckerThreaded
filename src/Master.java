@@ -1,9 +1,10 @@
-import java.rmi.RemoteException;
 import java.net.MalformedURLException;
 import java.rmi.*;
 
 public class Master {
     public static void main(String[] args) {
+
+        // TODO: THREAD DIS
         try {
             Master_job cmd = new Master_job();
             Naming.rebind(null, cmd);
