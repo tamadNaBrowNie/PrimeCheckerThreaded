@@ -17,7 +17,7 @@ public class Master_job extends UnicastRemoteObject implements Master_interface 
     public String delegate(int i, int count) throws RemoteException {
         ExecutorService es = Executors.newFixedThreadPool(count);
         try {
-            System.out.println("Orders Received");
+            // System.out.println("Orders Received");
             Slave_Interface job = (Slave_Interface) Naming.lookup("//localhost:2020/slave");
             if (count <= 1) {
                 return job.doTask(i, count);
