@@ -14,11 +14,11 @@ public class Master_job extends UnicastRemoteObject implements Master_interface 
     }
 
     @Override
-    public String delegate(int i, int count, String slave) throws RemoteException {
+    public String delegate(int i, int count) throws RemoteException {
         ExecutorService es = Executors.newFixedThreadPool(count);
         try {
 
-            Slave_Task job = (Slave_Task) Naming.lookup(slave);
+            Slave_Task job = (Slave_Task) Naming.lookup("//localhost:2020/slave");
             Future<String> task = es.submit(new Callable<String>() {
 
                 @Override

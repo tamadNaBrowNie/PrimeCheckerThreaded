@@ -68,7 +68,8 @@ public class Client {
             boolean scripted = false;
 
             try {
-                String master = getString(buf_in, "master url"), slave = getString(buf_in, "slave url");
+                String master = getString(buf_in, "master url"),
+                        slave = getString(buf_in, "slave url");
                 Master_job job;
                 scripted = getInput(buf_in, buf_so, "Automate? 0 for no, else yes") != 0;
                 if (scripted) {
@@ -91,7 +92,8 @@ public class Client {
                 double t0 = System.nanoTime(), dt;
                 System.out.println("waiting for master");
                 job = (Master_job) Naming.lookup(master);
-                String str = job.delegate(input, thread_count, slave);
+                // String str = job.delegate(input, thread_count, slave);
+                String str = job.delegate(input, thread_count);
                 dt = System.nanoTime() - t0;
                 str.concat(String.format(" took %.3f ", dt * (10 ^ -6)));
                 try {
@@ -127,7 +129,8 @@ public class Client {
                 int count = 1 << j;
                 for (int k = 0; k < 5; k++) {
                     t0 = System.nanoTime();
-                    String log = job.delegate(i, count, slave);
+                    // String log = job.delegate(i, count, slave);
+                    String log = job.delegate(i, count);
                     tf = System.nanoTime();
                     dt = (tf - t0) * (10 ^ -6);
                     log.concat(String.format(" took %.3f \n", dt));
