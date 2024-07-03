@@ -1,0 +1,1429 @@
+
+in 2
+
+1 primes were found. 1 threads took 0.033 ms
+
+1 primes were found. 1 threads took 0.001 ms
+
+1 primes were found. 1 threads took 0.001 ms
+
+1 primes were found. 1 threads took 0.001 ms
+
+1 primes were found. 1 threads took 0.001 ms
+
+
+in 2
+
+1 primes were found. 2 threads took 1.976 ms
+
+1 primes were found. 2 threads took 0.031 ms
+
+1 primes were found. 2 threads took 0.030 ms
+
+1 primes were found. 2 threads took 0.028 ms
+
+1 primes were found. 2 threads took 0.068 ms
+
+
+in 2
+
+1 primes were found. 4 threads took 0.030 ms
+
+1 primes were found. 4 threads took 0.026 ms
+
+1 primes were found. 4 threads took 0.027 ms
+
+1 primes were found. 4 threads took 0.025 ms
+
+1 primes were found. 4 threads took 0.031 ms
+
+
+in 2
+
+1 primes were found. 8 threads took 0.029 ms
+
+1 primes were found. 8 threads took 0.026 ms
+
+1 primes were found. 8 threads took 0.025 ms
+
+1 primes were found. 8 threads took 0.028 ms
+
+1 primes were found. 8 threads took 0.030 ms
+
+
+in 2
+
+1 primes were found. 16 threads took 0.028 ms
+
+1 primes were found. 16 threads took 0.027 ms
+
+1 primes were found. 16 threads took 0.026 ms
+
+1 primes were found. 16 threads took 0.026 ms
+
+1 primes were found. 16 threads took 0.025 ms
+
+
+in 2
+
+1 primes were found. 32 threads took 0.033 ms
+
+1 primes were found. 32 threads took 0.027 ms
+
+1 primes were found. 32 threads took 0.026 ms
+
+1 primes were found. 32 threads took 0.035 ms
+
+1 primes were found. 32 threads took 0.025 ms
+
+
+in 2
+
+1 primes were found. 64 threads took 0.027 ms
+
+1 primes were found. 64 threads took 0.024 ms
+
+1 primes were found. 64 threads took 0.026 ms
+
+1 primes were found. 64 threads took 0.024 ms
+
+1 primes were found. 64 threads took 0.023 ms
+
+
+in 2
+
+1 primes were found. 128 threads took 0.047 ms
+
+1 primes were found. 128 threads took 0.026 ms
+
+1 primes were found. 128 threads took 0.024 ms
+
+1 primes were found. 128 threads took 0.023 ms
+
+1 primes were found. 128 threads took 0.034 ms
+
+
+in 2
+
+1 primes were found. 256 threads took 0.029 ms
+
+1 primes were found. 256 threads took 0.024 ms
+
+1 primes were found. 256 threads took 0.024 ms
+
+1 primes were found. 256 threads took 0.024 ms
+
+1 primes were found. 256 threads took 0.025 ms
+
+
+in 2
+
+1 primes were found. 512 threads took 0.027 ms
+
+1 primes were found. 512 threads took 0.024 ms
+
+1 primes were found. 512 threads took 0.023 ms
+
+1 primes were found. 512 threads took 0.023 ms
+
+1 primes were found. 512 threads took 0.024 ms
+
+
+in 2
+
+1 primes were found. 1024 threads took 0.025 ms
+
+1 primes were found. 1024 threads took 0.024 ms
+
+1 primes were found. 1024 threads took 0.024 ms
+
+1 primes were found. 1024 threads took 0.024 ms
+
+1 primes were found. 1024 threads took 0.024 ms
+
+
+in 3
+
+2 primes were found. 1 threads took 0.001 ms
+
+2 primes were found. 1 threads took 0.001 ms
+
+2 primes were found. 1 threads took 0.001 ms
+
+2 primes were found. 1 threads took 0.003 ms
+
+2 primes were found. 1 threads took 0.001 ms
+
+
+in 3
+
+2 primes were found. 2 threads took 0.028 ms
+
+2 primes were found. 2 threads took 0.025 ms
+
+2 primes were found. 2 threads took 0.026 ms
+
+2 primes were found. 2 threads took 0.026 ms
+
+2 primes were found. 2 threads took 0.024 ms
+
+
+in 3
+
+2 primes were found. 4 threads took 0.024 ms
+
+2 primes were found. 4 threads took 0.056 ms
+
+2 primes were found. 4 threads took 0.034 ms
+
+2 primes were found. 4 threads took 0.025 ms
+
+2 primes were found. 4 threads took 0.035 ms
+
+
+in 3
+
+2 primes were found. 8 threads took 0.025 ms
+
+2 primes were found. 8 threads took 0.026 ms
+
+2 primes were found. 8 threads took 0.046 ms
+
+2 primes were found. 8 threads took 0.072 ms
+
+2 primes were found. 8 threads took 0.030 ms
+
+
+in 3
+
+2 primes were found. 16 threads took 0.033 ms
+
+2 primes were found. 16 threads took 0.036 ms
+
+2 primes were found. 16 threads took 0.032 ms
+
+2 primes were found. 16 threads took 0.024 ms
+
+2 primes were found. 16 threads took 0.025 ms
+
+
+in 3
+
+2 primes were found. 32 threads took 0.026 ms
+
+2 primes were found. 32 threads took 0.025 ms
+
+2 primes were found. 32 threads took 0.025 ms
+
+2 primes were found. 32 threads took 0.024 ms
+
+2 primes were found. 32 threads took 0.024 ms
+
+
+in 3
+
+2 primes were found. 64 threads took 0.023 ms
+
+2 primes were found. 64 threads took 0.025 ms
+
+2 primes were found. 64 threads took 0.027 ms
+
+2 primes were found. 64 threads took 0.023 ms
+
+2 primes were found. 64 threads took 0.023 ms
+
+
+in 3
+
+2 primes were found. 128 threads took 0.023 ms
+
+2 primes were found. 128 threads took 0.025 ms
+
+2 primes were found. 128 threads took 0.027 ms
+
+2 primes were found. 128 threads took 0.024 ms
+
+2 primes were found. 128 threads took 0.022 ms
+
+
+in 3
+
+2 primes were found. 256 threads took 0.025 ms
+
+2 primes were found. 256 threads took 0.023 ms
+
+2 primes were found. 256 threads took 0.024 ms
+
+2 primes were found. 256 threads took 0.023 ms
+
+2 primes were found. 256 threads took 0.022 ms
+
+
+in 3
+
+2 primes were found. 512 threads took 0.022 ms
+
+2 primes were found. 512 threads took 0.023 ms
+
+2 primes were found. 512 threads took 0.025 ms
+
+2 primes were found. 512 threads took 0.022 ms
+
+2 primes were found. 512 threads took 0.023 ms
+
+
+in 3
+
+2 primes were found. 1024 threads took 0.022 ms
+
+2 primes were found. 1024 threads took 0.022 ms
+
+2 primes were found. 1024 threads took 0.023 ms
+
+2 primes were found. 1024 threads took 0.024 ms
+
+2 primes were found. 1024 threads took 0.040 ms
+
+
+in 4
+
+2 primes were found. 1 threads took 0.001 ms
+
+2 primes were found. 1 threads took 0.001 ms
+
+2 primes were found. 1 threads took 0.001 ms
+
+2 primes were found. 1 threads took 0.001 ms
+
+2 primes were found. 1 threads took 0.001 ms
+
+
+in 4
+
+2 primes were found. 2 threads took 3.122 ms
+
+2 primes were found. 2 threads took 0.583 ms
+
+2 primes were found. 2 threads took 0.360 ms
+
+2 primes were found. 2 threads took 0.231 ms
+
+2 primes were found. 2 threads took 0.295 ms
+
+
+in 4
+
+2 primes were found. 4 threads took 0.286 ms
+
+2 primes were found. 4 threads took 0.428 ms
+
+2 primes were found. 4 threads took 0.281 ms
+
+2 primes were found. 4 threads took 0.663 ms
+
+2 primes were found. 4 threads took 0.477 ms
+
+
+in 4
+
+2 primes were found. 8 threads took 0.281 ms
+
+2 primes were found. 8 threads took 0.299 ms
+
+2 primes were found. 8 threads took 0.249 ms
+
+2 primes were found. 8 threads took 0.793 ms
+
+2 primes were found. 8 threads took 0.297 ms
+
+
+in 4
+
+2 primes were found. 16 threads took 0.238 ms
+
+2 primes were found. 16 threads took 0.545 ms
+
+2 primes were found. 16 threads took 0.356 ms
+
+2 primes were found. 16 threads took 0.256 ms
+
+2 primes were found. 16 threads took 0.256 ms
+
+
+in 4
+
+2 primes were found. 32 threads took 0.293 ms
+
+2 primes were found. 32 threads took 0.260 ms
+
+2 primes were found. 32 threads took 0.218 ms
+
+2 primes were found. 32 threads took 0.500 ms
+
+2 primes were found. 32 threads took 0.414 ms
+
+
+in 4
+
+2 primes were found. 64 threads took 0.467 ms
+
+2 primes were found. 64 threads took 0.392 ms
+
+2 primes were found. 64 threads took 0.274 ms
+
+2 primes were found. 64 threads took 0.269 ms
+
+2 primes were found. 64 threads took 0.229 ms
+
+
+in 4
+
+2 primes were found. 128 threads took 0.226 ms
+
+2 primes were found. 128 threads took 0.273 ms
+
+2 primes were found. 128 threads took 0.219 ms
+
+2 primes were found. 128 threads took 0.217 ms
+
+2 primes were found. 128 threads took 0.251 ms
+
+
+in 4
+
+2 primes were found. 256 threads took 0.191 ms
+
+2 primes were found. 256 threads took 0.192 ms
+
+2 primes were found. 256 threads took 0.208 ms
+
+2 primes were found. 256 threads took 0.246 ms
+
+2 primes were found. 256 threads took 0.231 ms
+
+
+in 4
+
+2 primes were found. 512 threads took 0.221 ms
+
+2 primes were found. 512 threads took 0.219 ms
+
+2 primes were found. 512 threads took 0.194 ms
+
+2 primes were found. 512 threads took 0.265 ms
+
+2 primes were found. 512 threads took 0.250 ms
+
+
+in 4
+
+2 primes were found. 1024 threads took 0.275 ms
+
+2 primes were found. 1024 threads took 0.214 ms
+
+2 primes were found. 1024 threads took 0.236 ms
+
+2 primes were found. 1024 threads took 0.208 ms
+
+2 primes were found. 1024 threads took 0.199 ms
+
+
+in 523
+
+99 primes were found. 1 threads took 0.020 ms
+
+99 primes were found. 1 threads took 0.027 ms
+
+99 primes were found. 1 threads took 0.019 ms
+
+99 primes were found. 1 threads took 0.019 ms
+
+99 primes were found. 1 threads took 0.019 ms
+
+
+in 523
+
+99 primes were found. 2 threads took 0.321 ms
+
+99 primes were found. 2 threads took 0.444 ms
+
+99 primes were found. 2 threads took 1.065 ms
+
+99 primes were found. 2 threads took 0.371 ms
+
+99 primes were found. 2 threads took 0.382 ms
+
+
+in 523
+
+99 primes were found. 4 threads took 0.674 ms
+
+99 primes were found. 4 threads took 0.783 ms
+
+99 primes were found. 4 threads took 0.490 ms
+
+99 primes were found. 4 threads took 0.636 ms
+
+99 primes were found. 4 threads took 0.695 ms
+
+
+in 523
+
+99 primes were found. 8 threads took 2.804 ms
+
+99 primes were found. 8 threads took 0.933 ms
+
+99 primes were found. 8 threads took 0.837 ms
+
+99 primes were found. 8 threads took 0.919 ms
+
+99 primes were found. 8 threads took 0.886 ms
+
+
+in 523
+
+99 primes were found. 16 threads took 1.208 ms
+
+99 primes were found. 16 threads took 0.932 ms
+
+99 primes were found. 16 threads took 1.002 ms
+
+99 primes were found. 16 threads took 1.296 ms
+
+99 primes were found. 16 threads took 0.958 ms
+
+
+in 523
+
+99 primes were found. 32 threads took 0.919 ms
+
+99 primes were found. 32 threads took 1.147 ms
+
+99 primes were found. 32 threads took 0.905 ms
+
+99 primes were found. 32 threads took 0.861 ms
+
+99 primes were found. 32 threads took 0.811 ms
+
+
+in 523
+
+99 primes were found. 64 threads took 0.858 ms
+
+99 primes were found. 64 threads took 0.819 ms
+
+99 primes were found. 64 threads took 0.801 ms
+
+99 primes were found. 64 threads took 0.771 ms
+
+99 primes were found. 64 threads took 0.916 ms
+
+
+in 523
+
+99 primes were found. 128 threads took 0.929 ms
+
+99 primes were found. 128 threads took 0.974 ms
+
+99 primes were found. 128 threads took 0.896 ms
+
+99 primes were found. 128 threads took 0.810 ms
+
+99 primes were found. 128 threads took 0.912 ms
+
+
+in 523
+
+99 primes were found. 256 threads took 0.900 ms
+
+99 primes were found. 256 threads took 0.844 ms
+
+99 primes were found. 256 threads took 1.947 ms
+
+99 primes were found. 256 threads took 0.925 ms
+
+99 primes were found. 256 threads took 0.846 ms
+
+
+in 523
+
+99 primes were found. 512 threads took 0.767 ms
+
+99 primes were found. 512 threads took 0.834 ms
+
+99 primes were found. 512 threads took 0.869 ms
+
+99 primes were found. 512 threads took 0.951 ms
+
+99 primes were found. 512 threads took 0.813 ms
+
+
+in 523
+
+99 primes were found. 1024 threads took 0.919 ms
+
+99 primes were found. 1024 threads took 0.747 ms
+
+99 primes were found. 1024 threads took 0.837 ms
+
+99 primes were found. 1024 threads took 0.817 ms
+
+99 primes were found. 1024 threads took 0.853 ms
+
+
+in 67800
+
+6753 primes were found. 1 threads took 0.649 ms
+
+6753 primes were found. 1 threads took 0.647 ms
+
+6753 primes were found. 1 threads took 0.635 ms
+
+6753 primes were found. 1 threads took 0.734 ms
+
+6753 primes were found. 1 threads took 0.653 ms
+
+
+in 67800
+
+6753 primes were found. 2 threads took 3.905 ms
+
+6753 primes were found. 2 threads took 0.921 ms
+
+6753 primes were found. 2 threads took 0.816 ms
+
+6753 primes were found. 2 threads took 0.853 ms
+
+6753 primes were found. 2 threads took 0.783 ms
+
+
+in 67800
+
+6753 primes were found. 4 threads took 0.878 ms
+
+6753 primes were found. 4 threads took 0.883 ms
+
+6753 primes were found. 4 threads took 0.802 ms
+
+6753 primes were found. 4 threads took 0.748 ms
+
+6753 primes were found. 4 threads took 0.865 ms
+
+
+in 67800
+
+6753 primes were found. 8 threads took 1.057 ms
+
+6753 primes were found. 8 threads took 1.106 ms
+
+6753 primes were found. 8 threads took 1.138 ms
+
+6753 primes were found. 8 threads took 1.111 ms
+
+6753 primes were found. 8 threads took 1.163 ms
+
+
+in 67800
+
+6753 primes were found. 16 threads took 1.979 ms
+
+6753 primes were found. 16 threads took 2.168 ms
+
+6753 primes were found. 16 threads took 1.682 ms
+
+6753 primes were found. 16 threads took 1.752 ms
+
+6753 primes were found. 16 threads took 1.782 ms
+
+
+in 67800
+
+6753 primes were found. 32 threads took 2.898 ms
+
+6753 primes were found. 32 threads took 2.820 ms
+
+6753 primes were found. 32 threads took 2.685 ms
+
+6753 primes were found. 32 threads took 3.927 ms
+
+6753 primes were found. 32 threads took 2.717 ms
+
+
+in 67800
+
+6753 primes were found. 64 threads took 4.632 ms
+
+6753 primes were found. 64 threads took 4.870 ms
+
+6753 primes were found. 64 threads took 4.470 ms
+
+6753 primes were found. 64 threads took 4.312 ms
+
+6753 primes were found. 64 threads took 4.354 ms
+
+
+in 67800
+
+6753 primes were found. 128 threads took 4.513 ms
+
+6753 primes were found. 128 threads took 4.920 ms
+
+6753 primes were found. 128 threads took 3.890 ms
+
+6753 primes were found. 128 threads took 5.186 ms
+
+6753 primes were found. 128 threads took 3.521 ms
+
+
+in 67800
+
+6753 primes were found. 256 threads took 4.480 ms
+
+6753 primes were found. 256 threads took 3.812 ms
+
+6753 primes were found. 256 threads took 4.118 ms
+
+6753 primes were found. 256 threads took 3.947 ms
+
+6753 primes were found. 256 threads took 3.926 ms
+
+
+in 67800
+
+6753 primes were found. 512 threads took 4.921 ms
+
+6753 primes were found. 512 threads took 3.541 ms
+
+6753 primes were found. 512 threads took 5.356 ms
+
+6753 primes were found. 512 threads took 4.218 ms
+
+6753 primes were found. 512 threads took 4.628 ms
+
+
+in 67800
+
+6753 primes were found. 1024 threads took 3.815 ms
+
+6753 primes were found. 1024 threads took 4.041 ms
+
+6753 primes were found. 1024 threads took 4.246 ms
+
+6753 primes were found. 1024 threads took 3.745 ms
+
+6753 primes were found. 1024 threads took 4.063 ms
+
+
+in 12500000
+
+818703 primes were found. 1 threads took 66.136 ms
+
+818703 primes were found. 1 threads took 64.089 ms
+
+818703 primes were found. 1 threads took 72.280 ms
+
+818703 primes were found. 1 threads took 69.644 ms
+
+818703 primes were found. 1 threads took 71.415 ms
+
+
+in 12500000
+
+818703 primes were found. 2 threads took 57.000 ms
+
+818703 primes were found. 2 threads took 69.660 ms
+
+818703 primes were found. 2 threads took 55.022 ms
+
+818703 primes were found. 2 threads took 50.621 ms
+
+818703 primes were found. 2 threads took 45.297 ms
+
+
+in 12500000
+
+818703 primes were found. 4 threads took 35.933 ms
+
+818703 primes were found. 4 threads took 36.567 ms
+
+818703 primes were found. 4 threads took 36.099 ms
+
+818703 primes were found. 4 threads took 35.600 ms
+
+818703 primes were found. 4 threads took 35.680 ms
+
+
+in 12500000
+
+818703 primes were found. 8 threads took 41.786 ms
+
+818703 primes were found. 8 threads took 74.245 ms
+
+818703 primes were found. 8 threads took 58.424 ms
+
+818703 primes were found. 8 threads took 48.078 ms
+
+818703 primes were found. 8 threads took 66.392 ms
+
+
+in 12500000
+
+818703 primes were found. 16 threads took 49.809 ms
+
+818703 primes were found. 16 threads took 72.682 ms
+
+818703 primes were found. 16 threads took 39.510 ms
+
+818703 primes were found. 16 threads took 52.610 ms
+
+818703 primes were found. 16 threads took 46.154 ms
+
+
+in 12500000
+
+818703 primes were found. 32 threads took 38.940 ms
+
+818703 primes were found. 32 threads took 37.340 ms
+
+818703 primes were found. 32 threads took 36.808 ms
+
+818703 primes were found. 32 threads took 36.753 ms
+
+818703 primes were found. 32 threads took 36.059 ms
+
+
+in 12500000
+
+818703 primes were found. 64 threads took 40.175 ms
+
+818703 primes were found. 64 threads took 44.726 ms
+
+818703 primes were found. 64 threads took 43.491 ms
+
+818703 primes were found. 64 threads took 34.796 ms
+
+818703 primes were found. 64 threads took 36.433 ms
+
+
+in 12500000
+
+818703 primes were found. 128 threads took 47.997 ms
+
+818703 primes were found. 128 threads took 60.640 ms
+
+818703 primes were found. 128 threads took 48.155 ms
+
+818703 primes were found. 128 threads took 49.067 ms
+
+818703 primes were found. 128 threads took 54.064 ms
+
+
+in 12500000
+
+818703 primes were found. 256 threads took 79.768 ms
+
+818703 primes were found. 256 threads took 85.982 ms
+
+818703 primes were found. 256 threads took 62.198 ms
+
+818703 primes were found. 256 threads took 46.085 ms
+
+818703 primes were found. 256 threads took 50.655 ms
+
+
+in 12500000
+
+818703 primes were found. 512 threads took 67.357 ms
+
+818703 primes were found. 512 threads took 65.774 ms
+
+818703 primes were found. 512 threads took 60.835 ms
+
+818703 primes were found. 512 threads took 58.374 ms
+
+818703 primes were found. 512 threads took 57.268 ms
+
+
+in 12500000
+
+818703 primes were found. 1024 threads took 58.980 ms
+
+818703 primes were found. 1024 threads took 56.474 ms
+
+818703 primes were found. 1024 threads took 59.082 ms
+
+818703 primes were found. 1024 threads took 68.504 ms
+
+818703 primes were found. 1024 threads took 57.619 ms
+
+
+in 25000000
+
+1565927 primes were found. 1 threads took 187.926 ms
+
+1565927 primes were found. 1 threads took 186.423 ms
+
+1565927 primes were found. 1 threads took 173.877 ms
+
+1565927 primes were found. 1 threads took 171.407 ms
+
+1565927 primes were found. 1 threads took 170.429 ms
+
+
+in 25000000
+
+1565927 primes were found. 2 threads took 129.631 ms
+
+1565927 primes were found. 2 threads took 131.056 ms
+
+1565927 primes were found. 2 threads took 131.228 ms
+
+1565927 primes were found. 2 threads took 128.678 ms
+
+1565927 primes were found. 2 threads took 131.030 ms
+
+
+in 25000000
+
+1565927 primes were found. 4 threads took 104.111 ms
+
+1565927 primes were found. 4 threads took 103.687 ms
+
+1565927 primes were found. 4 threads took 105.801 ms
+
+1565927 primes were found. 4 threads took 95.927 ms
+
+1565927 primes were found. 4 threads took 99.771 ms
+
+
+in 25000000
+
+1565927 primes were found. 8 threads took 95.803 ms
+
+1565927 primes were found. 8 threads took 103.205 ms
+
+1565927 primes were found. 8 threads took 97.423 ms
+
+1565927 primes were found. 8 threads took 104.964 ms
+
+1565927 primes were found. 8 threads took 99.894 ms
+
+
+in 25000000
+
+1565927 primes were found. 16 threads took 113.752 ms
+
+1565927 primes were found. 16 threads took 112.043 ms
+
+1565927 primes were found. 16 threads took 112.599 ms
+
+1565927 primes were found. 16 threads took 114.701 ms
+
+1565927 primes were found. 16 threads took 102.632 ms
+
+
+in 25000000
+
+1565927 primes were found. 32 threads took 112.886 ms
+
+1565927 primes were found. 32 threads took 112.981 ms
+
+1565927 primes were found. 32 threads took 111.283 ms
+
+1565927 primes were found. 32 threads took 111.496 ms
+
+1565927 primes were found. 32 threads took 113.020 ms
+
+
+in 25000000
+
+1565927 primes were found. 64 threads took 125.987 ms
+
+1565927 primes were found. 64 threads took 128.726 ms
+
+1565927 primes were found. 64 threads took 131.441 ms
+
+1565927 primes were found. 64 threads took 144.067 ms
+
+1565927 primes were found. 64 threads took 146.461 ms
+
+
+in 25000000
+
+1565927 primes were found. 128 threads took 122.159 ms
+
+1565927 primes were found. 128 threads took 103.763 ms
+
+1565927 primes were found. 128 threads took 106.310 ms
+
+1565927 primes were found. 128 threads took 115.095 ms
+
+1565927 primes were found. 128 threads took 110.600 ms
+
+
+in 25000000
+
+1565927 primes were found. 256 threads took 117.264 ms
+
+1565927 primes were found. 256 threads took 154.927 ms
+
+1565927 primes were found. 256 threads took 142.199 ms
+
+1565927 primes were found. 256 threads took 143.285 ms
+
+1565927 primes were found. 256 threads took 123.246 ms
+
+
+in 25000000
+
+1565927 primes were found. 512 threads took 208.788 ms
+
+1565927 primes were found. 512 threads took 129.013 ms
+
+1565927 primes were found. 512 threads took 157.046 ms
+
+1565927 primes were found. 512 threads took 142.664 ms
+
+1565927 primes were found. 512 threads took 190.266 ms
+
+
+in 25000000
+
+1565927 primes were found. 1024 threads took 182.825 ms
+
+1565927 primes were found. 1024 threads took 150.997 ms
+
+1565927 primes were found. 1024 threads took 165.386 ms
+
+1565927 primes were found. 1024 threads took 183.933 ms
+
+1565927 primes were found. 1024 threads took 249.859 ms
+
+
+in 50000000
+
+3001134 primes were found. 1 threads took 450.325 ms
+
+3001134 primes were found. 1 threads took 434.044 ms
+
+3001134 primes were found. 1 threads took 424.172 ms
+
+3001134 primes were found. 1 threads took 453.528 ms
+
+3001134 primes were found. 1 threads took 428.325 ms
+
+
+in 50000000
+
+3001134 primes were found. 2 threads took 334.211 ms
+
+3001134 primes were found. 2 threads took 312.706 ms
+
+3001134 primes were found. 2 threads took 312.850 ms
+
+3001134 primes were found. 2 threads took 317.292 ms
+
+3001134 primes were found. 2 threads took 314.644 ms
+
+
+in 50000000
+
+3001134 primes were found. 4 threads took 266.107 ms
+
+3001134 primes were found. 4 threads took 275.990 ms
+
+3001134 primes were found. 4 threads took 254.661 ms
+
+3001134 primes were found. 4 threads took 238.894 ms
+
+3001134 primes were found. 4 threads took 239.791 ms
+
+
+in 50000000
+
+3001134 primes were found. 8 threads took 241.669 ms
+
+3001134 primes were found. 8 threads took 257.008 ms
+
+3001134 primes were found. 8 threads took 240.542 ms
+
+3001134 primes were found. 8 threads took 234.553 ms
+
+3001134 primes were found. 8 threads took 259.050 ms
+
+
+in 50000000
+
+3001134 primes were found. 16 threads took 279.102 ms
+
+3001134 primes were found. 16 threads took 293.385 ms
+
+3001134 primes were found. 16 threads took 359.050 ms
+
+3001134 primes were found. 16 threads took 391.882 ms
+
+3001134 primes were found. 16 threads took 331.313 ms
+
+
+in 50000000
+
+3001134 primes were found. 32 threads took 390.623 ms
+
+3001134 primes were found. 32 threads took 273.799 ms
+
+3001134 primes were found. 32 threads took 323.967 ms
+
+3001134 primes were found. 32 threads took 280.459 ms
+
+3001134 primes were found. 32 threads took 271.947 ms
+
+
+in 50000000
+
+3001134 primes were found. 64 threads took 288.170 ms
+
+3001134 primes were found. 64 threads took 303.877 ms
+
+3001134 primes were found. 64 threads took 282.076 ms
+
+3001134 primes were found. 64 threads took 265.142 ms
+
+3001134 primes were found. 64 threads took 290.439 ms
+
+
+in 50000000
+
+3001134 primes were found. 128 threads took 293.357 ms
+
+3001134 primes were found. 128 threads took 574.047 ms
+
+3001134 primes were found. 128 threads took 807.435 ms
+
+3001134 primes were found. 128 threads took 501.865 ms
+
+3001134 primes were found. 128 threads took 327.118 ms
+
+
+in 50000000
+
+3001134 primes were found. 256 threads took 320.842 ms
+
+3001134 primes were found. 256 threads took 296.750 ms
+
+3001134 primes were found. 256 threads took 289.176 ms
+
+3001134 primes were found. 256 threads took 298.468 ms
+
+3001134 primes were found. 256 threads took 400.204 ms
+
+
+in 50000000
+
+3001134 primes were found. 512 threads took 377.413 ms
+
+3001134 primes were found. 512 threads took 468.712 ms
+
+3001134 primes were found. 512 threads took 301.240 ms
+
+3001134 primes were found. 512 threads took 258.336 ms
+
+3001134 primes were found. 512 threads took 300.688 ms
+
+
+in 50000000
+
+3001134 primes were found. 1024 threads took 376.481 ms
+
+3001134 primes were found. 1024 threads took 330.603 ms
+
+3001134 primes were found. 1024 threads took 313.240 ms
+
+3001134 primes were found. 1024 threads took 323.889 ms
+
+3001134 primes were found. 1024 threads took 333.669 ms
+
+
+in 99999992
+
+5761455 primes were found. 1 threads took 895.505 ms
+
+5761455 primes were found. 1 threads took 900.310 ms
+
+5761455 primes were found. 1 threads took 894.254 ms
+
+5761455 primes were found. 1 threads took 914.217 ms
+
+5761455 primes were found. 1 threads took 895.315 ms
+
+
+in 99999992
+
+5761455 primes were found. 2 threads took 698.843 ms
+
+5761455 primes were found. 2 threads took 694.154 ms
+
+5761455 primes were found. 2 threads took 691.038 ms
+
+5761455 primes were found. 2 threads took 685.772 ms
+
+5761455 primes were found. 2 threads took 683.491 ms
+
+
+in 99999992
+
+5761455 primes were found. 4 threads took 571.247 ms
+
+5761455 primes were found. 4 threads took 619.122 ms
+
+5761455 primes were found. 4 threads took 555.493 ms
+
+5761455 primes were found. 4 threads took 539.722 ms
+
+5761455 primes were found. 4 threads took 570.231 ms
+
+
+in 99999992
+
+5761455 primes were found. 8 threads took 583.975 ms
+
+5761455 primes were found. 8 threads took 578.868 ms
+
+5761455 primes were found. 8 threads took 591.712 ms
+
+5761455 primes were found. 8 threads took 609.208 ms
+
+5761455 primes were found. 8 threads took 599.780 ms
+
+
+in 99999992
+
+5761455 primes were found. 16 threads took 677.663 ms
+
+5761455 primes were found. 16 threads took 657.471 ms
+
+5761455 primes were found. 16 threads took 595.152 ms
+
+5761455 primes were found. 16 threads took 611.837 ms
+
+5761455 primes were found. 16 threads took 653.725 ms
+
+
+in 99999992
+
+5761455 primes were found. 32 threads took 598.451 ms
+
+5761455 primes were found. 32 threads took 608.089 ms
+
+5761455 primes were found. 32 threads took 685.767 ms
+
+5761455 primes were found. 32 threads took 682.946 ms
+
+5761455 primes were found. 32 threads took 617.647 ms
+
+
+in 99999992
+
+5761455 primes were found. 64 threads took 681.578 ms
+
+5761455 primes were found. 64 threads took 683.126 ms
+
+5761455 primes were found. 64 threads took 615.372 ms
+
+5761455 primes were found. 64 threads took 635.099 ms
+
+5761455 primes were found. 64 threads took 633.752 ms
+
+
+in 99999992
+
+5761455 primes were found. 128 threads took 800.444 ms
+
+5761455 primes were found. 128 threads took 605.880 ms
+
+5761455 primes were found. 128 threads took 669.179 ms
+
+5761455 primes were found. 128 threads took 692.590 ms
+
+5761455 primes were found. 128 threads took 689.577 ms
+
+
+in 99999992
+
+5761455 primes were found. 256 threads took 604.445 ms
+
+5761455 primes were found. 256 threads took 611.157 ms
+
+5761455 primes were found. 256 threads took 689.824 ms
+
+5761455 primes were found. 256 threads took 677.727 ms
+
+5761455 primes were found. 256 threads took 566.387 ms
+
+
+in 99999992
+
+5761455 primes were found. 512 threads took 653.952 ms
+
+5761455 primes were found. 512 threads took 636.593 ms
+
+5761455 primes were found. 512 threads took 590.156 ms
+
+5761455 primes were found. 512 threads took 567.615 ms
+
+5761455 primes were found. 512 threads took 588.689 ms
+
+
+in 99999992
+
+5761455 primes were found. 1024 threads took 656.242 ms
+
+5761455 primes were found. 1024 threads took 640.724 ms
+
+5761455 primes were found. 1024 threads took 707.317 ms
+
+5761455 primes were found. 1024 threads took 687.814 ms
+
+5761455 primes were found. 1024 threads took 643.747 ms
+
+
+in 100000000
+
+5761455 primes were found. 1 threads took 894.709 ms
+
+5761455 primes were found. 1 threads took 897.202 ms
+
+5761455 primes were found. 1 threads took 913.206 ms
+
+5761455 primes were found. 1 threads took 896.172 ms
+
+5761455 primes were found. 1 threads took 888.697 ms
+
+
+in 100000000
+
+5761455 primes were found. 2 threads took 689.081 ms
+
+5761455 primes were found. 2 threads took 691.607 ms
+
+5761455 primes were found. 2 threads took 691.039 ms
+
+5761455 primes were found. 2 threads took 719.611 ms
+
+5761455 primes were found. 2 threads took 693.154 ms
+
+
+in 100000000
+
+5761455 primes were found. 4 threads took 590.383 ms
+
+5761455 primes were found. 4 threads took 571.155 ms
+
+5761455 primes were found. 4 threads took 549.186 ms
+
+5761455 primes were found. 4 threads took 552.901 ms
+
+5761455 primes were found. 4 threads took 607.512 ms
+
+
+in 100000000
+
+5761455 primes were found. 8 threads took 640.501 ms
+
+5761455 primes were found. 8 threads took 588.315 ms
+
+5761455 primes were found. 8 threads took 655.815 ms
+
+5761455 primes were found. 8 threads took 617.159 ms
+
+5761455 primes were found. 8 threads took 626.138 ms
+
+
+in 100000000
+
+5761455 primes were found. 16 threads took 618.518 ms
+
+5761455 primes were found. 16 threads took 646.957 ms
+
+5761455 primes were found. 16 threads took 620.985 ms
+
+5761455 primes were found. 16 threads took 595.094 ms
+
+5761455 primes were found. 16 threads took 668.710 ms
+
+
+in 100000000
+
+5761455 primes were found. 32 threads took 714.800 ms
+
+5761455 primes were found. 32 threads took 639.598 ms
+
+5761455 primes were found. 32 threads took 618.255 ms
+
+5761455 primes were found. 32 threads took 679.305 ms
+
+5761455 primes were found. 32 threads took 625.326 ms
+
+
+in 100000000
+
+5761455 primes were found. 64 threads took 620.008 ms
+
+5761455 primes were found. 64 threads took 640.298 ms
+
+5761455 primes were found. 64 threads took 669.805 ms
+
+5761455 primes were found. 64 threads took 671.721 ms
+
+5761455 primes were found. 64 threads took 652.213 ms
+
+
+in 100000000
+
+5761455 primes were found. 128 threads took 667.078 ms
+
+5761455 primes were found. 128 threads took 617.421 ms
+
+5761455 primes were found. 128 threads took 704.586 ms
+
+5761455 primes were found. 128 threads took 647.513 ms
+
+5761455 primes were found. 128 threads took 628.314 ms
+
+
+in 100000000
+
+5761455 primes were found. 256 threads took 659.932 ms
+
+5761455 primes were found. 256 threads took 620.138 ms
+
+5761455 primes were found. 256 threads took 627.058 ms
+
+5761455 primes were found. 256 threads took 600.847 ms
+
+5761455 primes were found. 256 threads took 627.476 ms
+
+
+in 100000000
+
+5761455 primes were found. 512 threads took 636.551 ms
+
+5761455 primes were found. 512 threads took 604.320 ms
+
+5761455 primes were found. 512 threads took 615.524 ms
+
+5761455 primes were found. 512 threads took 601.366 ms
+
+5761455 primes were found. 512 threads took 636.348 ms
+
+
+in 100000000
+
+5761455 primes were found. 1024 threads took 631.124 ms
+
+5761455 primes were found. 1024 threads took 636.815 ms
+
+5761455 primes were found. 1024 threads took 674.236 ms
+
+5761455 primes were found. 1024 threads took 677.547 ms
+
+5761455 primes were found. 1024 threads took 641.586 ms

@@ -3,1427 +3,3076 @@ in 2
 
  1 primes were found. 1 threads
 
- 1 primes were found. 1 threads
+ took -55560000.000 
 
- 1 primes were found. 1 threads
-
- 1 primes were found. 1 threads
 
  1 primes were found. 1 threads
 
+ took -23137616.000 
+
+
+ 1 primes were found. 1 threads
+
+ took -15847984.000 
+
+
+ 1 primes were found. 1 threads
+
+ took -13382400.000 
+
+
+ 1 primes were found. 1 threads
+
+ took -12892816.000 
+
+
 
 in 2
 
  1 primes were found. 2 threads
 
- 1 primes were found. 2 threads
+ took -18075216.000 
+
 
  1 primes were found. 2 threads
 
- 1 primes were found. 2 threads
+ took -18132800.000 
+
 
  1 primes were found. 2 threads
+
+ took -21961616.000 
+
+
+ 1 primes were found. 2 threads
+
+ took -24425600.000 
+
+
+ 1 primes were found. 2 threads
+
+ took -19347200.000 
+
 
 
 in 2
 
  1 primes were found. 4 threads
 
- 1 primes were found. 4 threads
+ took -18108800.000 
 
- 1 primes were found. 4 threads
-
- 1 primes were found. 4 threads
 
  1 primes were found. 4 threads
 
+ took -19544000.000 
+
+
+ 1 primes were found. 4 threads
+
+ took -19523200.000 
+
+
+ 1 primes were found. 4 threads
+
+ took -18468800.000 
+
+
+ 1 primes were found. 4 threads
+
+ took -16481600.000 
+
+
 
 in 2
 
  1 primes were found. 8 threads
 
- 1 primes were found. 8 threads
+ took -16566384.000 
+
 
  1 primes were found. 8 threads
 
- 1 primes were found. 8 threads
+ took -13516800.000 
+
 
  1 primes were found. 8 threads
+
+ took -15400000.000 
+
+
+ 1 primes were found. 8 threads
+
+ took -22718400.000 
+
+
+ 1 primes were found. 8 threads
+
+ took -19296000.000 
+
 
 
 in 2
 
  1 primes were found. 16 threads
 
- 1 primes were found. 16 threads
+ took -18724816.000 
 
- 1 primes were found. 16 threads
-
- 1 primes were found. 16 threads
 
  1 primes were found. 16 threads
 
+ took -18262400.000 
+
+
+ 1 primes were found. 16 threads
+
+ took -15723216.000 
+
+
+ 1 primes were found. 16 threads
+
+ took -17441584.000 
+
+
+ 1 primes were found. 16 threads
+
+ took -17070384.000 
+
+
 
 in 2
 
  1 primes were found. 32 threads
 
- 1 primes were found. 32 threads
+ took -17239984.000 
+
 
  1 primes were found. 32 threads
 
- 1 primes were found. 32 threads
+ took -16956800.000 
+
 
  1 primes were found. 32 threads
+
+ took -16347184.000 
+
+
+ 1 primes were found. 32 threads
+
+ took -16927984.000 
+
+
+ 1 primes were found. 32 threads
+
+ took -29351984.000 
+
 
 
 in 2
 
  1 primes were found. 64 threads
 
- 1 primes were found. 64 threads
+ took -23750384.000 
+
 
  1 primes were found. 64 threads
 
- 1 primes were found. 64 threads
+ took -20294384.000 
+
 
  1 primes were found. 64 threads
+
+ took -20848000.000 
+
+
+ 1 primes were found. 64 threads
+
+ took -18214384.000 
+
+
+ 1 primes were found. 64 threads
+
+ took -17084800.000 
+
 
 
 in 2
 
  1 primes were found. 128 threads
 
- 1 primes were found. 128 threads
+ took -18382400.000 
+
 
  1 primes were found. 128 threads
 
- 1 primes were found. 128 threads
+ took -16715200.000 
+
 
  1 primes were found. 128 threads
+
+ took -16326400.000 
+
+
+ 1 primes were found. 128 threads
+
+ took -15249600.000 
+
+
+ 1 primes were found. 128 threads
+
+ took -18664000.000 
+
 
 
 in 2
 
  1 primes were found. 256 threads
 
- 1 primes were found. 256 threads
+ took -15489584.000 
+
 
  1 primes were found. 256 threads
 
- 1 primes were found. 256 threads
+ took -15945600.000 
+
 
  1 primes were found. 256 threads
+
+ took -20153600.000 
+
+
+ 1 primes were found. 256 threads
+
+ took -17996800.000 
+
+
+ 1 primes were found. 256 threads
+
+ took -17352000.000 
+
 
 
 in 2
 
  1 primes were found. 512 threads
 
- 1 primes were found. 512 threads
+ took -15062400.000 
+
 
  1 primes were found. 512 threads
 
- 1 primes were found. 512 threads
+ took -14281584.000 
+
 
  1 primes were found. 512 threads
+
+ took -15518400.000 
+
+
+ 1 primes were found. 512 threads
+
+ took -15502400.000 
+
+
+ 1 primes were found. 512 threads
+
+ took -13667200.000 
+
 
 
 in 2
 
  1 primes were found. 1024 threads
 
- 1 primes were found. 1024 threads
+ took -13084784.000 
 
- 1 primes were found. 1024 threads
-
- 1 primes were found. 1024 threads
 
  1 primes were found. 1024 threads
 
+ took -16292800.000 
+
+
+ 1 primes were found. 1024 threads
+
+ took -14084784.000 
+
+
+ 1 primes were found. 1024 threads
+
+ took -13657616.000 
+
+
+ 1 primes were found. 1024 threads
+
+ took -15204800.000 
+
+
 
 in 3
 
  2 primes were found. 1 threads
 
- 2 primes were found. 1 threads
+ took -19017600.000 
+
 
  2 primes were found. 1 threads
 
- 2 primes were found. 1 threads
+ took -15171200.000 
+
 
  2 primes were found. 1 threads
+
+ took -13742400.000 
+
+
+ 2 primes were found. 1 threads
+
+ took -13116800.000 
+
+
+ 2 primes were found. 1 threads
+
+ took -12936000.000 
+
 
 
 in 3
 
  2 primes were found. 2 threads
 
- 2 primes were found. 2 threads
+ took -17875200.000 
 
- 2 primes were found. 2 threads
-
- 2 primes were found. 2 threads
 
  2 primes were found. 2 threads
 
+ took -15505600.000 
+
+
+ 2 primes were found. 2 threads
+
+ took -14465600.000 
+
+
+ 2 primes were found. 2 threads
+
+ took -15483216.000 
+
+
+ 2 primes were found. 2 threads
+
+ took -16257584.000 
+
+
 
 in 3
 
  2 primes were found. 4 threads
 
- 2 primes were found. 4 threads
+ took -15510384.000 
+
 
  2 primes were found. 4 threads
 
- 2 primes were found. 4 threads
+ took -15068784.000 
+
 
  2 primes were found. 4 threads
+
+ took -14654400.000 
+
+
+ 2 primes were found. 4 threads
+
+ took -16790400.000 
+
+
+ 2 primes were found. 4 threads
+
+ took -24785600.000 
+
 
 
 in 3
 
  2 primes were found. 8 threads
 
- 2 primes were found. 8 threads
+ took -28484800.000 
 
- 2 primes were found. 8 threads
-
- 2 primes were found. 8 threads
 
  2 primes were found. 8 threads
 
+ took -24894416.000 
+
+
+ 2 primes were found. 8 threads
+
+ took -22615984.000 
+
+
+ 2 primes were found. 8 threads
+
+ took -18755200.000 
+
+
+ 2 primes were found. 8 threads
+
+ took -18011200.000 
+
+
 
 in 3
 
  2 primes were found. 16 threads
 
- 2 primes were found. 16 threads
+ took -17393600.000 
+
 
  2 primes were found. 16 threads
 
- 2 primes were found. 16 threads
+ took -17187216.000 
+
 
  2 primes were found. 16 threads
+
+ took -17196800.000 
+
+
+ 2 primes were found. 16 threads
+
+ took -19184000.000 
+
+
+ 2 primes were found. 16 threads
+
+ took -23446416.000 
+
 
 
 in 3
 
  2 primes were found. 32 threads
 
- 2 primes were found. 32 threads
+ took -28872016.000 
 
- 2 primes were found. 32 threads
-
- 2 primes were found. 32 threads
 
  2 primes were found. 32 threads
 
+ took -27038416.000 
+
+
+ 2 primes were found. 32 threads
+
+ took -22169600.000 
+
+
+ 2 primes were found. 32 threads
+
+ took -30535984.000 
+
+
+ 2 primes were found. 32 threads
+
+ took -21411200.000 
+
+
 
 in 3
 
  2 primes were found. 64 threads
 
- 2 primes were found. 64 threads
+ took -18699200.000 
+
 
  2 primes were found. 64 threads
 
- 2 primes were found. 64 threads
+ took -20534400.000 
+
 
  2 primes were found. 64 threads
+
+ took -28542400.000 
+
+
+ 2 primes were found. 64 threads
+
+ took -24620784.000 
+
+
+ 2 primes were found. 64 threads
+
+ took -22862384.000 
+
 
 
 in 3
 
  2 primes were found. 128 threads
 
- 2 primes were found. 128 threads
+ took -17937600.000 
+
 
  2 primes were found. 128 threads
 
- 2 primes were found. 128 threads
+ took -17704000.000 
+
 
  2 primes were found. 128 threads
+
+ took -21870416.000 
+
+
+ 2 primes were found. 128 threads
+
+ took -21961600.000 
+
+
+ 2 primes were found. 128 threads
+
+ took -23376000.000 
+
 
 
 in 3
 
  2 primes were found. 256 threads
 
- 2 primes were found. 256 threads
+ took -24312000.000 
+
 
  2 primes were found. 256 threads
 
- 2 primes were found. 256 threads
+ took -28046400.000 
+
 
  2 primes were found. 256 threads
+
+ took -33083200.000 
+
+
+ 2 primes were found. 256 threads
+
+ took -24401600.000 
+
+
+ 2 primes were found. 256 threads
+
+ took -21377600.000 
+
 
 
 in 3
 
  2 primes were found. 512 threads
 
- 2 primes were found. 512 threads
+ took -22521600.000 
+
 
  2 primes were found. 512 threads
 
- 2 primes were found. 512 threads
+ took -20681600.000 
+
 
  2 primes were found. 512 threads
+
+ took -21921600.000 
+
+
+ 2 primes were found. 512 threads
+
+ took -24763200.000 
+
+
+ 2 primes were found. 512 threads
+
+ took -20414384.000 
+
 
 
 in 3
 
  2 primes were found. 1024 threads
 
- 2 primes were found. 1024 threads
+ took -20737600.000 
+
 
  2 primes were found. 1024 threads
 
- 2 primes were found. 1024 threads
+ took -28369584.000 
+
 
  2 primes were found. 1024 threads
+
+ took -24924800.000 
+
+
+ 2 primes were found. 1024 threads
+
+ took -18544000.000 
+
+
+ 2 primes were found. 1024 threads
+
+ took -18801600.000 
+
 
 
 in 4
 
  2 primes were found. 1 threads
 
- 2 primes were found. 1 threads
+ took -13260800.000 
 
- 2 primes were found. 1 threads
-
- 2 primes were found. 1 threads
 
  2 primes were found. 1 threads
 
+ took -13592000.000 
+
+
+ 2 primes were found. 1 threads
+
+ took -11168000.000 
+
+
+ 2 primes were found. 1 threads
+
+ took -10785616.000 
+
+
+ 2 primes were found. 1 threads
+
+ took -13236800.000 
+
+
 
 in 4
 
  2 primes were found. 2 threads
 
- 2 primes were found. 2 threads
+ took -23035216.000 
+
 
  2 primes were found. 2 threads
 
- 2 primes were found. 2 threads
+ took -20534400.000 
+
 
  2 primes were found. 2 threads
+
+ took -22254416.000 
+
+
+ 2 primes were found. 2 threads
+
+ took -29126400.000 
+
+
+ 2 primes were found. 2 threads
+
+ took -24039984.000 
+
 
 
 in 4
 
  2 primes were found. 4 threads
 
- 2 primes were found. 4 threads
+ took -20345584.000 
 
- 2 primes were found. 4 threads
-
- 2 primes were found. 4 threads
 
  2 primes were found. 4 threads
 
+ took -20412800.000 
+
+
+ 2 primes were found. 4 threads
+
+ took -22232000.000 
+
+
+ 2 primes were found. 4 threads
+
+ took -22376000.000 
+
+
+ 2 primes were found. 4 threads
+
+ took -22003200.000 
+
+
 
 in 4
 
  2 primes were found. 8 threads
 
- 2 primes were found. 8 threads
+ took -24675200.000 
+
 
  2 primes were found. 8 threads
 
- 2 primes were found. 8 threads
+ took -34864016.000 
+
 
  2 primes were found. 8 threads
+
+ took -28142400.000 
+
+
+ 2 primes were found. 8 threads
+
+ took -23567984.000 
+
+
+ 2 primes were found. 8 threads
+
+ took -18286400.000 
+
 
 
 in 4
 
  2 primes were found. 16 threads
 
- 2 primes were found. 16 threads
+ took -17676784.000 
 
- 2 primes were found. 16 threads
-
- 2 primes were found. 16 threads
 
  2 primes were found. 16 threads
 
+ took -17184000.000 
+
+
+ 2 primes were found. 16 threads
+
+ took -18438400.000 
+
+
+ 2 primes were found. 16 threads
+
+ took -20147184.000 
+
+
+ 2 primes were found. 16 threads
+
+ took -26014400.000 
+
+
 
 in 4
 
  2 primes were found. 32 threads
 
- 2 primes were found. 32 threads
+ took -26105584.000 
+
 
  2 primes were found. 32 threads
 
- 2 primes were found. 32 threads
+ took -28510416.000 
+
 
  2 primes were found. 32 threads
+
+ took -28252800.000 
+
+
+ 2 primes were found. 32 threads
+
+ took -24164800.000 
+
+
+ 2 primes were found. 32 threads
+
+ took -24791984.000 
+
 
 
 in 4
 
  2 primes were found. 64 threads
 
- 2 primes were found. 64 threads
+ took -24319984.000 
+
 
  2 primes were found. 64 threads
 
- 2 primes were found. 64 threads
+ took -21548800.000 
+
 
  2 primes were found. 64 threads
+
+ took -22902400.000 
+
+
+ 2 primes were found. 64 threads
+
+ took -20947200.000 
+
+
+ 2 primes were found. 64 threads
+
+ took -22483184.000 
+
 
 
 in 4
 
  2 primes were found. 128 threads
 
- 2 primes were found. 128 threads
+ took -31472016.000 
+
 
  2 primes were found. 128 threads
 
- 2 primes were found. 128 threads
+ took -23958400.000 
+
 
  2 primes were found. 128 threads
+
+ took -20417600.000 
+
+
+ 2 primes were found. 128 threads
+
+ took -21988800.000 
+
+
+ 2 primes were found. 128 threads
+
+ took -18649600.000 
+
 
 
 in 4
 
  2 primes were found. 256 threads
 
- 2 primes were found. 256 threads
+ took -17707216.000 
+
 
  2 primes were found. 256 threads
 
- 2 primes were found. 256 threads
+ took -18700800.000 
+
 
  2 primes were found. 256 threads
+
+ took -17156800.000 
+
+
+ 2 primes were found. 256 threads
+
+ took -17884784.000 
+
+
+ 2 primes were found. 256 threads
+
+ took -18796800.000 
+
 
 
 in 4
 
  2 primes were found. 512 threads
 
- 2 primes were found. 512 threads
+ took -24881600.000 
+
 
  2 primes were found. 512 threads
 
- 2 primes were found. 512 threads
+ took -23732816.000 
+
 
  2 primes were found. 512 threads
+
+ took -19252800.000 
+
+
+ 2 primes were found. 512 threads
+
+ took -16441584.000 
+
+
+ 2 primes were found. 512 threads
+
+ took -15444784.000 
+
 
 
 in 4
 
  2 primes were found. 1024 threads
 
- 2 primes were found. 1024 threads
+ took -15428816.000 
+
 
  2 primes were found. 1024 threads
 
- 2 primes were found. 1024 threads
+ took -16030400.000 
+
 
  2 primes were found. 1024 threads
+
+ took -14507200.000 
+
+
+ 2 primes were found. 1024 threads
+
+ took -14276800.000 
+
+
+ 2 primes were found. 1024 threads
+
+ took -14003200.000 
+
 
 
 in 523
 
  99 primes were found. 1 threads
 
- 99 primes were found. 1 threads
+ took -7286416.000 
 
- 99 primes were found. 1 threads
-
- 99 primes were found. 1 threads
 
  99 primes were found. 1 threads
 
+ took -7361600.000 
+
+
+ 99 primes were found. 1 threads
+
+ took -8244800.000 
+
+
+ 99 primes were found. 1 threads
+
+ took -7894400.000 
+
+
+ 99 primes were found. 1 threads
+
+ took -9369600.000 
+
+
 
 in 523
 
  99 primes were found. 2 threads
 
- 99 primes were found. 2 threads
+ took -29334416.000 
+
 
  99 primes were found. 2 threads
 
- 99 primes were found. 2 threads
+ took -41049600.000 
+
 
  99 primes were found. 2 threads
+
+ took -28177600.000 
+
+
+ 99 primes were found. 2 threads
+
+ took -24844800.000 
+
+
+ 99 primes were found. 2 threads
+
+ took -23785600.000 
+
 
 
 in 523
 
  99 primes were found. 4 threads
 
- 99 primes were found. 4 threads
+ took -20593600.000 
 
- 99 primes were found. 4 threads
-
- 99 primes were found. 4 threads
 
  99 primes were found. 4 threads
 
+ took -20073616.000 
+
+
+ 99 primes were found. 4 threads
+
+ took -20433600.000 
+
+
+ 99 primes were found. 4 threads
+
+ took -29182400.000 
+
+
+ 99 primes were found. 4 threads
+
+ took -27291216.000 
+
+
 
 in 523
 
  99 primes were found. 8 threads
 
- 99 primes were found. 8 threads
+ took -25585584.000 
+
 
  99 primes were found. 8 threads
 
- 99 primes were found. 8 threads
+ took -29296000.000 
+
 
  99 primes were found. 8 threads
+
+ took -27662416.000 
+
+
+ 99 primes were found. 8 threads
+
+ took -24822416.000 
+
+
+ 99 primes were found. 8 threads
+
+ took -23761600.000 
+
 
 
 in 523
 
  99 primes were found. 16 threads
 
- 99 primes were found. 16 threads
+ took -25731200.000 
 
- 99 primes were found. 16 threads
-
- 99 primes were found. 16 threads
 
  99 primes were found. 16 threads
 
+ took -43550384.000 
+
+
+ 99 primes were found. 16 threads
+
+ took -27873584.000 
+
+
+ 99 primes were found. 16 threads
+
+ took -40910400.000 
+
+
+ 99 primes were found. 16 threads
+
+ took -29382400.000 
+
+
 
 in 523
 
  99 primes were found. 32 threads
 
- 99 primes were found. 32 threads
+ took -30620800.000 
+
 
  99 primes were found. 32 threads
 
- 99 primes were found. 32 threads
+ took -26854416.000 
+
 
  99 primes were found. 32 threads
+
+ took -35320000.000 
+
+
+ 99 primes were found. 32 threads
+
+ took -34175984.000 
+
+
+ 99 primes were found. 32 threads
+
+ took -29353584.000 
+
 
 
 in 523
 
  99 primes were found. 64 threads
 
- 99 primes were found. 64 threads
+ took -28776000.000 
+
 
  99 primes were found. 64 threads
 
- 99 primes were found. 64 threads
+ took -27470416.000 
+
 
  99 primes were found. 64 threads
+
+ took -27371216.000 
+
+
+ 99 primes were found. 64 threads
+
+ took -27350400.000 
+
+
+ 99 primes were found. 64 threads
+
+ took -36851216.000 
+
 
 
 in 523
 
  99 primes were found. 128 threads
 
- 99 primes were found. 128 threads
+ took -36969600.000 
+
 
  99 primes were found. 128 threads
 
- 99 primes were found. 128 threads
+ took -31572800.000 
+
 
  99 primes were found. 128 threads
+
+ took -28615984.000 
+
+
+ 99 primes were found. 128 threads
+
+ took -29030400.000 
+
+
+ 99 primes were found. 128 threads
+
+ took -28449584.000 
+
 
 
 in 523
 
  99 primes were found. 256 threads
 
- 99 primes were found. 256 threads
+ took -38593600.000 
+
 
  99 primes were found. 256 threads
 
- 99 primes were found. 256 threads
+ took -56830400.000 
+
 
  99 primes were found. 256 threads
+
+ took -41060800.000 
+
+
+ 99 primes were found. 256 threads
+
+ took -46185600.000 
+
+
+ 99 primes were found. 256 threads
+
+ took -35256000.000 
+
 
 
 in 523
 
  99 primes were found. 512 threads
 
- 99 primes were found. 512 threads
+ took -38201600.000 
+
 
  99 primes were found. 512 threads
 
- 99 primes were found. 512 threads
+ took -53384000.000 
+
 
  99 primes were found. 512 threads
+
+ took -40153600.000 
+
+
+ 99 primes were found. 512 threads
+
+ took -37678400.000 
+
+
+ 99 primes were found. 512 threads
+
+ took -30806400.000 
+
 
 
 in 523
 
  99 primes were found. 1024 threads
 
- 99 primes were found. 1024 threads
+ took -30193584.000 
 
- 99 primes were found. 1024 threads
-
- 99 primes were found. 1024 threads
 
  99 primes were found. 1024 threads
 
+ took -26660800.000 
+
+
+ 99 primes were found. 1024 threads
+
+ took -40088000.000 
+
+
+ 99 primes were found. 1024 threads
+
+ took -37272000.000 
+
+
+ 99 primes were found. 1024 threads
+
+ took -32675200.000 
+
+
 
 in 67800
 
  6753 primes were found. 1 threads
 
- 6753 primes were found. 1 threads
+ took -15180800.000 
+
 
  6753 primes were found. 1 threads
 
- 6753 primes were found. 1 threads
+ took -13788800.000 
+
 
  6753 primes were found. 1 threads
+
+ took -13521584.000 
+
+
+ 6753 primes were found. 1 threads
+
+ took -14643200.000 
+
+
+ 6753 primes were found. 1 threads
+
+ took -12193616.000 
+
 
 
 in 67800
 
  6753 primes were found. 2 threads
 
- 6753 primes were found. 2 threads
+ took -22704000.000 
 
- 6753 primes were found. 2 threads
-
- 6753 primes were found. 2 threads
 
  6753 primes were found. 2 threads
 
+ took -31227184.000 
+
+
+ 6753 primes were found. 2 threads
+
+ took -39016000.000 
+
+
+ 6753 primes were found. 2 threads
+
+ took -24102400.000 
+
+
+ 6753 primes were found. 2 threads
+
+ took -24240000.000 
+
+
 
 in 67800
 
  6753 primes were found. 4 threads
 
- 6753 primes were found. 4 threads
+ took -23736016.000 
+
 
  6753 primes were found. 4 threads
 
- 6753 primes were found. 4 threads
+ took -24486416.000 
+
 
  6753 primes were found. 4 threads
+
+ took -24104000.000 
+
+
+ 6753 primes were found. 4 threads
+
+ took -26936016.000 
+
+
+ 6753 primes were found. 4 threads
+
+ took -33632000.000 
+
 
 
 in 67800
 
  6753 primes were found. 8 threads
 
- 6753 primes were found. 8 threads
+ took -35472000.000 
 
- 6753 primes were found. 8 threads
-
- 6753 primes were found. 8 threads
 
  6753 primes were found. 8 threads
 
+ took -35585600.000 
+
+
+ 6753 primes were found. 8 threads
+
+ took -31782416.000 
+
+
+ 6753 primes were found. 8 threads
+
+ took -32076800.000 
+
+
+ 6753 primes were found. 8 threads
+
+ took -33231984.000 
+
+
 
 in 67800
 
  6753 primes were found. 16 threads
 
- 6753 primes were found. 16 threads
+ took -52182416.000 
+
 
  6753 primes were found. 16 threads
 
- 6753 primes were found. 16 threads
+ took -46494384.000 
+
 
  6753 primes were found. 16 threads
+
+ took -44614384.000 
+
+
+ 6753 primes were found. 16 threads
+
+ took -49835216.000 
+
+
+ 6753 primes were found. 16 threads
+
+ took -42257600.000 
+
 
 
 in 67800
 
  6753 primes were found. 32 threads
 
- 6753 primes were found. 32 threads
+ took -68380800.000 
 
- 6753 primes were found. 32 threads
-
- 6753 primes were found. 32 threads
 
  6753 primes were found. 32 threads
 
+ took -62139184.000 
+
+
+ 6753 primes were found. 32 threads
+
+ took -67460816.000 
+
+
+ 6753 primes were found. 32 threads
+
+ took -75673616.000 
+
+
+ 6753 primes were found. 32 threads
+
+ took -62177600.000 
+
+
 
 in 67800
 
  6753 primes were found. 64 threads
 
- 6753 primes were found. 64 threads
+ took -81160000.000 
+
 
  6753 primes were found. 64 threads
 
- 6753 primes were found. 64 threads
+ took -111203200.000 
+
 
  6753 primes were found. 64 threads
+
+ took -92896000.000 
+
+
+ 6753 primes were found. 64 threads
+
+ took -101241600.000 
+
+
+ 6753 primes were found. 64 threads
+
+ took -85555200.000 
+
 
 
 in 67800
 
  6753 primes were found. 128 threads
 
- 6753 primes were found. 128 threads
+ took -93150400.000 
+
 
  6753 primes were found. 128 threads
 
- 6753 primes were found. 128 threads
+ took -117854384.000 
+
 
  6753 primes were found. 128 threads
+
+ took -84040000.000 
+
+
+ 6753 primes were found. 128 threads
+
+ took -105257600.000 
+
+
+ 6753 primes were found. 128 threads
+
+ took -78736000.000 
+
 
 
 in 67800
 
  6753 primes were found. 256 threads
 
- 6753 primes were found. 256 threads
+ took -84124800.000 
+
 
  6753 primes were found. 256 threads
 
- 6753 primes were found. 256 threads
+ took -80819184.000 
+
 
  6753 primes were found. 256 threads
+
+ took -76593600.000 
+
+
+ 6753 primes were found. 256 threads
+
+ took -87531200.000 
+
+
+ 6753 primes were found. 256 threads
+
+ took -79323200.000 
+
 
 
 in 67800
 
  6753 primes were found. 512 threads
 
- 6753 primes were found. 512 threads
+ took -90425584.000 
+
 
  6753 primes were found. 512 threads
 
- 6753 primes were found. 512 threads
+ took -82912000.000 
+
 
  6753 primes were found. 512 threads
+
+ took -87321600.000 
+
+
+ 6753 primes were found. 512 threads
+
+ took -85791984.000 
+
+
+ 6753 primes were found. 512 threads
+
+ took -86299184.000 
+
 
 
 in 67800
 
  6753 primes were found. 1024 threads
 
- 6753 primes were found. 1024 threads
+ took -83127984.000 
 
- 6753 primes were found. 1024 threads
-
- 6753 primes were found. 1024 threads
 
  6753 primes were found. 1024 threads
 
+ took -99886400.000 
+
+
+ 6753 primes were found. 1024 threads
+
+ took -87886384.000 
+
+
+ 6753 primes were found. 1024 threads
+
+ took -106068816.000 
+
+
+ 6753 primes were found. 1024 threads
+
+ took -105934400.000 
+
+
 
 in 12500000
 
  818703 primes were found. 1 threads
 
- 818703 primes were found. 1 threads
+ took -1030787200.000 
+
 
  818703 primes were found. 1 threads
 
- 818703 primes were found. 1 threads
+ took -1091939200.000 
+
 
  818703 primes were found. 1 threads
+
+ took -964971216.000 
+
+
+ 818703 primes were found. 1 threads
+
+ took -998737600.000 
+
+
+ 818703 primes were found. 1 threads
+
+ took -1080139216.000 
+
 
 
 in 12500000
 
  818703 primes were found. 2 threads
 
- 818703 primes were found. 2 threads
+ took -724235184.000 
 
- 818703 primes were found. 2 threads
-
- 818703 primes were found. 2 threads
 
  818703 primes were found. 2 threads
 
+ took -732600000.000 
+
+
+ 818703 primes were found. 2 threads
+
+ took -733945600.000 
+
+
+ 818703 primes were found. 2 threads
+
+ took -755286416.000 
+
+
+ 818703 primes were found. 2 threads
+
+ took -745851200.000 
+
+
 
 in 12500000
 
  818703 primes were found. 4 threads
 
- 818703 primes were found. 4 threads
+ took -555427184.000 
+
 
  818703 primes were found. 4 threads
 
- 818703 primes were found. 4 threads
+ took -552945600.000 
+
 
  818703 primes were found. 4 threads
+
+ took -603331184.000 
+
+
+ 818703 primes were found. 4 threads
+
+ took -578468800.000 
+
+
+ 818703 primes were found. 4 threads
+
+ took -553177600.000 
+
 
 
 in 12500000
 
  818703 primes were found. 8 threads
 
- 818703 primes were found. 8 threads
+ took -542776000.000 
 
- 818703 primes were found. 8 threads
-
- 818703 primes were found. 8 threads
 
  818703 primes were found. 8 threads
 
+ took -556070400.000 
+
+
+ 818703 primes were found. 8 threads
+
+ took -536236800.000 
+
+
+ 818703 primes were found. 8 threads
+
+ took -594840000.000 
+
+
+ 818703 primes were found. 8 threads
+
+ took -570033600.000 
+
+
 
 in 12500000
 
  818703 primes were found. 16 threads
 
- 818703 primes were found. 16 threads
+ took -691329600.000 
+
 
  818703 primes were found. 16 threads
 
- 818703 primes were found. 16 threads
+ took -659318416.000 
+
 
  818703 primes were found. 16 threads
+
+ took -869195184.000 
+
+
+ 818703 primes were found. 16 threads
+
+ took -969812784.000 
+
+
+ 818703 primes were found. 16 threads
+
+ took -624353600.000 
+
 
 
 in 12500000
 
  818703 primes were found. 32 threads
 
- 818703 primes were found. 32 threads
+ took -863444800.000 
 
- 818703 primes were found. 32 threads
-
- 818703 primes were found. 32 threads
 
  818703 primes were found. 32 threads
 
+ took -902748800.000 
+
+
+ 818703 primes were found. 32 threads
+
+ took -671932784.000 
+
+
+ 818703 primes were found. 32 threads
+
+ took -644916800.000 
+
+
+ 818703 primes were found. 32 threads
+
+ took -652259200.000 
+
+
 
 in 12500000
 
  818703 primes were found. 64 threads
 
- 818703 primes were found. 64 threads
+ took -634374400.000 
+
 
  818703 primes were found. 64 threads
 
- 818703 primes were found. 64 threads
+ took -742499200.000 
+
 
  818703 primes were found. 64 threads
+
+ took -673465600.000 
+
+
+ 818703 primes were found. 64 threads
+
+ took -691801616.000 
+
+
+ 818703 primes were found. 64 threads
+
+ took -734268800.000 
+
 
 
 in 12500000
 
  818703 primes were found. 128 threads
 
- 818703 primes were found. 128 threads
+ took -668470384.000 
+
 
  818703 primes were found. 128 threads
 
- 818703 primes were found. 128 threads
+ took -681718400.000 
+
 
  818703 primes were found. 128 threads
+
+ took -754534400.000 
+
+
+ 818703 primes were found. 128 threads
+
+ took -708129616.000 
+
+
+ 818703 primes were found. 128 threads
+
+ took -713124800.000 
+
 
 
 in 12500000
 
  818703 primes were found. 256 threads
 
- 818703 primes were found. 256 threads
+ took -811844816.000 
+
 
  818703 primes were found. 256 threads
 
- 818703 primes were found. 256 threads
+ took -837542400.000 
+
 
  818703 primes were found. 256 threads
+
+ took -826454400.000 
+
+
+ 818703 primes were found. 256 threads
+
+ took -805552000.000 
+
+
+ 818703 primes were found. 256 threads
+
+ took -842236800.000 
+
 
 
 in 12500000
 
  818703 primes were found. 512 threads
 
- 818703 primes were found. 512 threads
+ took -1076582400.000 
+
 
  818703 primes were found. 512 threads
 
- 818703 primes were found. 512 threads
+ took -979902384.000 
+
 
  818703 primes were found. 512 threads
+
+ took -957236800.000 
+
+
+ 818703 primes were found. 512 threads
+
+ took -1100686416.000 
+
+
+ 818703 primes were found. 512 threads
+
+ took -1090358416.000 
+
 
 
 in 12500000
 
  818703 primes were found. 1024 threads
 
- 818703 primes were found. 1024 threads
+ took -1035228800.000 
 
- 818703 primes were found. 1024 threads
-
- 818703 primes were found. 1024 threads
 
  818703 primes were found. 1024 threads
 
+ took -996969616.000 
+
+
+ 818703 primes were found. 1024 threads
+
+ took -988918384.000 
+
+
+ 818703 primes were found. 1024 threads
+
+ took -997371200.000 
+
+
+ 818703 primes were found. 1024 threads
+
+ took -1169297600.000 
+
+
 
 in 25000000
 
  1565927 primes were found. 1 threads
 
- 1565927 primes were found. 1 threads
+ took -2754241600.000 
+
 
  1565927 primes were found. 1 threads
 
- 1565927 primes were found. 1 threads
+ took -2748480000.000 
+
 
  1565927 primes were found. 1 threads
+
+ took -2736790400.000 
+
+
+ 1565927 primes were found. 1 threads
+
+ took -2744179200.000 
+
+
+ 1565927 primes were found. 1 threads
+
+ took -2719113600.000 
+
 
 
 in 25000000
 
  1565927 primes were found. 2 threads
 
- 1565927 primes were found. 2 threads
+ took -2264043200.000 
 
- 1565927 primes were found. 2 threads
-
- 1565927 primes were found. 2 threads
 
  1565927 primes were found. 2 threads
 
+ took -2122177600.000 
+
+
+ 1565927 primes were found. 2 threads
+
+ took -2297414400.000 
+
+
+ 1565927 primes were found. 2 threads
+
+ took -2286870416.000 
+
+
+ 1565927 primes were found. 2 threads
+
+ took -2202121616.000 
+
+
 
 in 25000000
 
  1565927 primes were found. 4 threads
 
- 1565927 primes were found. 4 threads
+ took -1594816000.000 
+
 
  1565927 primes were found. 4 threads
 
- 1565927 primes were found. 4 threads
+ took -1579396816.000 
+
 
  1565927 primes were found. 4 threads
+
+ took -1645532800.000 
+
+
+ 1565927 primes were found. 4 threads
+
+ took -1957860800.000 
+
+
+ 1565927 primes were found. 4 threads
+
+ took -1735524816.000 
+
 
 
 in 25000000
 
  1565927 primes were found. 8 threads
 
- 1565927 primes were found. 8 threads
+ took -2147591984.000 
 
- 1565927 primes were found. 8 threads
-
- 1565927 primes were found. 8 threads
 
  1565927 primes were found. 8 threads
 
+ took -2285000000.000 
+
+
+ 1565927 primes were found. 8 threads
+
+ took -2720614400.000 
+
+
+ 1565927 primes were found. 8 threads
+
+ took -2420419200.000 
+
+
+ 1565927 primes were found. 8 threads
+
+ took -1675268800.000 
+
+
 
 in 25000000
 
  1565927 primes were found. 16 threads
 
- 1565927 primes were found. 16 threads
+ took -2179259200.000 
+
 
  1565927 primes were found. 16 threads
 
- 1565927 primes were found. 16 threads
+ took -1903956800.000 
+
 
  1565927 primes were found. 16 threads
+
+ took -1798504016.000 
+
+
+ 1565927 primes were found. 16 threads
+
+ took -1918240016.000 
+
+
+ 1565927 primes were found. 16 threads
+
+ took -1783505600.000 
+
 
 
 in 25000000
 
  1565927 primes were found. 32 threads
 
- 1565927 primes were found. 32 threads
+ took -1877598400.000 
 
- 1565927 primes were found. 32 threads
-
- 1565927 primes were found. 32 threads
 
  1565927 primes were found. 32 threads
 
+ took -2066008016.000 
+
+
+ 1565927 primes were found. 32 threads
+
+ took -1988139200.000 
+
+
+ 1565927 primes were found. 32 threads
+
+ took -1733377600.000 
+
+
+ 1565927 primes were found. 32 threads
+
+ took -1997224016.000 
+
+
 
 in 25000000
 
  1565927 primes were found. 64 threads
 
- 1565927 primes were found. 64 threads
+ took -1865195184.000 
+
 
  1565927 primes were found. 64 threads
 
- 1565927 primes were found. 64 threads
+ took -1939030384.000 
+
 
  1565927 primes were found. 64 threads
+
+ took -1931604800.000 
+
+
+ 1565927 primes were found. 64 threads
+
+ took -2085388800.000 
+
+
+ 1565927 primes were found. 64 threads
+
+ took -1885944000.000 
+
 
 
 in 25000000
 
  1565927 primes were found. 128 threads
 
- 1565927 primes were found. 128 threads
+ took -1932622400.000 
+
 
  1565927 primes were found. 128 threads
 
- 1565927 primes were found. 128 threads
+ took -1942350400.000 
+
 
  1565927 primes were found. 128 threads
+
+ took -1861379216.000 
+
+
+ 1565927 primes were found. 128 threads
+
+ took -1832892800.000 
+
+
+ 1565927 primes were found. 128 threads
+
+ took -1978318400.000 
+
 
 
 in 25000000
 
  1565927 primes were found. 256 threads
 
- 1565927 primes were found. 256 threads
+ took -1926672000.000 
+
 
  1565927 primes were found. 256 threads
 
- 1565927 primes were found. 256 threads
+ took -1914828784.000 
+
 
  1565927 primes were found. 256 threads
+
+ took -2040244800.000 
+
+
+ 1565927 primes were found. 256 threads
+
+ took -1951361600.000 
+
+
+ 1565927 primes were found. 256 threads
+
+ took -1952840000.000 
+
 
 
 in 25000000
 
  1565927 primes were found. 512 threads
 
- 1565927 primes were found. 512 threads
+ took -2520897600.000 
+
 
  1565927 primes were found. 512 threads
 
- 1565927 primes were found. 512 threads
+ took -2305772800.000 
+
 
  1565927 primes were found. 512 threads
+
+ took -2226576000.000 
+
+
+ 1565927 primes were found. 512 threads
+
+ took -2233953616.000 
+
+
+ 1565927 primes were found. 512 threads
+
+ took -2192820800.000 
+
 
 
 in 25000000
 
  1565927 primes were found. 1024 threads
 
- 1565927 primes were found. 1024 threads
+ took -2458743984.000 
 
- 1565927 primes were found. 1024 threads
-
- 1565927 primes were found. 1024 threads
 
  1565927 primes were found. 1024 threads
 
+ took -2938246384.000 
+
+
+ 1565927 primes were found. 1024 threads
+
+ took -2626017600.000 
+
+
+ 1565927 primes were found. 1024 threads
+
+ took -3083489600.000 
+
+
+ 1565927 primes were found. 1024 threads
+
+ took -4508345600.000 
+
+
 
 in 50000000
 
  3001134 primes were found. 1 threads
 
- 3001134 primes were found. 1 threads
+ took -7016137584.000 
+
 
  3001134 primes were found. 1 threads
 
- 3001134 primes were found. 1 threads
+ took -6444019216.000 
+
 
  3001134 primes were found. 1 threads
+
+ took -6689865616.000 
+
+
+ 3001134 primes were found. 1 threads
+
+ took -7049385600.000 
+
+
+ 3001134 primes were found. 1 threads
+
+ took -6978567984.000 
+
 
 
 in 50000000
 
  3001134 primes were found. 2 threads
 
- 3001134 primes were found. 2 threads
+ took -5536668800.000 
 
- 3001134 primes were found. 2 threads
-
- 3001134 primes were found. 2 threads
 
  3001134 primes were found. 2 threads
 
+ took -5090534400.000 
+
+
+ 3001134 primes were found. 2 threads
+
+ took -4921643216.000 
+
+
+ 3001134 primes were found. 2 threads
+
+ took -5307892784.000 
+
+
+ 3001134 primes were found. 2 threads
+
+ took -4918881584.000 
+
+
 
 in 50000000
 
  3001134 primes were found. 4 threads
 
- 3001134 primes were found. 4 threads
+ took -4295809616.000 
+
 
  3001134 primes were found. 4 threads
 
- 3001134 primes were found. 4 threads
+ took -4123411216.000 
+
 
  3001134 primes were found. 4 threads
+
+ took -4129833584.000 
+
+
+ 3001134 primes were found. 4 threads
+
+ took -4589691216.000 
+
+
+ 3001134 primes were found. 4 threads
+
+ took -4637054400.000 
+
 
 
 in 50000000
 
  3001134 primes were found. 8 threads
 
- 3001134 primes were found. 8 threads
+ took -4116566384.000 
 
- 3001134 primes were found. 8 threads
-
- 3001134 primes were found. 8 threads
 
  3001134 primes were found. 8 threads
 
+ took -4156404800.000 
+
+
+ 3001134 primes were found. 8 threads
+
+ took -4327931200.000 
+
+
+ 3001134 primes were found. 8 threads
+
+ took -4040764800.000 
+
+
+ 3001134 primes were found. 8 threads
+
+ took -4042328000.000 
+
+
 
 in 50000000
 
  3001134 primes were found. 16 threads
 
- 3001134 primes were found. 16 threads
+ took -4766800000.000 
+
 
  3001134 primes were found. 16 threads
 
- 3001134 primes were found. 16 threads
+ took -4683868816.000 
+
 
  3001134 primes were found. 16 threads
+
+ took -4643886400.000 
+
+
+ 3001134 primes were found. 16 threads
+
+ took -4481979200.000 
+
+
+ 3001134 primes were found. 16 threads
+
+ took -4808158400.000 
+
 
 
 in 50000000
 
  3001134 primes were found. 32 threads
 
- 3001134 primes were found. 32 threads
+ took -4570819200.000 
 
- 3001134 primes were found. 32 threads
-
- 3001134 primes were found. 32 threads
 
  3001134 primes were found. 32 threads
 
+ took -4378409600.000 
+
+
+ 3001134 primes were found. 32 threads
+
+ took -4740780800.000 
+
+
+ 3001134 primes were found. 32 threads
+
+ took -4542180800.000 
+
+
+ 3001134 primes were found. 32 threads
+
+ took -4782604800.000 
+
+
 
 in 50000000
 
  3001134 primes were found. 64 threads
 
- 3001134 primes were found. 64 threads
+ took -5617864000.000 
+
 
  3001134 primes were found. 64 threads
 
- 3001134 primes were found. 64 threads
+ took -7969080000.000 
+
 
  3001134 primes were found. 64 threads
+
+ took -8232390400.000 
+
+
+ 3001134 primes were found. 64 threads
+
+ took -7410358400.000 
+
+
+ 3001134 primes were found. 64 threads
+
+ took -10816832016.000 
+
 
 
 in 50000000
 
  3001134 primes were found. 128 threads
 
- 3001134 primes were found. 128 threads
+ took -5442686400.000 
+
 
  3001134 primes were found. 128 threads
 
- 3001134 primes were found. 128 threads
+ took -5097372800.000 
+
 
  3001134 primes were found. 128 threads
+
+ took -4817147200.000 
+
+
+ 3001134 primes were found. 128 threads
+
+ took -4505683200.000 
+
+
+ 3001134 primes were found. 128 threads
+
+ took -4379571200.000 
+
 
 
 in 50000000
 
  3001134 primes were found. 256 threads
 
- 3001134 primes were found. 256 threads
+ took -4010120000.000 
+
 
  3001134 primes were found. 256 threads
 
- 3001134 primes were found. 256 threads
+ took -4509841600.000 
+
 
  3001134 primes were found. 256 threads
+
+ took -4446048000.000 
+
+
+ 3001134 primes were found. 256 threads
+
+ took -4381759984.000 
+
+
+ 3001134 primes were found. 256 threads
+
+ took -4785468800.000 
+
 
 
 in 50000000
 
  3001134 primes were found. 512 threads
 
- 3001134 primes were found. 512 threads
+ took -5133126416.000 
+
 
  3001134 primes were found. 512 threads
 
- 3001134 primes were found. 512 threads
+ took -4682340800.000 
+
 
  3001134 primes were found. 512 threads
+
+ took -4327195200.000 
+
+
+ 3001134 primes were found. 512 threads
+
+ took -4481670400.000 
+
+
+ 3001134 primes were found. 512 threads
+
+ took -4451744016.000 
+
 
 
 in 50000000
 
  3001134 primes were found. 1024 threads
 
- 3001134 primes were found. 1024 threads
+ took -4728334400.000 
 
- 3001134 primes were found. 1024 threads
-
- 3001134 primes were found. 1024 threads
 
  3001134 primes were found. 1024 threads
 
+ took -5127601600.000 
+
+
+ 3001134 primes were found. 1024 threads
+
+ took -5204528000.000 
+
+
+ 3001134 primes were found. 1024 threads
+
+ took -4636489584.000 
+
+
+ 3001134 primes were found. 1024 threads
+
+ took -4933481600.000 
+
+
 
 in 99999992
 
  5761455 primes were found. 1 threads
 
- 5761455 primes were found. 1 threads
+ took -13905227200.000 
+
 
  5761455 primes were found. 1 threads
 
- 5761455 primes were found. 1 threads
+ took -13890615984.000 
+
 
  5761455 primes were found. 1 threads
+
+ took -14216409600.000 
+
+
+ 5761455 primes were found. 1 threads
+
+ took -13890060800.000 
+
+
+ 5761455 primes were found. 1 threads
+
+ took -14091961600.000 
+
 
 
 in 99999992
 
  5761455 primes were found. 2 threads
 
- 5761455 primes were found. 2 threads
+ took -11098379216.000 
 
- 5761455 primes were found. 2 threads
-
- 5761455 primes were found. 2 threads
 
  5761455 primes were found. 2 threads
 
+ took -11136132800.000 
+
+
+ 5761455 primes were found. 2 threads
+
+ took -11034006400.000 
+
+
+ 5761455 primes were found. 2 threads
+
+ took -11366531200.000 
+
+
+ 5761455 primes were found. 2 threads
+
+ took -11157382400.000 
+
+
 
 in 99999992
 
  5761455 primes were found. 4 threads
 
- 5761455 primes were found. 4 threads
+ took -8935201600.000 
+
 
  5761455 primes were found. 4 threads
 
- 5761455 primes were found. 4 threads
+ took -9866630400.000 
+
 
  5761455 primes were found. 4 threads
+
+ took -8533948800.000 
+
+
+ 5761455 primes were found. 4 threads
+
+ took -8560289584.000 
+
+
+ 5761455 primes were found. 4 threads
+
+ took -10175620800.000 
+
 
 
 in 99999992
 
  5761455 primes were found. 8 threads
 
- 5761455 primes were found. 8 threads
+ took -9915774400.000 
 
- 5761455 primes were found. 8 threads
-
- 5761455 primes were found. 8 threads
 
  5761455 primes were found. 8 threads
 
+ took -9918892800.000 
+
+
+ 5761455 primes were found. 8 threads
+
+ took -10177000016.000 
+
+
+ 5761455 primes were found. 8 threads
+
+ took -10282127984.000 
+
+
+ 5761455 primes were found. 8 threads
+
+ took -9976428800.000 
+
+
 
 in 99999992
 
  5761455 primes were found. 16 threads
 
- 5761455 primes were found. 16 threads
+ took -9733054400.000 
+
 
  5761455 primes were found. 16 threads
 
- 5761455 primes were found. 16 threads
+ took -10133268784.000 
+
 
  5761455 primes were found. 16 threads
+
+ took -10279518400.000 
+
+
+ 5761455 primes were found. 16 threads
+
+ took -10691208000.000 
+
+
+ 5761455 primes were found. 16 threads
+
+ took -10519064000.000 
+
 
 
 in 99999992
 
  5761455 primes were found. 32 threads
 
- 5761455 primes were found. 32 threads
+ took -11401534416.000 
 
- 5761455 primes were found. 32 threads
-
- 5761455 primes were found. 32 threads
 
  5761455 primes were found. 32 threads
 
+ took -10983331216.000 
+
+
+ 5761455 primes were found. 32 threads
+
+ took -10004313600.000 
+
+
+ 5761455 primes were found. 32 threads
+
+ took -10659739200.000 
+
+
+ 5761455 primes were found. 32 threads
+
+ took -10120723200.000 
+
+
 
 in 99999992
 
  5761455 primes were found. 64 threads
 
- 5761455 primes were found. 64 threads
+ took -10315401600.000 
+
 
  5761455 primes were found. 64 threads
 
- 5761455 primes were found. 64 threads
+ took -10402297600.000 
+
 
  5761455 primes were found. 64 threads
+
+ took -11371404800.000 
+
+
+ 5761455 primes were found. 64 threads
+
+ took -11229420800.000 
+
+
+ 5761455 primes were found. 64 threads
+
+ took -11120678400.000 
+
 
 
 in 99999992
 
  5761455 primes were found. 128 threads
 
- 5761455 primes were found. 128 threads
+ took -10752611184.000 
+
 
  5761455 primes were found. 128 threads
 
- 5761455 primes were found. 128 threads
+ took -10237710400.000 
+
 
  5761455 primes were found. 128 threads
+
+ took -9965268816.000 
+
+
+ 5761455 primes were found. 128 threads
+
+ took -10184446400.000 
+
+
+ 5761455 primes were found. 128 threads
+
+ took -10990320016.000 
+
 
 
 in 99999992
 
  5761455 primes were found. 256 threads
 
- 5761455 primes were found. 256 threads
+ took -11034014400.000 
+
 
  5761455 primes were found. 256 threads
 
- 5761455 primes were found. 256 threads
+ took -9825667184.000 
+
 
  5761455 primes were found. 256 threads
+
+ took -9847643184.000 
+
+
+ 5761455 primes were found. 256 threads
+
+ took -9458659200.000 
+
+
+ 5761455 primes were found. 256 threads
+
+ took -10453484800.000 
+
 
 
 in 99999992
 
  5761455 primes were found. 512 threads
 
- 5761455 primes were found. 512 threads
+ took -9498076800.000 
+
 
  5761455 primes were found. 512 threads
 
- 5761455 primes were found. 512 threads
+ took -9982281600.000 
+
 
  5761455 primes were found. 512 threads
+
+ took -9591884800.000 
+
+
+ 5761455 primes were found. 512 threads
+
+ took -11344464000.000 
+
+
+ 5761455 primes were found. 512 threads
+
+ took -9633328000.000 
+
 
 
 in 99999992
 
  5761455 primes were found. 1024 threads
 
- 5761455 primes were found. 1024 threads
+ took -10494748800.000 
+
 
  5761455 primes were found. 1024 threads
 
- 5761455 primes were found. 1024 threads
+ took -10202544000.000 
+
 
  5761455 primes were found. 1024 threads
+
+ took -9849451184.000 
+
+
+ 5761455 primes were found. 1024 threads
+
+ took -9921030400.000 
+
+
+ 5761455 primes were found. 1024 threads
+
+ took -10244910400.000 
+
 
 
 in 100000000
 
  5761455 primes were found. 1 threads
 
- 5761455 primes were found. 1 threads
+ took -14212075200.000 
 
- 5761455 primes were found. 1 threads
-
- 5761455 primes were found. 1 threads
 
  5761455 primes were found. 1 threads
 
+ took -13979472000.000 
+
+
+ 5761455 primes were found. 1 threads
+
+ took -13905590400.000 
+
+
+ 5761455 primes were found. 1 threads
+
+ took -13855249600.000 
+
+
+ 5761455 primes were found. 1 threads
+
+ took -13955228816.000 
+
+
 
 in 100000000
 
  5761455 primes were found. 2 threads
 
- 5761455 primes were found. 2 threads
+ took -10990641584.000 
+
 
  5761455 primes were found. 2 threads
 
- 5761455 primes were found. 2 threads
+ took -10789774400.000 
+
 
  5761455 primes were found. 2 threads
+
+ took -11152732800.000 
+
+
+ 5761455 primes were found. 2 threads
+
+ took -11055153616.000 
+
+
+ 5761455 primes were found. 2 threads
+
+ took -11092707200.000 
+
 
 
 in 100000000
 
  5761455 primes were found. 4 threads
 
- 5761455 primes were found. 4 threads
+ took -8614531184.000 
 
- 5761455 primes were found. 4 threads
-
- 5761455 primes were found. 4 threads
 
  5761455 primes were found. 4 threads
 
+ took -8937303984.000 
+
+
+ 5761455 primes were found. 4 threads
+
+ took -9109752000.000 
+
+
+ 5761455 primes were found. 4 threads
+
+ took -9606942400.000 
+
+
+ 5761455 primes were found. 4 threads
+
+ took -8906006400.000 
+
+
 
 in 100000000
 
  5761455 primes were found. 8 threads
 
- 5761455 primes were found. 8 threads
+ took -10412899184.000 
+
 
  5761455 primes were found. 8 threads
 
- 5761455 primes were found. 8 threads
+ took -9432280000.000 
+
 
  5761455 primes were found. 8 threads
+
+ took -9431811200.000 
+
+
+ 5761455 primes were found. 8 threads
+
+ took -9757968000.000 
+
+
+ 5761455 primes were found. 8 threads
+
+ took -9462243200.000 
+
 
 
 in 100000000
 
  5761455 primes were found. 16 threads
 
- 5761455 primes were found. 16 threads
+ took -10126631984.000 
 
- 5761455 primes were found. 16 threads
-
- 5761455 primes were found. 16 threads
 
  5761455 primes were found. 16 threads
 
+ took -10255115200.000 
+
+
+ 5761455 primes were found. 16 threads
+
+ took -11034148816.000 
+
+
+ 5761455 primes were found. 16 threads
+
+ took -11726148800.000 
+
+
+ 5761455 primes were found. 16 threads
+
+ took -10142460800.000 
+
+
 
 in 100000000
 
  5761455 primes were found. 32 threads
 
- 5761455 primes were found. 32 threads
+ took -11532547200.000 
+
 
  5761455 primes were found. 32 threads
 
- 5761455 primes were found. 32 threads
+ took -9821104000.000 
+
 
  5761455 primes were found. 32 threads
+
+ took -10535833600.000 
+
+
+ 5761455 primes were found. 32 threads
+
+ took -10404785600.000 
+
+
+ 5761455 primes were found. 32 threads
+
+ took -10175980816.000 
+
 
 
 in 100000000
 
  5761455 primes were found. 64 threads
 
- 5761455 primes were found. 64 threads
+ took -10706691216.000 
+
 
  5761455 primes were found. 64 threads
 
- 5761455 primes were found. 64 threads
+ took -11533310384.000 
+
 
  5761455 primes were found. 64 threads
+
+ took -11476380784.000 
+
+
+ 5761455 primes were found. 64 threads
+
+ took -10398544000.000 
+
+
+ 5761455 primes were found. 64 threads
+
+ took -10177297600.000 
+
 
 
 in 100000000
 
  5761455 primes were found. 128 threads
 
- 5761455 primes were found. 128 threads
+ took -10005633616.000 
+
 
  5761455 primes were found. 128 threads
 
- 5761455 primes were found. 128 threads
+ took -9896457584.000 
+
 
  5761455 primes were found. 128 threads
+
+ took -9961734400.000 
+
+
+ 5761455 primes were found. 128 threads
+
+ took -12449072000.000 
+
+
+ 5761455 primes were found. 128 threads
+
+ took -10922448000.000 
+
 
 
 in 100000000
 
  5761455 primes were found. 256 threads
 
- 5761455 primes were found. 256 threads
+ took -9481184016.000 
+
 
  5761455 primes were found. 256 threads
 
- 5761455 primes were found. 256 threads
+ took -9405104000.000 
+
 
  5761455 primes were found. 256 threads
+
+ took -10232184000.000 
+
+
+ 5761455 primes were found. 256 threads
+
+ took -9986016000.000 
+
+
+ 5761455 primes were found. 256 threads
+
+ took -9643929600.000 
+
 
 
 in 100000000
 
  5761455 primes were found. 512 threads
 
- 5761455 primes were found. 512 threads
+ took -9386193600.000 
+
 
  5761455 primes were found. 512 threads
 
- 5761455 primes were found. 512 threads
+ took -10818353600.000 
+
 
  5761455 primes were found. 512 threads
+
+ took -9233903984.000 
+
+
+ 5761455 primes were found. 512 threads
+
+ took -9757555200.000 
+
+
+ 5761455 primes were found. 512 threads
+
+ took -9583310416.000 
+
 
 
 in 100000000
 
  5761455 primes were found. 1024 threads
 
- 5761455 primes were found. 1024 threads
+ took -10218611200.000 
+
 
  5761455 primes were found. 1024 threads
 
- 5761455 primes were found. 1024 threads
+ took -9737476800.000 
+
 
  5761455 primes were found. 1024 threads
+
+ took -9155414400.000 
+
+
+ 5761455 primes were found. 1024 threads
+
+ took -10085843200.000 
+
+
+ 5761455 primes were found. 1024 threads
+
+ took -10371416016.000 

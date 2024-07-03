@@ -91,11 +91,11 @@ public class Client {
                 buf_in.close();
                 double t0 = System.nanoTime(), dt;
                 System.out.println("waiting for master");
-                job = (Master_job) Naming.lookup("rmi://localhost:2021/master");
+                job = (Master_interface) Naming.lookup("rmi://localhost:2021/master");
                 // String str = job.delegate(input, thread_count, slave);
                 String str = job.delegate(input, thread_count);
                 dt = System.nanoTime() - t0;
-                str.concat(String.format(" took %.3f ", dt * (10 ^ -6)));
+                str = str + String.format(" took %.3f ", dt * 0.000001);
                 try {
                     buf_so.write(str.getBytes());
 
@@ -132,9 +132,9 @@ public class Client {
                     // String log = job.delegate(i, count, slave);
                     String log = job.delegate(i, count);
                     tf = System.nanoTime();
-                    dt = (tf - t0) * (10 ^ -6);
-                    log.concat(String.format(" took %.3f \n", dt));
-                    str.add(log);
+                    dt = (System.nanoTime() - t0) * (0.000001);
+
+                    str.add(String.format("%s took %.3f \n", log, dt));
                     t0 = tf;
                 }
             }

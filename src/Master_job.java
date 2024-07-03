@@ -19,6 +19,9 @@ public class Master_job extends UnicastRemoteObject implements Master_interface 
         try {
             System.out.println("Orders Received");
             Slave_Interface job = (Slave_Interface) Naming.lookup("//localhost:2020/slave");
+            if (count <= 1) {
+                return job.doTask(i, count);
+            }
             Future<String> task = es.submit(new Callable<String>() {
 
                 @Override

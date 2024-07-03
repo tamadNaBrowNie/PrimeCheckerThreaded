@@ -39,10 +39,11 @@ public class Slave_Task extends UnicastRemoteObject implements Slave_Interface {
             for (int i = 2; i <= lim; i++) {
                 if (sieve[i - 2])
                     continue;
-                for (long ind = i * i; ind <= i; ind += i) {
+                for (long ind = i * i; ind <= input; ind += i) {
                     int l = (int) ind;
                     sieve[l - 2] = true;
                 }
+                // getMulti(sieve, i, input);
             }
         } else {
             // List<Future<?>> blocker = new ArrayList<>();
@@ -69,7 +70,7 @@ public class Slave_Task extends UnicastRemoteObject implements Slave_Interface {
         }
 
         final String fString = " %d primes were found. %d threads";
-        System.out.println(fString);
+        // System.out.println(fString);
         return fString.formatted(n, count);
 
     }
