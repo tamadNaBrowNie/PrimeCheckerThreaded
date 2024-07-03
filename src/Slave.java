@@ -7,6 +7,7 @@ public class Slave {
         try {
             LocateRegistry.createRegistry(2020);
             Slave_Task prime_stub = new Slave_Task();
+            System.out.println("Slave fears");
             // TODO add an actual url
             Naming.rebind("//localhost:2020/slave", prime_stub);
         } catch (RemoteException | MalformedURLException e) {

@@ -69,7 +69,7 @@ public class Slave_Task extends UnicastRemoteObject implements Slave_Interface {
         }
 
         final String fString = " %d primes were found. %d threads";
-
+        System.out.println(fString);
         return fString.formatted(n, count);
 
     }

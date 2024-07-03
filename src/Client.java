@@ -68,9 +68,9 @@ public class Client {
             boolean scripted = false;
 
             try {
-                String master = getString(buf_in, "master url"),
-                        slave = getString(buf_in, "slave url");
-                Master_job job;
+                // String master = getString(buf_in, "master url"),
+                // slave = getString(buf_in, "slave url");
+                Master_interface job;
                 scripted = getInput(buf_in, buf_so, "Automate? 0 for no, else yes") != 0;
                 if (scripted) {
                     String where = getString(buf_in, "Write where?");
@@ -78,8 +78,8 @@ public class Client {
                     buf_so.close();
                     buf_so = new BufferedOutputStream(new FileOutputStream(where));
                     System.out.println("waiting for master");
-                    job = (Master_job) Naming.lookup(master);
-                    String str = getResults(job, slave);
+                    job = (Master_interface) Naming.lookup("rmi://localhost:2021/master");
+                    String str = getResults(job);
                     buf_so.write(str.getBytes());
                     buf_so.flush();
                     buf_so.close();
@@ -91,7 +91,7 @@ public class Client {
                 buf_in.close();
                 double t0 = System.nanoTime(), dt;
                 System.out.println("waiting for master");
-                job = (Master_job) Naming.lookup(master);
+                job = (Master_job) Naming.lookup("rmi://localhost:2021/master");
                 // String str = job.delegate(input, thread_count, slave);
                 String str = job.delegate(input, thread_count);
                 dt = System.nanoTime() - t0;
@@ -117,7 +117,7 @@ public class Client {
 
     }
 
-    private static String getResults(Master_job job, String slave) throws RemoteException {
+    private static String getResults(Master_interface job) throws RemoteException {
         final int LIMIT = 100000000;
         StringJoiner str = new StringJoiner("\n\n");
         int[] inputs = { 2, 3, 4, 523, 67800, LIMIT / 8, LIMIT / 4, LIMIT / 2, LIMIT - 8,
